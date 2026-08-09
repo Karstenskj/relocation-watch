@@ -3,161 +3,257 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#0c1424">
 <title>Relocation Watch — Christchurch → Auckland</title>
 <style>
 :root{
-  --bg:#f6f7f9; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
-  --accent:#1e3a8a; --good:#059669; --goodbg:#ecfdf5; --warn:#b45309; --warnbg:#fffbeb;
-  --bad:#64748b; --badbg:#f1f5f9; --shadow:0 1px 2px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.05);
+  --bg:#f4f6f9; --bg2:#eaeef4; --card:#fff; --ink:#0d1626; --ink2:#3d4a61; --muted:#6b7a91;
+  --line:#e3e8ef; --line2:#d3dae4;
+  --accent:#1b4dd8; --accent2:#0f3bb0;
+  --good:#0a7d55; --goodbg:#e7f7f0; --goodline:#9fdcc4;
+  --warn:#a35a06; --warnbg:#fdf3e3; --warnline:#f0cd93;
+  --bad:#7a8699; --badbg:#eff2f6;
+  --sh1:0 1px 2px rgba(13,22,38,.05); --sh2:0 2px 4px rgba(13,22,38,.05),0 12px 28px rgba(13,22,38,.07);
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#0b1120;--card:#131c31;--ink:#e8edf7;--muted:#94a3b8;--line:#243049;
-  --accent:#93b4ff;--good:#34d399;--goodbg:#0c2a20;--warn:#fbbf24;--warnbg:#2a2109;
-  --bad:#94a3b8;--badbg:#1a2338;--shadow:0 1px 2px rgba(0,0,0,.4),0 4px 20px rgba(0,0,0,.3);}
+  :root{--bg:#0a1120;--bg2:#0e1728;--card:#131e33;--ink:#e9eef8;--ink2:#c0cbdd;--muted:#8d9cb4;
+  --line:#22304a;--line2:#2d3d5c;
+  --accent:#7ea4ff;--accent2:#a3bfff;
+  --good:#4ade9f;--goodbg:#0b2a20;--goodline:#1c5843;
+  --warn:#f8c15c;--warnbg:#2b210c;--warnline:#5c4718;
+  --bad:#8d9cb4;--badbg:#182338;
+  --sh1:0 1px 2px rgba(0,0,0,.3);--sh2:0 2px 4px rgba(0,0,0,.35),0 14px 34px rgba(0,0,0,.32);}
 }
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-  -webkit-font-smoothing:antialiased;padding:0 0 64px}
-.wrap{max-width:820px;margin:0 auto;padding:0 16px}
-header{padding:28px 0 18px}
-h1{font-size:1.45rem;margin:0 0 6px;letter-spacing:-.02em}
-.sub{color:var(--muted);font-size:.9rem;margin:0}
-.window{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:14px 16px;margin:16px 0 26px;box-shadow:var(--shadow);font-size:.9rem}
-.window b{color:var(--accent)}
-.window div+div{margin-top:5px}
-h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
-  margin:32px 0 12px;font-weight:700}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
-.card.passer{border-left:4px solid var(--good)}
-.card.naesten{border-left:4px solid var(--warn)}
-.card.nej{border-left:4px solid var(--bad);opacity:.82}
-.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
-.prov{font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
-.plat{color:var(--muted);font-size:.78rem;margin-top:1px}
-.badge{font-size:.7rem;font-weight:700;padding:4px 9px;border-radius:999px;
-  text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
-.badge.passer{background:var(--goodbg);color:var(--good)}
-.badge.naesten{background:var(--warnbg);color:var(--warn)}
-.badge.nej{background:var(--badbg);color:var(--bad)}
-.veh{margin:10px 0 0;font-size:.92rem}
-.facts{display:flex;flex-wrap:wrap;gap:6px;margin:11px 0 0}
-.f{font-size:.78rem;background:var(--badbg);border:1px solid var(--line);
-  padding:3px 9px;border-radius:7px;color:var(--muted)}
-.f b{color:var(--ink);font-weight:600}
-.f.ok{background:var(--goodbg);border-color:transparent}.f.ok b,.f.ok{color:var(--good)}
-.f.no{background:var(--warnbg);border-color:transparent}.f.no b,.f.no{color:var(--warn)}
-.why{margin:12px 0 0;font-size:.88rem;color:var(--muted);border-left:2px solid var(--line);padding-left:11px}
-.why b{color:var(--ink);font-weight:600}
-.note{margin:9px 0 0;font-size:.82rem;color:var(--muted)}
-a.btn{display:inline-block;margin-top:13px;background:var(--accent);color:var(--bg);
-  text-decoration:none;font-weight:600;font-size:.85rem;padding:9px 16px;border-radius:9px}
-@media (prefers-color-scheme:dark){a.btn{color:#0b1120}}
-ul.src{list-style:none;padding:0;margin:0}
-ul.src li{background:var(--card);border:1px solid var(--line);border-radius:11px;
-  padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow)}
-ul.src a{color:var(--accent);text-decoration:none;font-weight:650;font-size:.95rem}
-ul.src .n{font-size:.82rem;color:var(--muted);margin-top:4px}
-.pri{font-size:.66rem;font-weight:700;color:var(--muted);border:1px solid var(--line);
-  border-radius:5px;padding:1px 5px;margin-left:7px;vertical-align:2px}
-footer{margin-top:38px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.8rem}
-.err{background:var(--warnbg);color:var(--warn);padding:14px;border-radius:11px;font-size:.9rem}
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;padding-bottom:72px}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px}
+a{color:var(--accent)}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:-.015em;font-size:.98rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 22%,transparent)}
+.stamp{font-size:.76rem;color:var(--muted);text-align:right;line-height:1.35}
+
+/* hero */
+.hero{padding:34px 0 6px}
+.route{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.city{font-size:1.9rem;font-weight:760;letter-spacing:-.035em;line-height:1.1}
+.arrow{color:var(--accent);font-size:1.5rem;font-weight:700}
+.lede{color:var(--ink2);font-size:1.02rem;max-width:60ch;margin:0 0 20px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.chip{font-size:.79rem;background:var(--card);border:1px solid var(--line);border-radius:8px;
+  padding:5px 11px;color:var(--ink2);box-shadow:var(--sh1)}
+.chip b{color:var(--ink);font-weight:650}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 15px;box-shadow:var(--sh1)}
+.stat .n{font-size:1.75rem;font-weight:760;letter-spacing:-.035em;line-height:1.1}
+.stat .l{font-size:.76rem;color:var(--muted);margin-top:2px}
+.stat.g .n{color:var(--good)} .stat.w .n{color:var(--warn)}
+
+/* sections */
+h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
+.hint{color:var(--muted);font-size:.87rem;margin:0 0 16px}
+
+/* deal card */
+.deal{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:var(--sh2);margin-bottom:16px}
+.deal.passer{border-color:var(--goodline)}
+.deal.naesten{border-color:var(--warnline)}
+.deal.nej{opacity:.9}
+.photo{position:relative;aspect-ratio:16/7;background:var(--bg2);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo svg{width:100%;height:100%;display:block}
+.credit{position:absolute;left:0;bottom:0;right:0;font-size:.68rem;color:#fff;
+  background:linear-gradient(transparent,rgba(0,0,0,.68));padding:16px 12px 6px}
+.avail{position:absolute;top:11px;left:11px;font-size:.72rem;font-weight:700;padding:5px 10px;
+  border-radius:999px;background:var(--good);color:#fff;letter-spacing:.01em;
+  box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.avail.snaevert{background:var(--warn)}
+.avail.ikke{background:#8592a6}
+.body{padding:17px 18px 18px}
+.dhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.prov{font-size:1.22rem;font-weight:730;letter-spacing:-.025em;line-height:1.25}
+.plat{font-size:.78rem;color:var(--muted);margin-top:2px}
+.verdict{font-size:.7rem;font-weight:750;padding:5px 10px;border-radius:999px;white-space:nowrap;
+  text-transform:uppercase;letter-spacing:.055em}
+.verdict.passer{background:var(--goodbg);color:var(--good)}
+.verdict.naesten{background:var(--warnbg);color:var(--warn)}
+.verdict.nej{background:var(--badbg);color:var(--bad)}
+.veh{margin:11px 0 0;font-size:.93rem;color:var(--ink2)}
+.rt{margin:3px 0 0;font-size:.85rem;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:15px 0 0}
+.cell{background:var(--card);padding:10px 12px}
+.cell .k{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.cell .v{font-size:.93rem;font-weight:650;margin-top:2px;letter-spacing:-.01em}
+.cell.ok .v{color:var(--good)} .cell.no .v{color:var(--warn)}
+
+.plan{margin:14px 0 0;background:var(--bg2);border-radius:11px;padding:11px 13px;font-size:.89rem}
+.plan .k{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.plan .v{font-weight:680;margin-top:1px}
+.why{margin:13px 0 0;font-size:.9rem;color:var(--ink2)}
+.meta{margin:9px 0 0;font-size:.82rem;color:var(--muted)}
+.btn{display:inline-block;margin-top:15px;background:var(--accent);color:#fff;text-decoration:none;
+  font-weight:640;font-size:.88rem;padding:10px 18px;border-radius:10px}
+.btn:hover{background:var(--accent2)}
+
+/* manual check */
+.manual{background:var(--warnbg);border:1px solid var(--warnline);border-radius:14px;
+  padding:15px 17px;margin-bottom:11px}
+.manual h3{margin:0;font-size:1.02rem;letter-spacing:-.02em;display:flex;justify-content:space-between;
+  gap:10px;align-items:baseline;flex-wrap:wrap}
+.manual h3 a{text-decoration:none}
+.imp{font-size:.68rem;font-weight:750;text-transform:uppercase;letter-spacing:.06em;color:var(--warn)}
+.manual p{margin:8px 0 0;font-size:.87rem;color:var(--ink2)}
+.manual p.w{color:var(--muted)}
+
+/* generic list cards */
+.list{display:grid;gap:9px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:var(--sh1)}
+.item .t{font-weight:660;font-size:.97rem;letter-spacing:-.015em}
+.item .t a{text-decoration:none}
+.item .d{font-size:.84rem;color:var(--muted);margin-top:4px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:.68rem;font-weight:640;padding:3px 8px;border-radius:6px;background:var(--badbg);color:var(--muted)}
+.tag.auto{background:var(--goodbg);color:var(--good)}
+.tag.blok{background:var(--warnbg);color:var(--warn)}
+.srcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:9px}
+
+footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.81rem}
+.err{background:var(--warnbg);color:var(--warn);padding:16px;border-radius:12px}
+@media(max-width:560px){.city{font-size:1.5rem}.stats{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>Relocation Watch</h1>
-    <p class="sub">Christchurch → Auckland · opdateres automatisk 4× dagligt</p>
-  </header>
-  <div id="app"><p class="sub">Henter data…</p></div>
-</div>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> Relocation Watch</div>
+  <div class="stamp" id="stamp"></div>
+</div></div>
+<div class="wrap"><div id="app"><p class="hint" style="padding:40px 0">Henter data…</p></div></div>
 
 <script>
-const FERRY_OK = { "inkluderet":["ok","Færge inkluderet"], "ubekræftet":["","Færge ubekræftet"], "IKKE inkluderet":["no","Færge IKKE inkl."] };
-const LBL = { passer:"Passer", naesten:"Tæt på", nej:"Opfylder ikke" };
+const SVGS={
+ campervan:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M78 118V58c0-7 5-12 12-12h150c6 0 11 3 14 8l30 46c2 3 5 5 9 6l24 4c7 1 12 7 12 14v-6 0h-251z" fill="#8fa3bd"/><path d="M78 118V58c0-7 5-12 12-12h150c6 0 11 3 14 8l30 46c2 3 5 5 9 6l24 4c7 1 12 7 12 14H78z" fill="#a9bcd4"/><rect x="96" y="60" width="62" height="38" rx="4" fill="#e8eef6"/><rect x="168" y="60" width="52" height="38" rx="4" fill="#e8eef6"/><path d="M236 62h18l24 36h-42z" fill="#e8eef6"/><circle cx="126" cy="122" r="19" fill="#3f4b5e"/><circle cx="126" cy="122" r="8" fill="#c8d2df"/><circle cx="286" cy="122" r="19" fill="#3f4b5e"/><circle cx="286" cy="122" r="8" fill="#c8d2df"/></svg>',
+ sedan:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M58 122c-6 0-11-5-11-11v-16c0-8 5-14 13-16l38-9 30-22c5-4 11-6 17-6h68c7 0 13 3 17 8l25 27 44 9c9 2 15 10 15 19v6c0 6-5 11-11 11H58z" fill="#a9bcd4"/><path d="M139 52h56c4 0 8 2 10 5l19 22h-92l3-22c0-3 2-5 4-5z" fill="#e8eef6"/><path d="M118 57l-4 22H86l24-18c2-2 5-3 8-4z" fill="#e8eef6"/><circle cx="118" cy="122" r="21" fill="#3f4b5e"/><circle cx="118" cy="122" r="9" fill="#c8d2df"/><circle cx="288" cy="122" r="21" fill="#3f4b5e"/><circle cx="288" cy="122" r="9" fill="#c8d2df"/></svg>',
+ sports:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 132h400v43H0z" fill="#c8d2df"/><path d="M40 126c-6 0-11-5-11-11v-9c0-9 6-16 15-18l55-11 39-21c6-3 12-5 19-5h58c8 0 15 3 20 9l22 25 47 8c11 2 19 11 19 22 0 6-5 11-11 11H40z" fill="#a9bcd4"/><path d="M152 60h51c4 0 8 2 11 5l17 20h-88l4-20c1-3 3-5 5-5z" fill="#e8eef6"/><circle cx="110" cy="126" r="22" fill="#3f4b5e"/><circle cx="110" cy="126" r="9" fill="#c8d2df"/><circle cx="296" cy="126" r="22" fill="#3f4b5e"/><circle cx="296" cy="126" r="9" fill="#c8d2df"/></svg>'};
+const AVAIL={ledig:["","Ledig"],"ledig-snaevert":["snaevert","Ledig — snævert vindue"],"ikke-i-vindue":["ikke","Ikke i dit vindue"],udsolgt:["ikke","Udsolgt"],ukendt:["ikke","Ukendt"]};
+const VERD={passer:"Passer",naesten:"Tæt på",nej:"Opfylder ikke"};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dk=s=>s?new Date(s+"T00:00:00").toLocaleDateString("da-DK",{day:"numeric",month:"short"}):"";
 
-const dkDate = s => s ? new Date(s+"T00:00:00").toLocaleDateString("da-DK",{day:"numeric",month:"short"}) : "";
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-function dealCard(d){
-  const [cls,txt] = FERRY_OK[d.ferry] || ["","Færge: "+d.ferry];
-  const facts = [
-    `<span class="f"><b>${d.days}</b> dage${d.extraDays?` (+${d.extraDays})`:""}</span>`,
-    `<span class="f"><b>${esc(d.price)}</b></span>`,
-    `<span class="f ${cls}"><b>${txt}</b></span>`,
-    d.fuel && d.fuel!=="ikke nævnt" ? `<span class="f ${d.fuel.startsWith("1 gratis")?"ok":""}">Brændstof: <b>${esc(d.fuel)}</b></span>`:"",
-    d.validTo ? `<span class="f">Gælder til <b>${dkDate(d.validTo)}</b></span>`:"",
-    d.minAge ? `<span class="f">Min. <b>${d.minAge} år</b></span>`:"",
-    d.bond ? `<span class="f">Depositum: <b>${esc(d.bond)}</b></span>`:""
-  ].join("");
-  return `<article class="card ${d.fit}">
-    <div class="chead">
-      <div><div class="prov">${esc(d.provider)}</div><div class="plat">${esc(d.platform)}</div></div>
-      <span class="badge ${d.fit}">${LBL[d.fit]}</span>
-    </div>
-    <p class="veh">${esc(d.vehicle)}</p>
-    <div class="facts">${facts}</div>
-    <p class="why"><b>Vurdering:</b> ${esc(d.fitReason)}</p>
-    ${d.ferryDetail?`<p class="note">⛴ ${esc(d.ferryDetail)}</p>`:""}
-    ${d.notes?`<p class="note">${esc(d.notes)}</p>`:""}
-    <a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">Åbn tilbud →</a>
-  </article>`;
-}
-
-function srcItem(s){
-  return `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>
-    <span class="pri">${esc(s.type)}</span>
-    <div class="n">${esc(s.note)}</div></li>`;
-}
-
-function outItem(o){
-  const link = o.email ? `mailto:${o.email}` : o.url;
-  return `<li><a href="${esc(link)}" target="_blank" rel="noopener">${esc(o.name)}</a>
-    <span class="pri">${o.status==="ikke kontaktet"?"ikke kontaktet":esc(o.status)}</span>
-    <div class="n">${esc(o.why)}${o.email?`<br>✉ ${esc(o.email)}`:""}</div></li>`;
+function card(d){
+  const [ac,at]=AVAIL[d.availability?.state]||["ikke","Ukendt"];
+  const media=d.imageUrl
+    ? `<img src="${esc(d.imageUrl)}" alt="${esc(d.vehicle)}" loading="lazy">${d.imageCredit?`<div class="credit">${esc(d.imageCredit)}</div>`:""}`
+    : (SVGS[d.vehicleType]||SVGS.sedan);
+  const cells=[
+    ["Pris",esc(d.totalCost||d.price),d.pricePerDay!==null&&d.pricePerDay<=20?"ok":""],
+    ["Dage",d.days,""],
+    ["Færge",d.ferry==="inkluderet"?"Inkluderet":d.ferry==="ubekræftet"?"Ubekræftet":"Ikke inkl.",
+      d.ferry==="inkluderet"?"ok":"no"],
+    ["Brændstof",d.fuel&&d.fuel.startsWith("1 gratis")?"1 gratis tank":d.fuel==="ikke inkluderet"?"Selv":"—",
+      d.fuel&&d.fuel.startsWith("1 gratis")?"ok":""],
+    d.bond?["Depositum",esc(d.bond),""]:null,
+    d.minAge?["Alderskrav",d.minAge+" år",""]:null
+  ].filter(Boolean).map(([k,v,c])=>`<div class="cell ${c}"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  return `<article class="deal ${d.fit}">
+   <div class="photo"><span class="avail ${ac}">${at}</span>${media}</div>
+   <div class="body">
+     <div class="dhead">
+       <div><div class="prov">${esc(d.provider)}</div><div class="plat">${esc(d.platform)}</div></div>
+       <span class="verdict ${d.fit}">${VERD[d.fit]}</span>
+     </div>
+     <p class="veh">${esc(d.vehicle)}</p>
+     <p class="rt">${esc(d.route)}</p>
+     <div class="grid">${cells}</div>
+     <div class="plan"><div class="k">Din plan</div><div class="v">${esc(d.yourPlan)}</div></div>
+     <p class="why">${esc(d.fitReason)}</p>
+     <p class="meta">📅 ${esc(d.availability.detail)}${d.availability.spaces?` · ${esc(d.availability.spaces)}`:""}</p>
+     <p class="meta">⛴ ${esc(d.ferryDetail)}</p>
+     ${d.notes?`<p class="meta">${esc(d.notes)}</p>`:""}
+     <a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">Åbn hos ${esc(d.provider)} →</a>
+   </div></article>`;
 }
 
 fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
-  const order = {passer:0, naesten:1, nej:2};
-  const deals = [...d.deals].sort((a,b)=>order[a.fit]-order[b.fit]);
-  const w = d.window;
-  const srcs = [...d.sources].sort((a,b)=>a.priority-b.priority);
-  const outs = [...d.outreach].sort((a,b)=>a.priority-b.priority);
-  const hits = deals.filter(x=>x.fit==="passer").length;
+  const w=d.window, deals=d.deals, ord={passer:0,naesten:1,nej:2};
+  const by=f=>deals.filter(x=>x.fit===f).sort((a,b)=>(a.pricePerDay??99)-(b.pricePerDay??99));
+  const upd=new Date(d.updated);
+  document.getElementById("stamp").innerHTML=
+    `Opdateret ${upd.toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}<br>Tjekkes 4× dagligt`;
 
-  document.getElementById("app").innerHTML = `
-    <div class="window">
-      <div><b>Afhentning:</b> Christchurch, fra ${dkDate(w.pickupFrom)}</div>
-      <div><b>Aflevering:</b> Auckland, mellem ${dkDate(w.dropoffFrom)} og ${dkDate(w.dropoffTo)}</div>
-      <div><b>Krav:</b> færge skal være betalt · ${w.pax} person · ${esc(w.preference)}</div>
-      <div style="margin-top:9px;color:var(--good);font-weight:650">${hits} tilbud opfylder alle krav lige nu</div>
-    </div>
+  const sec=(title,hint,html)=>html?`<h2>${title}</h2><p class="hint">${hint}</p>${html}`:"";
 
-    <h2>Tilbud på ruten (${deals.length})</h2>
-    ${deals.map(dealCard).join("")}
+  document.getElementById("app").innerHTML=`
+   <div class="hero">
+     <div class="route"><span class="city">${esc(w.origin)}</span><span class="arrow">→</span><span class="city">${esc(w.destination)}</span></div>
+     <p class="lede">Gratis eller næsten gratis biler og campervans der skal flyttes nordpå. Overvåges automatisk fire gange i døgnet.</p>
+     <div class="chips">
+       <span class="chip">Afhentning <b>fra ${dk(w.pickupFrom)}</b></span>
+       <span class="chip">Aflevering <b>${dk(w.dropoffFrom)} – ${dk(w.dropoffTo)}</b></span>
+       <span class="chip">Maks <b>${w.maxPricePerDayNZD} NZD/dag</b></span>
+       <span class="chip"><b>Færge betalt</b> — krav</span>
+       <span class="chip"><b>${w.pax} person</b></span>
+       <span class="chip">${esc(w.preference)}</span>
+     </div>
+     <div class="stats">
+       <div class="stat g"><div class="n">${by("passer").length}</div><div class="l">opfylder alle krav</div></div>
+       <div class="stat w"><div class="n">${by("naesten").length}</div><div class="l">tæt på</div></div>
+       <div class="stat"><div class="n">${d.sources.length}</div><div class="l">kilder overvåget</div></div>
+     </div>
+   </div>
 
-    <h2>Platforme at booke fra (${srcs.length})</h2>
-    <ul class="src">${srcs.map(srcItem).join("")}</ul>
+   ${sec("Opfylder alle dine krav","Færgen er betalt, prisen er under grænsen, og datoerne går op.",by("passer").map(card).join(""))}
+   ${sec("Tæt på","Passer på datoer og pris, men mangler en bekræftelse eller har et forbehold.",by("naesten").map(card).join(""))}
+   ${sec("Opfylder ikke kravene","Med her så du kender nødløsningerne.",by("nej").map(card).join(""))}
 
-    <h2>Direkte henvendelser — sportsvogn (${outs.length})</h2>
-    <ul class="src">${outs.map(outItem).join("")}</ul>
+   <h2>Disse skal du selv tjekke</h2>
+   <p class="hint">Jeg kan ikke læse dem automatisk. Her står præcis hvorfor, og hvad jeg gør i stedet.</p>
+   ${d.manualCheck.map(m=>`<div class="manual">
+     <h3><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)} →</a><span class="imp">${esc(m.impact)} betydning</span></h3>
+     <p><b>Hvorfor:</b> ${esc(m.reason)}</p>
+     <p class="w"><b>Hvad jeg gør i stedet:</b> ${esc(m.workaround)}</p></div>`).join("")}
 
-    <h2>Log</h2>
-    <ul class="src">${d.log.slice().reverse().map(l=>
-      `<li><div class="n"><b>${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</b><br>${esc(l.summary)}</div></li>`
-    ).join("")}</ul>
+   <h2>Slå disse alarmer til</h2>
+   <p class="hint">Engangsopsætning der får tilbuddene til at komme til dig af sig selv.</p>
+   <div class="list">${d.alerts.map(a=>`<div class="item">
+     <div class="t"><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.name)} →</a></div>
+     <div class="d">${esc(a.how)}<br><b>Hvorfor:</b> ${esc(a.why)}</div>
+     <div class="tags"><span class="tag">${a.minutes} min</span></div></div>`).join("")}</div>
 
-    <footer>Sidst opdateret ${new Date(d.updated).toLocaleString("da-DK",{weekday:"short",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})} (NZ-tid).
-    Næste tjek: 06:50, 11:50, 16:50 eller 21:50.</footer>`;
-}).catch(e=>{
-  document.getElementById("app").innerHTML =
-    `<div class="err">Kunne ikke hente data.json — ${esc(e.message)}</div>`;
-});
+   <h2>Sportsvogn — direkte henvendelser</h2>
+   <p class="hint">Relocation-platformene har aldrig sportsvogne. Det her er den eneste vej.</p>
+   <div class="list">${[...d.outreach].sort((a,b)=>a.priority-b.priority).map(o=>`<div class="item">
+     <div class="t"><a href="${esc(o.email?"mailto:"+o.email:o.url)}" target="_blank" rel="noopener">${esc(o.name)} →</a></div>
+     <div class="d">${esc(o.why)}${o.email?`<br>✉ ${esc(o.email)}`:""}</div>
+     <div class="tags"><span class="tag">${esc(o.status)}</span></div></div>`).join("")}</div>
+
+   <h2>Alle overvågede kilder</h2>
+   <p class="hint">${d.sources.filter(s=>s.access==="auto").length} læses automatisk · ${d.sources.filter(s=>s.access!=="auto").length} kræver omveje.</p>
+   <div class="srcgrid">${[...d.sources].sort((a,b)=>a.priority-b.priority).map(s=>`<div class="item">
+     <div class="t"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} →</a></div>
+     <div class="d">${esc(s.note)}</div>
+     <div class="tags"><span class="tag">${esc(s.type)}</span>
+     <span class="tag ${s.access==="auto"?"auto":"blok"}">${s.access==="auto"?"læses automatisk":s.access==="blokeret"?"blokeret":s.access==="js"?"kun JavaScript":"delvis"}</span></div></div>`).join("")}</div>
+
+   <h2>Log</h2>
+   <p class="hint">Hvad der er sket ved hvert tjek.</p>
+   <div class="list">${[...d.log].reverse().map(l=>`<div class="item">
+     <div class="t">${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}</div>
+     <div class="d">${esc(l.summary)}</div></div>`).join("")}</div>
+
+   <footer>Tjekkes automatisk 06:50, 11:50, 16:50 og 21:50 newzealandsk tid.<br>
+   Alle datoer og priser skal bekræftes hos udlejeren før du booker.</footer>`;
+}).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json — ${esc(e.message)}</div>`});
 </script>
 </body>
 </html>

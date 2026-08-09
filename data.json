@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-09T22:10:00+12:00",
+  "updated": "2026-08-09T23:05:00+12:00",
   "window": {
     "pickupFrom": "2026-08-21",
     "dropoffFrom": "2026-08-28",
@@ -7,31 +7,76 @@
     "origin": "Christchurch",
     "destination": "Auckland",
     "pax": 1,
+    "maxPricePerDayNZD": 20,
     "mustHaveFerry": true,
-    "preference": "Sportsvogn / sjov bil foretrukket, men alt rapporteres"
+    "preference": "Sportsvogn eller sjov bil foretrukket"
   },
   "deals": [
+    {
+      "id": "transfercar-2berth",
+      "provider": "Transfercar",
+      "platform": "Transfercar",
+      "url": "https://www.transfercar.co.nz/christchurch-airport-to-auckland-airport.html",
+      "vehicle": "Campervan, 2 berth",
+      "vehicleType": "campervan",
+      "imageUrl": "img/spaceships-beta-2s.jpg",
+      "route": "Christchurch Airport → Auckland Airport",
+      "days": 7,
+      "price": "Gratis",
+      "pricePerDay": 0,
+      "totalCost": "0 NZD",
+      "ferry": "inkluderet",
+      "ferryDetail": "Gratis færge for bil + fører.",
+      "fuel": "1 gratis tank",
+      "minAge": null,
+      "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-09",
+        "to": "2026-09-30",
+        "spaces": "5+ køretøjer tilbage",
+        "detail": "Kan hentes fra 9. aug og skal være afleveret senest 30. sep. Dine datoer ligger midt i vinduet.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "indirekte"
+      },
+      "yourPlan": "Hent 21. aug → aflever 28. aug",
+      "fit": "passer",
+      "fitReason": "7 gratis dage, færge og tank inkluderet, og vinduet er åbent helt til 30. september.",
+      "notes": "Sandsynligvis samme flåde som Spaceships-tilbuddet — book kun ét af dem. Transfercar blokerer automatisk aflæsning, så tallene her stammer fra søgeindekset og skal bekræftes ved booking.",
+      "imageCredit": "Foto: Spaceships Beta 2S — efter alt at dømme samme flåde"
+    },
     {
       "id": "spaceships-beta2s",
       "provider": "Spaceships Rentals",
       "platform": "Direkte hos udlejer",
       "url": "https://spaceshipsrentals.co.nz/deals/relocation",
-      "vehicle": "Beta 2S selvforsynende campervan",
-      "class": "campervan",
+      "vehicle": "Beta 2S — selvforsynende campervan",
+      "vehicleType": "campervan",
+      "imageUrl": "img/spaceships-beta-2s.jpg",
+      "route": "Christchurch → Auckland",
       "days": 7,
-      "extraDays": 0,
-      "price": "1 NZD/dag (7 dage = 7 NZD)",
+      "price": "1 NZD/dag",
+      "pricePerDay": 1,
+      "totalCost": "7 NZD",
       "ferry": "inkluderet",
-      "ferryDetail": "Gratis færge for bil + fører. Ekstra passager 62 NZD.",
+      "ferryDetail": "Gratis færge for bil + fører. Ekstra passager 62 NZD — irrelevant når du kører alene.",
       "fuel": "1 gratis tank benzin",
-      "validFrom": "2026-08-09",
-      "validTo": "2026-09-30",
       "minAge": null,
       "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-09",
+        "to": "2026-09-30",
+        "spaces": "Begrænset antal slots",
+        "detail": "Gælder al rejse frem til 30. september. Slots forsvinder løbende og tilbuddet lukker når de er væk.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 21. aug → aflever 28. aug",
       "fit": "passer",
-      "fitReason": "Hent 21. aug → aflever 28. aug = præcis 7 dage. Færge + tank inkluderet. Solo = 0 kr ekstra.",
-      "status": "aktiv",
-      "notes": "Begrænset antal slots — de forsvinder når de er væk. Kan ikke kombineres med andre tilbud, kan ikke forlænges."
+      "fitReason": "Præcis 7 dage i dit vindue, færge og fuld tank inkluderet, samlet pris 7 NZD.",
+      "notes": "Kan ikke kombineres med andre tilbud og kan ikke forlænges.",
+      "imageCredit": "Foto: Spaceships"
     },
     {
       "id": "omega-chc-akl",
@@ -39,65 +84,65 @@
       "platform": "Direkte hos udlejer",
       "url": "https://www.omegarentalcars.com/hot-deals/relocations/",
       "vehicle": "Almindelig personbil",
-      "class": "bil",
+      "vehicleType": "sedan",
+      "imageUrl": "img/omega-chc-akl.jpg",
+      "route": "Christchurch Airport → Auckland City eller Airport",
       "days": 5,
-      "extraDays": 0,
-      "price": "1 NZD/dag (5 dage = 5 NZD)",
+      "price": "1 NZD/dag",
+      "pricePerDay": 1,
+      "totalCost": "5 NZD + brændstof",
       "ferry": "inkluderet",
       "ferryDetail": "Færge inkluderet for bil + 1 passager.",
       "fuel": "ikke inkluderet",
-      "validFrom": "2026-07-14",
-      "validTo": "2026-08-31",
       "minAge": null,
       "bond": null,
+      "availability": {
+        "state": "ledig-snaevert",
+        "from": "2026-07-14",
+        "to": "2026-08-31",
+        "spaces": "Ukendt — ring for at bekræfte",
+        "detail": "Tilbuddet lukker 31. august. Du skal derfor hente mellem 23. og 26. august for at ramme dit afleveringsvindue.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 23.-26. aug → aflever 28.-31. aug",
       "fit": "passer",
-      "fitReason": "Hent 23.-26. aug → aflever 28.-31. aug. Rammer dit vindue. Bil frem for camper.",
-      "status": "aktiv",
-      "notes": "Tilbuddet udløber 31. aug — skal afleveres senest da. Book online og vælg '$1/dag'-bilen, eller ring 0800 52 52 10. CDW og brændstof for egen regning."
+      "fitReason": "Eneste bekræftede bil frem for camper, med færgen betalt.",
+      "notes": "Book online og vælg $1/dag-bilen, eller ring 0800 52 52 10. CDW og brændstof for egen regning.",
+      "imageCredit": "Foto: Omega Rental Cars — deres eget CHC→AKL deal-billede"
     },
     {
       "id": "imoova-rlc113103",
-      "provider": "Imoova (Best Car Available)",
+      "provider": "Imoova",
       "platform": "Imoova",
       "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC113103",
-      "vehicle": "Best Car Available — ny automatgear, benzin, 5 sæder (model ikke garanteret)",
-      "class": "bil",
+      "vehicle": "Best Car Available — Imoova viser en Toyota Corolla Cross som eksempel",
+      "vehicleType": "sedan",
+      "imageUrl": "img/imoova-corolla-cross.jpg",
+      "route": "Christchurch → Auckland",
       "days": 10,
-      "extraDays": 0,
       "price": "1 NZD/dag + 25 NZD bookinggebyr",
+      "pricePerDay": 3.5,
+      "totalCost": "35 NZD",
       "ferry": "ubekræftet",
-      "ferryDetail": "Færge ikke nævnt på siden — SKAL bekræftes før booking. Dette er dealbreakeren her.",
+      "ferryDetail": "Færgen er ikke nævnt nogen steder på siden. Det er den eneste ting der står mellem dig og rutens bedste tilbud.",
       "fuel": "1 gratis tank",
-      "validFrom": "2026-08-09",
-      "validTo": "2026-09-29",
       "minAge": 21,
       "bond": "400 NZD",
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-09",
+        "to": "2026-09-29",
+        "spaces": "Ukendt",
+        "detail": "Afhentning muligt i hele perioden 9. aug - 29. sep, med 10 dage til turen. Dækker hele dit vindue med god margin.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 21.-29. aug → aflever op til 10 dage senere",
       "fit": "naesten",
-      "fitReason": "10 dage er den længste periode på ruten og rammer hele dit vindue — men færge er ikke bekræftet inkluderet.",
-      "status": "aktiv",
-      "notes": "Ubegrænsede km. RUC kan gælde ved diesel/el. Ring/skriv til Imoova og få færgen på skrift før du booker."
-    },
-    {
-      "id": "bookme-8day",
-      "provider": "Camper Relocations (via BookMe)",
-      "platform": "BookMe.co.nz",
-      "url": "https://www.bookme.co.nz/things-to-do/christchurch-canterbury-kaikoura/activity/campervan-8-day-relocation-deal-including-ferry-christchurch-to-auckland/72615",
-      "vehicle": "2-berth Sleepervan (aut.) / 3-4 berth Hi Top",
-      "class": "campervan",
-      "days": 8,
-      "extraDays": 0,
-      "price": "Flash-pris fra 1 NZD, ellers 880+ NZD — prisen skifter pr. dato i kalenderen",
-      "ferry": "inkluderet",
-      "ferryDetail": "Gratis færge for bil + fører. Ekstra passagerer købes ved afhentning.",
-      "fuel": "ikke nævnt",
-      "validFrom": "2026-08-09",
-      "validTo": "2026-08-22",
-      "minAge": null,
-      "bond": "3000 NZD forudautorisation (kan nedsættes til 0 for 20-45 NZD/dag)",
-      "fit": "naesten",
-      "fitReason": "Hent 21.-22. aug → aflever 29.-30. aug. Passer, MEN kalenderen viser lige nu kun til 22. aug, og 1-NZD-priserne er væk på de sene datoer.",
-      "status": "overvaag",
-      "notes": "Gratis lufthavnstransfer fra Christchurch. Prisen på 21.-22. aug skal tjekkes dagligt — flash-deals dukker op."
+      "fitReason": "Længste periode på ruten inden for din prisgrænse, men færgen er ubekræftet.",
+      "notes": "Ubegrænsede km. Skriv til Imoova og få færgen bekræftet skriftligt før du booker. Model kan ikke garanteres.",
+      "imageCredit": "Foto: Imoova — Toyota Corolla Cross vist som eksempel"
     },
     {
       "id": "travellers-autobarn",
@@ -105,21 +150,65 @@
       "platform": "Direkte hos udlejer",
       "url": "https://www.travellers-autobarn.co.nz/campervan-hire-new-zealand/campervan-relocations",
       "vehicle": "Campervan",
-      "class": "campervan",
+      "vehicleType": "campervan",
+      "imageUrl": "img/autobarn-kuga.jpg",
+      "route": "Christchurch → Auckland",
       "days": 7,
-      "extraDays": 0,
-      "price": "Gratis i 7 dage",
+      "price": "Gratis",
+      "pricePerDay": 0,
+      "totalCost": "0 NZD + brændstof",
       "ferry": "ubekræftet",
-      "ferryDetail": "Ikke oplyst på siden — skal bekræftes.",
+      "ferryDetail": "Ikke oplyst på siden — skal bekræftes telefonisk.",
       "fuel": "ikke nævnt",
-      "validFrom": "2026-08-01",
-      "validTo": "2026-10-30",
       "minAge": null,
       "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-01",
+        "to": "2026-10-30",
+        "spaces": "Ukendt",
+        "detail": "Bredt vindue frem til 30. oktober med 7 gratis dage og 1500 km inkluderet.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 21. aug → aflever 28. aug",
       "fit": "naesten",
-      "fitReason": "Hent 21. aug → aflever 28. aug. Helt gratis i 7 dage, men kun 1500 km inkluderet og færge ubekræftet.",
-      "status": "aktiv",
-      "notes": "1500 km loft. CHC→AKL via færge er ca. 1050-1150 km, så der er ca. 350 km til omveje. Ring 0800 348 348."
+      "fitReason": "Helt gratis i 7 dage, men 1500 km-loft og ubekræftet færge.",
+      "notes": "Ruten er 1050-1150 km, så der er ~350 km til omveje. Listen opdateres mandag morgen. Ring 0800 348 348.",
+      "imageCredit": "Foto: Travellers Autobarn — Kuga camper"
+    },
+    {
+      "id": "bookme-camperrelocations",
+      "provider": "Camper Relocations",
+      "platform": "BookMe.co.nz",
+      "url": "https://www.bookme.co.nz/things-to-do/operator/new-zealand/black_rock_point/CamperRelocations",
+      "vehicle": "2-berth Sleepervan / 3-4 berth Hi Top",
+      "vehicleType": "campervan",
+      "imageUrl": "img/bookme-sleepervan.jpg",
+      "route": "Christchurch Airport → Auckland Airport",
+      "days": 4,
+      "price": "Fra 1 NZD som flash-deal, ellers 340-880 NZD",
+      "pricePerDay": null,
+      "totalCost": "Varierer pr. dato",
+      "ferry": "inkluderet",
+      "ferryDetail": "Gratis færge for bil + fører, plus gratis lufthavnstransfer i Christchurch.",
+      "fuel": "ikke nævnt",
+      "minAge": null,
+      "bond": "3000 NZD forudautorisation",
+      "availability": {
+        "state": "ikke-i-vindue",
+        "from": "2026-08-09",
+        "to": "2026-08-22",
+        "spaces": "6 pladser på 4-dages, 1 plads på 6-dages",
+        "detail": "1-NZD-priserne gælder kun 9.-17. august, altså før du kan hente. 8-dages varianten kan bookes til og med 22. august, men koster 880 NZD på de datoer — langt over din grænse.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Ingen brugbar dato lige nu",
+      "fit": "naesten",
+      "fitReason": "Ville passe perfekt hvis en flash-pris dukker op på 21.-22. august. Overvåges dagligt.",
+      "notes": "Det store depositum kræver kreditkort i dit eget navn.",
+      "imageCredit": "Foto: BookMe / Camper Relocations"
     },
     {
       "id": "ezi-chc-akl",
@@ -127,80 +216,442 @@
       "platform": "Direkte hos udlejer",
       "url": "https://www.ezicarrental.co.nz/hot-deals/relocation-deals/",
       "vehicle": "Personbil",
-      "class": "bil",
+      "vehicleType": "sedan",
+      "imageUrl": null,
+      "route": "Christchurch Airport → Auckland City eller Airport",
       "days": 10,
-      "extraDays": 0,
-      "price": "1 NZD/dag de første 6 dage, op til 10 dage i alt, intet envejsgebyr",
+      "price": "1 NZD/dag de første 6 dage",
+      "pricePerDay": 1,
+      "totalCost": "~10 NZD + færge 250-300 NZD",
       "ferry": "IKKE inkluderet",
-      "ferryDetail": "Færge er tilkøb i bookingflowet — regn med ca. 250-300 NZD for bil + fører.",
+      "ferryDetail": "Færgen er tilkøb i bookingflowet.",
       "fuel": "ikke inkluderet",
-      "validFrom": "2026-07-15",
-      "validTo": "2026-09-30",
       "minAge": null,
       "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-07-15",
+        "to": "2026-09-30",
+        "spaces": "Ukendt",
+        "detail": "Op til 10 dage, intet envejsgebyr, hele dit vindue er dækket.",
+        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 21.-29. aug → aflever op til 10 dage senere",
       "fit": "nej",
-      "fitReason": "Opfylder ikke dit krav om betalt færge. Men 10 dage og hele dit vindue — med i oversigten som backup.",
-      "status": "aktiv",
-      "notes": "Hvis alt andet fejler: 10 dages bil for ~10 NZD + færge selv. Stadig billigt sammenlignet med normal leje."
+      "fitReason": "Bilen er billig nok, men færgen er ikke betalt — og det er et af dine hårde krav.",
+      "notes": "Med som nødløsning hvis alt andet fejler.",
+      "imageCredit": null
+    }
+  ],
+  "manualCheck": [
+    {
+      "name": "Transfercar",
+      "url": "https://www.transfercar.co.nz/search?pickup=custom:christchurch&dropoff=custom:auckland",
+      "reason": "Blokerer al automatisk hentning med HTTP 403. Testet uden held via almindelig browser-signatur, mobilsignatur, support-subdomænet og en ekstern læseproxy.",
+      "workaround": "Jeg kan se deres opslag indirekte via søgemaskinernes indeks, men det halter typisk et døgn bagud. Slå deres e-mailalarm til, så kommer nye opslag direkte til dig.",
+      "impact": "høj",
+      "alertUrl": "https://www.transfercar.co.nz/"
     },
     {
-      "id": "gorentals-peoplemover",
-      "provider": "GO Rentals",
-      "platform": "Direkte hos udlejer",
-      "url": "https://www.gorentals.co.nz/rental-car-relocation/",
-      "vehicle": "People mover",
-      "class": "bil",
-      "days": 14,
-      "extraDays": 0,
-      "price": "50% af normalprisen",
-      "ferry": "ubekræftet",
-      "ferryDetail": "Ikke oplyst.",
-      "fuel": "ikke inkluderet",
-      "validFrom": "2026-08-09",
-      "validTo": "2026-09-30",
-      "minAge": null,
-      "bond": "2500 NZD selvrisiko og 2500 NZD depositum",
-      "fit": "nej",
-      "fitReason": "Ikke gratis, ingen bekræftet færge, og en people mover er langt fra en sportsvogn. Med for fuldstændighedens skyld.",
-      "status": "overvaag",
-      "notes": "14 dage er den længste periode fundet på ruten — kan blive relevant hvis du vil have god tid."
+      "name": "Apollo / Cheapa Campa / Hippie Camper",
+      "url": "https://www.apollocamper.co.nz/deals/relocations",
+      "reason": "Hele apollocamper-domænet svarer 403 på alle forsøg. Cheapa og Hippie har flyttet deres relocation-sider, og de nye adresser er ikke offentligt indekseret.",
+      "workaround": "Jeg søger efter deres opslag via søgemaskiner hver gang, men kan ikke se listen direkte. De poster jævnligt 1 NZD/dag CHC→AKL.",
+      "impact": "middel",
+      "alertUrl": "https://www.apollocamper.co.nz/"
+    },
+    {
+      "name": "Easy Car Relo",
+      "url": "https://www.easycarrelo.co.nz/",
+      "reason": "Siden er en ren JavaScript-app. Serveren sender kun 'Loading, please wait...' — der er intet indhold at læse uden en browser.",
+      "workaround": "Ingen. Denne skal du åbne selv.",
+      "impact": "middel",
+      "alertUrl": null
+    },
+    {
+      "name": "BookMe — kalenderpriser",
+      "url": "https://www.bookme.co.nz/things-to-do/operator/new-zealand/black_rock_point/CamperRelocations",
+      "reason": "Selve siden kan jeg læse, men de daglige flash-priser ligger i en kalender-widget der kræver klik pr. dato.",
+      "workaround": "Jeg ser hvilke datoer der er ledige og hvad startprisen er, men ikke prisen på hver enkelt dato.",
+      "impact": "lav",
+      "alertUrl": null
+    },
+    {
+      "name": "Britz relocation-database",
+      "url": "https://www.britz.com/nz/en",
+      "reason": "Britz offentliggør ikke relocations. De har i stedet en intern database man skriver sig op til, hvorefter de sender en mail når en camper skal flyttes.",
+      "workaround": "Ingen offentlig liste at overvåge. Tilmelding er den eneste vej ind.",
+      "impact": "middel",
+      "alertUrl": "https://www.britz.com/nz/en"
+    }
+  ],
+  "alerts": [
+    {
+      "name": "Transfercar e-mailalarm",
+      "url": "https://www.transfercar.co.nz/",
+      "how": "Opret gratis login → My Transfercar → Email notification → gem søgningen Christchurch → Auckland.",
+      "why": "Eneste måde at få Transfercars nye opslag i realtid, da siden blokerer automatisk aflæsning.",
+      "minutes": 3
+    },
+    {
+      "name": "CoSeats venteliste",
+      "url": "https://coseats.co.nz/campervan-relocation",
+      "how": "Join Waitlist med ruten Christchurch → Auckland og dine datoer.",
+      "why": "Sender både SMS og e-mail når en matchende bil dukker op. Ingen bookinggebyr.",
+      "minutes": 2
+    },
+    {
+      "name": "Wilderness relocation-liste",
+      "url": "https://www.wilderness.co.nz/relocations",
+      "how": "Tilmeld deres relocation-nyhedsbrev.",
+      "why": "De slår først op tre uger før afhentning — altså netop nu for dine datoer.",
+      "minutes": 2
+    },
+    {
+      "name": "Britz flyttedatabase",
+      "url": "https://www.britz.com/nz/en",
+      "how": "Registrér dig i deres database så de mailer dig når en camper skal flyttes.",
+      "why": "Britz offentliggør aldrig relocations. Databasen er den eneste indgang.",
+      "minutes": 3
     }
   ],
   "sources": [
-    { "name": "Transfercar NZ", "url": "https://www.transfercar.co.nz/search", "type": "aggregator", "priority": 1, "note": "Største aggregator. Blokerer automatisk aflæsning (Cloudflare) — opret gratis login og slå e-mailalarm til for CHC→AKL under 'My Transfercar' → 'Email notification'." },
-    { "name": "Imoova NZ", "url": "https://www.imoova.com/relocations/new-zealand", "type": "aggregator", "priority": 1, "note": "200+ udlejere. Har lige nu 10-dages CHC→AKL." },
-    { "name": "Spaceships Relocation", "url": "https://spaceshipsrentals.co.nz/deals/relocation", "type": "udlejer", "priority": 1, "note": "Bedste bekræftede match: færge + tank inkluderet." },
-    { "name": "Omega Rental Cars", "url": "https://www.omegarentalcars.com/hot-deals/relocations/", "type": "udlejer", "priority": 1, "note": "Bil, færge inkluderet, men udløber 31. aug." },
-    { "name": "BookMe NZ — relocations", "url": "https://www.bookme.co.nz/search?q=relocation", "type": "markedsplads", "priority": 1, "note": "Flash-deals ned til 1 NZD. Kalenderpriser skifter dagligt." },
-    { "name": "Ezi Car Rental", "url": "https://www.ezicarrental.co.nz/hot-deals/relocation-deals/", "type": "udlejer", "priority": 2, "note": "10 dage, men færge er tilkøb." },
-    { "name": "Travellers Autobarn", "url": "https://www.travellers-autobarn.co.nz/campervan-hire-new-zealand/campervan-relocations", "type": "udlejer", "priority": 2, "note": "Opdaterer listen mandag morgen." },
-    { "name": "Wilderness Motorhomes", "url": "https://www.wilderness.co.nz/specials/relocations", "type": "udlejer", "priority": 2, "note": "Slår først op 3 uger før afhentning — så deals for 21. aug+ dukker op omkring nu. Tilmeld deres relocation-liste." },
-    { "name": "JUCY Relocations", "url": "https://www.jucy.com/nz/en/campervans/nz-deals/relocations", "type": "udlejer", "priority": 2, "note": "'Head North & Save' 25% + intet envejsgebyr. Nogle gange gratis tank eller færgebillet." },
-    { "name": "Maui / Britz / Mighty / Apollo (thl)", "url": "https://www.maui-rentals.com/nz/en/motorhome-hire-deals/relocation-hire-vehicles", "type": "udlejer", "priority": 2, "note": "Store motorhomes. Ligger også på Imoova." },
-    { "name": "Mode Rentals", "url": "https://www.moderentals.co.nz/relocations", "type": "udlejer", "priority": 2, "note": "Nævner CHC→AKL fra 1 NZD/dag." },
-    { "name": "NZ Rent A Car", "url": "https://www.nzrentacar.co.nz/relocations/", "type": "udlejer", "priority": 3, "note": "'Enquire with the pickup branch' — ring til Christchurch-afdelingen." },
-    { "name": "Wicked Campers NZ", "url": "https://www.wickedcampers.co.nz/relocations", "type": "udlejer", "priority": 3, "note": "Relocations hele året. online@wickedcampers.com" },
-    { "name": "Apex Car Rentals", "url": "https://www.apexrentals.co.nz/specials/", "type": "udlejer", "priority": 3, "note": "Relocations typisk under 15 NZD/dag." },
-    { "name": "ACE Rental Cars", "url": "https://www.acerentalcars.co.nz/specials/", "type": "udlejer", "priority": 3, "note": "Relocations 1-5 dage." },
-    { "name": "Easy Car Relo", "url": "https://www.easycarrelo.co.nz/", "type": "aggregator", "priority": 3, "note": "Aggregator for AKL/WLG/CHC." },
-    { "name": "Mad Campers", "url": "https://www.madcampers.co.nz/deals", "type": "udlejer", "priority": 3, "note": "Tjek deals-siden." },
-    { "name": "Escape Rentals", "url": "https://www.escaperentals.co.nz/deals/", "type": "udlejer", "priority": 3, "note": "Tjek deals-siden." },
-    { "name": "Wendekreisen", "url": "https://www.wendekreisen.co.nz/specials.aspx", "type": "udlejer", "priority": 3, "note": "Rabatruter mellem øerne, ikke ægte relocations." },
-    { "name": "Rental Car Relocation NZ", "url": "https://www.rentalcarrelocation.co.nz/", "type": "aggregator", "priority": 3, "note": "Samler camper- og bilrelocations." }
+    {
+      "name": "Transfercar",
+      "url": "https://www.transfercar.co.nz/search?pickup=custom:christchurch&dropoff=custom:auckland",
+      "type": "aggregator",
+      "priority": 1,
+      "access": "blokeret",
+      "note": "Størst i NZ. HTTP 403 på alt. Læses kun via søgeindeks."
+    },
+    {
+      "name": "Imoova",
+      "url": "https://www.imoova.com/en/relocations?region=NZ&departure_city=christchurch",
+      "type": "aggregator",
+      "priority": 1,
+      "access": "auto",
+      "note": "200+ udlejere, filtreret direkte på Christchurch."
+    },
+    {
+      "name": "CoSeats",
+      "url": "https://coseats.co.nz/campervan-relocation",
+      "type": "aggregator",
+      "priority": 1,
+      "access": "auto",
+      "note": "1 NZD/dag, intet bookinggebyr, ofte gratis brændstof. Har SMS-venteliste."
+    },
+    {
+      "name": "BookMe — Camper Relocations",
+      "url": "https://www.bookme.co.nz/things-to-do/operator/new-zealand/black_rock_point/CamperRelocations",
+      "type": "markedsplads",
+      "priority": 1,
+      "access": "delvis",
+      "note": "Flash-deals ned til 1 NZD med færge. Kalenderpriser kræver klik pr. dato."
+    },
+    {
+      "name": "Spaceships",
+      "url": "https://spaceshipsrentals.co.nz/deals/relocation",
+      "type": "udlejer",
+      "priority": 1,
+      "access": "auto",
+      "note": "Bekræftet match: 7 dage, færge + tank."
+    },
+    {
+      "name": "Omega Rental Cars",
+      "url": "https://www.omegarentalcars.com/hot-deals/relocations/",
+      "type": "udlejer",
+      "priority": 1,
+      "access": "auto",
+      "note": "Bil med færge inkluderet. Udløber 31. aug."
+    },
+    {
+      "name": "Travellers Autobarn",
+      "url": "https://www.travellers-autobarn.co.nz/campervan-hire-new-zealand/campervan-relocations",
+      "type": "udlejer",
+      "priority": 1,
+      "access": "auto",
+      "note": "7 gratis dage. Opdaterer mandag morgen."
+    },
+    {
+      "name": "Wilderness Motorhomes",
+      "url": "https://www.wilderness.co.nz/relocations",
+      "type": "udlejer",
+      "priority": 1,
+      "access": "auto",
+      "note": "Slår op 3 uger før afhentning — dine datoer rammer netop nu."
+    },
+    {
+      "name": "Ezi Car Rental",
+      "url": "https://www.ezicarrental.co.nz/hot-deals/relocation-deals/",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "10 dage til 1 NZD/dag, men færge er tilkøb."
+    },
+    {
+      "name": "JUCY",
+      "url": "https://www.jucy.com/nz/en/campervans/nz-deals/relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "25% + intet envejsgebyr. Giver nogle gange gratis tank eller færge."
+    },
+    {
+      "name": "Mad Campers",
+      "url": "https://www.madcampers.co.nz/mad-relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "CHC→AKL op til 14 dage, men 50 NZD/dag — over din grænse."
+    },
+    {
+      "name": "Tui Campers",
+      "url": "https://www.tuicampers.co.nz/Deals/Relocation-Deals/",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "AKL↔CHC relocations. Ingen ledige lige nu."
+    },
+    {
+      "name": "Mode Rentals",
+      "url": "https://www.moderentals.co.nz/relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "Nævner CHC→AKL fra 1 NZD/dag, men viser ikke listen."
+    },
+    {
+      "name": "Apex Car Rentals",
+      "url": "https://www.apexrentals.co.nz/deals",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "Envejs-relocations, typisk under 15 NZD/dag."
+    },
+    {
+      "name": "EuroCampers",
+      "url": "https://www.eurocampers.co.nz/",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "Har ifølge branchekatalog CHC→AKL relocation-specials."
+    },
+    {
+      "name": "Rad Car Hire",
+      "url": "https://www.radcarhire.co.nz/",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "22 afdelinger i NZ. Lister nogle gange relocations."
+    },
+    {
+      "name": "Snap Rentals",
+      "url": "https://www.snaprentals.co.nz/car-rental-relocation",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Rabat for at køre biler fra Queenstown og Christchurch til Auckland."
+    },
+    {
+      "name": "Lucky Rentals",
+      "url": "https://www.luckyrentals.co.nz/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "400+ campere ud af AKL og CHC. Intet envejsgebyr mod nord."
+    },
+    {
+      "name": "NZ Rent A Car",
+      "url": "https://www.nzrentacar.co.nz/relocations/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Ring 0800 800 956 og bed om Christchurch."
+    },
+    {
+      "name": "Wicked Campers",
+      "url": "https://www.wickedcampers.co.nz/relocations",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Relocations hele året, men ingen offentlig liste."
+    },
+    {
+      "name": "Kiwi Motorhomes",
+      "url": "https://kiwimotorhomes.co.nz/hot-deals/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Relocations og afbud via forespørgselsformular."
+    },
+    {
+      "name": "ACE Rental Cars",
+      "url": "https://www.acerentalcars.co.nz/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Relocations 1-5 dage."
+    },
+    {
+      "name": "Camplify",
+      "url": "https://www.camplify.co.nz/",
+      "type": "markedsplads",
+      "priority": 3,
+      "access": "auto",
+      "note": "Privat udlejning, hundredvis i AKL og CHC. Enkelte ejere tilbyder envejs."
+    },
+    {
+      "name": "Wendekreisen",
+      "url": "https://www.wendekreisen.co.nz/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "10% rabat på returruter, ikke ægte relocations."
+    },
+    {
+      "name": "Motorhome Republic",
+      "url": "https://www.motorhomerepublic.com/new-zealand-motorhome-rental",
+      "type": "aggregator",
+      "priority": 3,
+      "access": "auto",
+      "note": "Sammenligningsside der samler mange af udlejerne."
+    },
+    {
+      "name": "Rental Car Relocation NZ",
+      "url": "https://www.rentalcarrelocation.co.nz/",
+      "type": "katalog",
+      "priority": 2,
+      "access": "auto",
+      "note": "Katalog over alle NZ-udbydere med relocations. God til at opdage nye."
+    },
+    {
+      "name": "Apollo / Cheapa / Hippie",
+      "url": "https://www.apollocamper.co.nz/deals/relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "blokeret",
+      "note": "HTTP 403 på hele domænet. Poster jævnligt 1 NZD/dag CHC→AKL."
+    },
+    {
+      "name": "Maui / Britz / Mighty",
+      "url": "https://www.britz.com/nz/en",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "blokeret",
+      "note": "Ingen offentlig relocation-liste. Kræver tilmelding til deres database."
+    },
+    {
+      "name": "Easy Car Relo",
+      "url": "https://www.easycarrelo.co.nz/",
+      "type": "aggregator",
+      "priority": 3,
+      "access": "js",
+      "note": "Ren JavaScript-app. Kan ikke læses automatisk."
+    },
+    {
+      "name": "Escape Rentals",
+      "url": "https://www.escaperentals.co.nz/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Havde CHC→AKL med 4 gratis dage indtil 31. juli. Hold øje med en ny runde."
+    }
   ],
   "outreach": [
-    { "name": "Rent A Classic", "url": "https://www.rentaclassic.co.nz/", "email": "info@rentaclassic.co.nz", "why": "Sports- og cabrioletbiler i Auckland, Nelson, Christchurch og Queenstown. Siger selv at envejsleje og relocations kan lade sig gøre ved leje på mindst 6 dage — det passer præcis på dit vindue.", "status": "ikke kontaktet", "priority": 1 },
-    { "name": "Touchdown Car Rentals", "url": "https://www.touchdowncarrental.co.nz/", "email": "info@touchdowncarrental.co.nz", "why": "Luksus og Mustang cabriolet med baser i Christchurch og Queenstown — begge steder tømmes efter skisæsonen.", "status": "ikke kontaktet", "priority": 1 },
-    { "name": "SIXT New Zealand", "url": "https://www.sixt.nz/", "email": "reservations@sixt.co.nz", "why": "Premiumflåde (BMW, Mercedes). Publicerer ikke relocations, men afdelinger kan frafalde envejsgebyret når de selv skal have biler nordpå. Skriv til Christchurch Airport-afdelingen.", "status": "ikke kontaktet", "priority": 1 },
-    { "name": "Luxury Car Rentals New Zealand", "url": "https://www.luxurycarrentalsnewzealand.co.nz/", "email": "info@luxurycarrentalsnewzealand.co.nz", "why": "Europæiske cabrioletter og supersportsvogne i Queenstown, Christchurch og Auckland.", "status": "ikke kontaktet", "priority": 1 },
-    { "name": "Sports Car Rental NZ", "url": "https://sportscarrental.co.nz/", "email": null, "why": "Specialist i sports- og performancebiler på landsplan. Brug kontaktformularen.", "status": "ikke kontaktet", "priority": 2 },
-    { "name": "Smart Car Rental", "url": "https://www.smartcarrental.co.nz/", "email": null, "why": "Mustang sportsvogn og cabriolet, base i Auckland — spørg om de har biler i Syden der skal hjem.", "status": "ikke kontaktet", "priority": 2 },
-    { "name": "Europcar NZ", "url": "https://www.europcar.co.nz/", "email": null, "why": "Har sportsvognskategori i Auckland. Stor flåde der rebalanceres efter sæsonen.", "status": "ikke kontaktet", "priority": 2 },
-    { "name": "GO Rentals — Christchurch", "url": "https://www.gorentals.co.nz/", "email": "reservations@gorentals.co.nz", "why": "Har allerede en CHC→AKL relocation i systemet. Spørg om der kommer flere, og om en sjovere bil kan lade sig gøre.", "status": "ikke kontaktet", "priority": 2 },
-    { "name": "Snap Rentals", "url": "https://www.snaprentals.co.nz/", "email": "info@snaprentals.co.nz", "why": "Mellemstor NZ-udlejer der flytter flåde syd→nord efter vinteren.", "status": "ikke kontaktet", "priority": 3 },
-    { "name": "Apex Car Rentals", "url": "https://www.apexrentals.co.nz/", "email": "reservations@apexrentals.co.nz", "why": "Kendt for billige relocations, men annoncerer dem ikke altid.", "status": "ikke kontaktet", "priority": 3 }
+    {
+      "name": "Rent A Classic",
+      "url": "https://www.rentaclassic.co.nz/",
+      "email": "info@rentaclassic.co.nz",
+      "why": "Sports- og cabrioletbiler i Auckland, Nelson, Christchurch og Queenstown. Siger selv at envejsleje og relocations kan lade sig gøre ved leje på mindst 6 dage — det passer præcis på dit vindue. Bedste bud på en sportsvogn.",
+      "status": "ikke kontaktet",
+      "priority": 1
+    },
+    {
+      "name": "Touchdown Car Rentals",
+      "url": "https://www.touchdowncarrental.co.nz/",
+      "email": "info@touchdowncarrental.co.nz",
+      "why": "Luksus og Mustang cabriolet med baser i Christchurch og Queenstown — begge tømmes efter skisæsonen.",
+      "status": "ikke kontaktet",
+      "priority": 1
+    },
+    {
+      "name": "SIXT New Zealand",
+      "url": "https://www.sixt.nz/",
+      "email": "reservations@sixt.co.nz",
+      "why": "Premiumflåde med BMW og Mercedes. Publicerer aldrig relocations, men Christchurch-afdelingen kan frafalde envejsgebyret når de selv skal have biler nordpå.",
+      "status": "ikke kontaktet",
+      "priority": 1
+    },
+    {
+      "name": "Luxury Car Rentals NZ",
+      "url": "https://www.luxurycarrentalsnewzealand.co.nz/",
+      "email": "info@luxurycarrentalsnewzealand.co.nz",
+      "why": "Europæiske cabrioletter og supersportsvogne i Queenstown, Christchurch og Auckland.",
+      "status": "ikke kontaktet",
+      "priority": 1
+    },
+    {
+      "name": "Sports Car Rental NZ",
+      "url": "https://sportscarrental.co.nz/",
+      "email": null,
+      "why": "Specialist i sports- og performancebiler på landsplan. Brug kontaktformularen.",
+      "status": "ikke kontaktet",
+      "priority": 2
+    },
+    {
+      "name": "Smart Car Rental",
+      "url": "https://www.smartcarrental.co.nz/",
+      "email": null,
+      "why": "Mustang sportsvogn og cabriolet med base i Auckland — spørg om biler i Syden der skal hjem.",
+      "status": "ikke kontaktet",
+      "priority": 2
+    },
+    {
+      "name": "Europcar NZ",
+      "url": "https://www.europcar.co.nz/",
+      "email": null,
+      "why": "Har sportsvognskategori i Auckland og en stor flåde der rebalanceres efter sæsonen.",
+      "status": "ikke kontaktet",
+      "priority": 2
+    },
+    {
+      "name": "Lucky Rentals",
+      "url": "https://www.luckyrentals.co.nz/",
+      "email": null,
+      "why": "400+ køretøjer ud af AKL og CHC, og intet envejsgebyr mod nord.",
+      "status": "ikke kontaktet",
+      "priority": 3
+    },
+    {
+      "name": "Snap Rentals",
+      "url": "https://www.snaprentals.co.nz/",
+      "email": "info@snaprentals.co.nz",
+      "why": "Flytter selv flåde syd→nord efter vinteren, men annoncerer det ikke.",
+      "status": "ikke kontaktet",
+      "priority": 3
+    },
+    {
+      "name": "Apex Car Rentals",
+      "url": "https://www.apexrentals.co.nz/deals",
+      "email": "reservations@apexrentals.co.nz",
+      "why": "Kendt for billige relocations, men annoncerer dem ikke altid.",
+      "status": "ikke kontaktet",
+      "priority": 3
+    }
   ],
   "log": [
-    { "ts": "2026-08-09T22:10:00+12:00", "summary": "Første fulde kortlægning: 20 kilder gennemgået, 7 deals fundet på CHC→AKL. 2 opfylder alle krav (Spaceships, Omega). Transfercar blokerer automatisk aflæsning — e-mailalarm anbefales." }
+    {
+      "ts": "2026-08-09T22:10:00+12:00",
+      "summary": "Første kortlægning: 20 kilder gennemgået, 7 tilbud fundet på ruten."
+    },
+    {
+      "ts": "2026-08-09T22:40:00+12:00",
+      "summary": "NYT: Transfercar-opslag fundet via søgeindekset — 2-berth campervan CHC Airport → AKL Airport med 7 gratis dage, gratis færge for bil + fører og gratis tank, gyldig til 30. sep. Prisloft på 20 NZD/dag indført, hvilket fjernede Mad Campers, GO Rentals og Escape."
+    },
+    {
+      "ts": "2026-08-09T23:05:00+12:00",
+      "summary": "Adgangstest kørt mod alle 30 kilder. Kun to domæner er reelt lukkede: transfercar.co.nz og apollocamper.co.nz. Easy Car Relo er en ren JavaScript-app uden læsbart indhold. Fire nye udbydere opdaget via branchekataloget rentalcarrelocation.co.nz: EuroCampers, Rad Car Hire, Camplify og Britz' interne flyttedatabase. BookMe-status afklaret: 1-NZD-priserne gælder kun 9.-17. august, altså før dit vindue åbner."
+    }
   ]
 }

@@ -1,11 +1,11 @@
 # Køreplan for det automatiske tjek
 
-Dette er instruktionen den planlagte cloud-agent følger fire gange dagligt.
+Instruktionen den planlagte cloud-agent følger fire gange dagligt.
 
 ## Opgaven
 
-Find relocation-tilbud (gratis eller næsten gratis biler/campervans der skal flyttes) på ruten
-**Christchurch → Auckland**, der passer i Karstens rejsevindue, og opdatér `data.json`.
+Find relocation-tilbud på ruten **Christchurch → Auckland** der passer i Karstens vindue,
+verificér at de faktisk er ledige, og opdatér `data.json`.
 
 ## Hårde krav
 
@@ -15,72 +15,101 @@ Find relocation-tilbud (gratis eller næsten gratis biler/campervans der skal fl
 | Tidligste afhentning | 21. august 2026 |
 | Aflevering | Auckland |
 | Afleveringsvindue | 28. august – 8. september 2026, begge inkl. |
+| **Maks pris** | **20 NZD pr. dag.** Alt derover er uinteressant, uanset hvor godt det ellers ser ud. |
 | Færge | Cook Strait-overfarten skal være **betalt af udlejeren** for bil + fører |
-| Passagerer | 1 (kun Karsten) — ekstra passagerbilletter er irrelevante |
+| Passagerer | 1 — ekstra passagerbilletter er irrelevante |
 
-Et tilbud passer kun hvis `afhentningsdato + antal dage` kan lande inden for
-28. aug – 8. sep. Eksempel: en 5-dages deal hentet 24. aug afleveres 29. aug → **passer**.
-En 5-dages deal hentet 21. aug afleveres 26. aug → **passer ikke** (for tidligt).
-Regn altid efter, i stedet for at antage at afhentning sker 21. august.
+Et tilbud passer kun hvis `afhentningsdato + antal dage` kan lande i afleveringsvinduet.
+Afhentning behøver ikke være den 21. — blot den 21. eller senere. En 5-dages deal hentet
+24. august afleveres 29. august og **passer**. Samme deal hentet 21. august afleveres
+26. august og **passer ikke**.
 
 ## Præference
 
-Karsten vil helst køre en **sportsvogn eller på anden måde sjov bil**. Det er ikke et krav,
-men rapportér altid tydeligt hvis noget mere spændende end en økonomibil dukker op.
-Rapportér alt der passer — også campervans og kedelige biler.
+Karsten vil helst køre en **sportsvogn eller anden sjov bil**. Ikke et krav, men fremhæv det
+tydeligt hvis noget mere spændende end en økonomibil dukker op.
 
-## Kilder der skal tjekkes hver gang
+## Tilgængelighed — skal altid tjekkes
 
-**Alle kilder i `data.json` under `sources` skal tjekkes ved hver eneste kørsel — uden
-undtagelse, uanset prioritet.** Prioritetstallet styrer kun rækkefølgen, ikke om noget må
-springes over. Karsten må ikke gå glip af en mulighed fordi en side blev sprunget over.
-Hvis en side ikke kunne læses, skal det stå i loggen med navn og årsag.
+For hvert tilbud skal `availability` udfyldes ved hver kørsel:
 
-Bemærk: **Transfercar blokerer automatisk aflæsning** (Cloudflare 403). Forsøg alligevel via
-WebSearch efter nye Transfercar-opslag på ruten, og skriv i loggen hvis siden ikke kunne læses.
-Karsten har en e-mailalarm slået til der.
+- `state`: `ledig` · `ledig-snaevert` (vinduet lukker snart) · `ikke-i-vindue` · `udsolgt` · `ukendt`
+- `from` / `to`: de faktiske datoer udbyderen tillader afhentning og aflevering
+- `spaces`: antal ledige køretøjer hvis det står nogen steder
+- `detail`: én sætning om hvad datoerne betyder for Karsten
+- `confidence`: `direkte` hvis du læste det på udbyderens side, `indirekte` hvis via søgeindeks
+- `checkedAt`: tidspunktet for dette tjek
+
+Skriv aldrig `ledig` uden at have set en dato. Er du i tvivl, brug `ukendt`.
+
+## Billeder
+
+Hvert tilbud skal have et rigtigt foto af køretøjet i `img/` og en `imageCredit`.
+Sådan finder du dem: hent udbyderens side og træk `og:image`, `src`, `data-src` og `srcset`
+ud. Vælg et eksteriørfoto af køretøjet — ikke logoer, landskabsbilleder eller partnerbannere.
+Hent filen ned i `img/` med `curl` og en almindelig browser-signatur plus `-e <sidens URL>`
+som referer, skalér til maks 900 px bredde, og sæt `imageUrl` til den lokale sti.
+Findes der intet brugbart foto, så lad `imageUrl` være `null` — så tegner siden selv en
+illustration ud fra `vehicleType` (`campervan`, `sedan`, `sports`).
+
+## Kilder
+
+**Alle kilder i `data.json` under `sources` tjekkes ved hver eneste kørsel — uden undtagelse,
+uanset prioritet.** Prioritetstallet styrer kun rækkefølgen. Kunne en side ikke læses, skal
+det stå i loggen med navn og årsag.
+
+Kendte adgangsproblemer, som allerede er undersøgt til bunds:
+
+- **transfercar.co.nz** — HTTP 403 på alt. Testet uden held med browser-signatur, mobilsignatur,
+  support-subdomænet og en ekstern læseproxy. Kan **kun** læses via websøgning begrænset til
+  domænet: brug WebSearch med `allowed_domains: ["transfercar.co.nz"]`. Det virker og har
+  allerede afsløret et rigtigt opslag. Gør det hver gang, med mindst to forskellige søgninger.
+- **apollocamper.co.nz** (også Cheapa og Hippie) — HTTP 403 på hele domænet. Brug websøgning.
+- **easycarrelo.co.nz** — ren JavaScript-app, intet indhold i svaret. Kan ikke læses.
+- **britz.com** — offentliggør ingen relocations; kræver tilmelding til deres database.
+
+Disse fire skal blive stående i `manualCheck` med en ærlig forklaring, så Karsten ved
+præcis hvad han selv skal åbne.
 
 ### Opdagelsesrunde — hver gang
 
-Ud over den kendte liste skal du hver gang lede efter udbydere og opslag vi endnu ikke kender.
-Kør mindst disse søgninger og se på resultater fra de seneste dage:
+Led efter udbydere og opslag vi ikke kender. Kør mindst disse søgninger:
 
-- `relocation Christchurch Auckland campervan $1 day` (og varianten med "car")
-- `"relocation" OR "transfer car" New Zealand new deals august september 2026`
-- `campervan relocation NZ Facebook group Christchurch Auckland` — der findes aktive
-  Facebook-grupper (bl.a. "Campervan Relocations NZ", "NZ Relocation Deals") hvor udlejere
-  poster ledige biler før de rammer platformene
-- `motorhome relocation south island to north island deal` 
-- søg på navnene på nye udlejere du støder på, og find deres deals-/specials-side
+- `relocation Christchurch Auckland campervan $1 day`
+- `relocation car Christchurch to Auckland ferry included august september 2026`
+- `campervan relocation NZ Facebook group` — udlejere poster ledige biler dér før platformene
+- `motorhome relocation south island to north island deal`
 
-Finder du en udbyder eller platform der ikke allerede står i `sources`, så **tilføj den** med
-navn, URL, type, prioritet og en kort note — også selvom den ikke har noget lige nu. Listen
-skal vokse over tid, så dækningen bliver bedre for hver dag.
+Gennemgå også branchekataloget **rentalcarrelocation.co.nz**, som lister stort set alle
+NZ-udbydere med relocations — det er den bedste enkeltkilde til at opdage nye.
 
-### Sportsvogn — særskilt runde hver gang
+Finder du en udbyder der ikke står i `sources`, så tilføj den med navn, URL, type, prioritet,
+`access` og en kort note — også selvom den ikke har noget lige nu.
 
-Relocation-platformene har aldrig sportsvogne. Tjek derfor også specials-/deals-siderne hos
-sports- og luksusudlejerne i `outreach`-listen for envejstilbud CHC→AKL, og søg efter
+### Sportsvognsrunde — hver gang
+
+Tjek specials-siderne hos rentaclassic.co.nz, touchdowncarrental.co.nz,
+luxurycarrentalsnewzealand.co.nz, sportscarrental.co.nz, smartcarrental.co.nz og sixt.nz for
+envejstilbud CHC→AKL, og søg på
 `sports car OR convertible one way rental Christchurch Auckland relocation special`.
 Rapportér ethvert fund, også hvis det ikke er gratis.
 
 ## Sådan opdaterer du
 
 1. Læs `data.json`.
-2. Tjek hver kilde. For hvert tilbud på CHC→AKL: notér køretøj, antal dage, pris, færge, brændstof, gyldighedsperiode, min. alder, depositum.
-3. Sæt `fit`:
-   - `"passer"` — alle hårde krav opfyldt, inkl. bekræftet betalt færge
-   - `"naesten"` — passer på datoer, men færge er ubekræftet eller der er et væsentligt forbehold
-   - `"nej"` — opfylder ikke kravene, men er værd at kende som backup
-4. Opdatér eksisterende poster i stedet for at duplikere. Fjern tilbud der ikke længere findes, og skriv det i loggen.
-5. Sæt `updated` til nuværende NZ-tid (Pacific/Auckland, ISO 8601 med +12:00).
-6. Tilføj **én** post i `log` med hvad der er nyt siden sidst. Behold højst 40 log-poster — slet de ældste.
-7. Commit og push til `main`. Commit-besked: `tjek: <kort opsummering>`.
+2. Tjek alle kilder, kør opdagelses- og sportsvognsrunden.
+3. Opdatér hvert tilbuds `availability`, priser og datoer. Sæt `fit`:
+   - `passer` — alle hårde krav opfyldt, inkl. bekræftet betalt færge og maks 20 NZD/dag
+   - `naesten` — datoer og pris passer, men færgen er ubekræftet eller der er et forbehold
+   - `nej` — opfylder ikke kravene, men er værd at kende som nødløsning
+4. Opdatér eksisterende poster frem for at duplikere. Forsvundne tilbud fjernes og noteres i loggen.
+5. Sæt `updated` til nuværende Pacific/Auckland-tid i ISO 8601 med `+12:00`.
+6. Tilføj **én** post i `log`. Behold højst 40 — slet de ældste.
+7. Commit og push til `main` med beskeden `tjek: <kort opsummering>`.
 
 ## Vigtigt
 
-- Opfind aldrig et tilbud. Hvis en side ikke kunne læses, skriv det i loggen — det er
-  bedre end et gæt. Karsten træffer beslutninger på det her.
-- Hvis et helt nyt tilbud opfylder alle krav (`fit: "passer"`), så start loggens tekst med
-  `NYT:` så det er let at få øje på.
-- Ret ikke i `index.html` — kun `data.json`.
+- Opfind aldrig et tilbud, en dato eller en færgeinklusion. Karsten booker på det her, og han
+  tjekker ikke selv. Kunne en side ikke læses, så skriv det — det er langt bedre end et gæt.
+- Starter et nyt tilbud med `fit: "passer"`, så begynd logteksten med `NYT:`.
+- Ret ikke i `index.html` — kun `data.json` og `img/`.
