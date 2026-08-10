@@ -1,0 +1,40 @@
+name: Opdater relocation-tilbud
+
+# 06:50, 11:50, 16:50 og 21:50 newzealandsk tid (NZST = UTC+12).
+# Kører på GitHubs egne maskiner — hverken Karstens Mac eller claude.ai er involveret.
+on:
+  schedule:
+    - cron: "50 4,9,18,23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Hent og parse Imoova
+        run: python3 scripts/refresh_imoova.py
+
+      - name: Commit hvis noget ændrede sig
+        run: |
+          git config user.name "relocation-watch"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Ingen ændringer."
+          else
+            git commit -m "tjek: automatisk opdatering fra Imoova"
+            git push
+          fi
