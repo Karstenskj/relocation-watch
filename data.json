@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-09T23:05:00+12:00",
+  "updated": "2026-08-10T23:40:00+12:00",
   "window": {
     "pickupFrom": "2026-08-21",
     "dropoffFrom": "2026-08-28",
@@ -35,8 +35,8 @@
         "from": "2026-08-09",
         "to": "2026-09-30",
         "spaces": "5+ køretøjer tilbage",
-        "detail": "Kan hentes fra 9. aug og skal være afleveret senest 30. sep. Dine datoer ligger midt i vinduet.",
-        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "detail": "Bekræftet via søgeindeks igen i dag: 7 gratis dage, fri færge for bil + fører, gratis tank, frem til 30. sep.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
         "confidence": "indirekte"
       },
       "yourPlan": "Hent 21. aug → aflever 28. aug",
@@ -68,8 +68,8 @@
         "from": "2026-08-09",
         "to": "2026-09-30",
         "spaces": "Begrænset antal slots",
-        "detail": "Gælder al rejse frem til 30. september. Slots forsvinder løbende og tilbuddet lukker når de er væk.",
-        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "detail": "Bekræftet stadig aktiv. Siden skriver nu udtrykkeligt at fri færge for bil + fører lægges automatisk på bookingen. Rejse frem til 30. sep.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. aug → aflever 28. aug",
@@ -101,8 +101,8 @@
         "from": "2026-07-14",
         "to": "2026-08-31",
         "spaces": "Ukendt — ring for at bekræfte",
-        "detail": "Tilbuddet lukker 31. august. Du skal derfor hente mellem 23. og 26. august for at ramme dit afleveringsvindue.",
-        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "detail": "Bekræftet stadig aktiv, 14. juli - 31. aug, maks 5 dage. Hent 23.-26. aug for at ramme dit vindue. Kører til alle biler er flyttet.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 23.-26. aug → aflever 28.-31. aug",
@@ -131,11 +131,11 @@
       "bond": "400 NZD",
       "availability": {
         "state": "ledig",
-        "from": "2026-08-09",
+        "from": "2026-08-10",
         "to": "2026-09-29",
         "spaces": "Ukendt",
-        "detail": "Afhentning muligt i hele perioden 9. aug - 29. sep, med 10 dage til turen. Dækker hele dit vindue med god margin.",
-        "checkedAt": "2026-08-09T23:05:00+12:00",
+        "detail": "Bekræftet stadig aktiv, nu 10. aug - 29. sep med 10 dage. Færgen er fortsat ikke nævnt.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21.-29. aug → aflever op til 10 dage senere",
@@ -242,6 +242,105 @@
       "fitReason": "Bilen er billig nok, men færgen er ikke betalt — og det er et af dine hårde krav.",
       "notes": "Med som nødløsning hvis alt andet fejler.",
       "imageCredit": null
+    },
+    {
+      "id": "imoova-rlc117207",
+      "provider": "Imoova",
+      "platform": "Imoova",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117207",
+      "vehicle": "3-berth Hi-Top campervan",
+      "vehicleType": "campervan",
+      "imageUrl": null,
+      "imageCredit": null,
+      "route": "Christchurch → Auckland",
+      "days": 5,
+      "price": "1 NZD/dag + 5 ekstra dage kan tilkøbes",
+      "pricePerDay": 1,
+      "totalCost": "~10 NZD + ca. 130-170 NZD i færgerest",
+      "ferry": "delvist",
+      "ferryDetail": "Imoova skriver 'NZ$150.00 Ferry Included'. Det er et tilskud, ikke fri overfart — en 3-berth camper koster 280-320 NZD over Cook Strait, så du mangler selv 130-170 NZD.",
+      "fuel": "ikke nævnt",
+      "minAge": 18,
+      "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-17",
+        "to": "2026-09-30",
+        "spaces": "Ukendt",
+        "detail": "Ny siden i går. Afhentning muligt 17. aug - 30. sep med 5 gratis dage plus 5 dage der kan tilkøbes.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 23. aug → aflever 28. aug på de 5 gratis dage",
+      "fit": "naesten",
+      "fitReason": "Datoer og pris passer perfekt, og 18-årsgrænsen er lavere end de fleste. Men færgen er kun halvt betalt, og det er dit hårde krav.",
+      "notes": "Ring til Imoova og spørg om de dækker resten af færgen — nogle gange gør de det på camper-relocations."
+    },
+    {
+      "id": "imoova-rlc117206",
+      "provider": "Imoova",
+      "platform": "Imoova",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117206",
+      "vehicle": "4-berth camper",
+      "vehicleType": "campervan",
+      "imageUrl": null,
+      "imageCredit": null,
+      "route": "Christchurch → Auckland",
+      "days": 5,
+      "price": "1 NZD/dag + 5 ekstra dage kan tilkøbes",
+      "pricePerDay": 1,
+      "totalCost": "~10 NZD + ca. 200-280 NZD i færgerest",
+      "ferry": "delvist",
+      "ferryDetail": "'NZ$150.00 Ferry Included' — men en 4-berth camper koster 350-430 NZD over Cook Strait, så hullet er endnu større her end på 3-berth.",
+      "fuel": "ikke nævnt",
+      "minAge": 18,
+      "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-17",
+        "to": "2026-09-30",
+        "spaces": "Ukendt",
+        "detail": "Ny siden i går. Samme vindue som 3-berth: 17. aug - 30. sep, 5 + 5 dage.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 23. aug → aflever 28. aug",
+      "fit": "naesten",
+      "fitReason": "Mere plads end du har brug for alene, og det største færgehul af de nye. 3-berth er den bedre af de to.",
+      "notes": "Kun relevant hvis 3-berth bliver udsolgt."
+    },
+    {
+      "id": "imoova-sleepervan",
+      "provider": "Imoova",
+      "platform": "Imoova",
+      "url": "https://www.imoova.com/en/relocations?region=NZ&departure_city=christchurch",
+      "vehicle": "Sleepervan",
+      "vehicleType": "campervan",
+      "imageUrl": null,
+      "imageCredit": null,
+      "route": "Christchurch → Auckland",
+      "days": 4,
+      "price": "1 NZD/dag + op til 15 ekstra dage",
+      "pricePerDay": 1,
+      "totalCost": "Afhænger af ekstra dage + færge selv",
+      "ferry": "IKKE inkluderet",
+      "ferryDetail": "Ingen færge nævnt i opslaget.",
+      "fuel": "ikke nævnt",
+      "minAge": null,
+      "bond": null,
+      "availability": {
+        "state": "ledig-snaevert",
+        "from": "2026-08-13",
+        "to": "2026-08-25",
+        "spaces": "Ukendt",
+        "detail": "Afhentning kun til og med 25. august. 4 gratis dage plus hele 15 ekstra dage — den længste periode fundet på ruten.",
+        "checkedAt": "2026-08-10T23:40:00+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 21.-25. aug → op til 19 dage i alt",
+      "fit": "nej",
+      "fitReason": "Ingen færge betalt. Men 19 mulige dage er langt mere end noget andet — relevant hvis du hellere vil have tid end gratis færge.",
+      "notes": "Afhentningsvinduet lukker 25. august."
     }
   ],
   "manualCheck": [
@@ -652,6 +751,10 @@
     {
       "ts": "2026-08-09T23:05:00+12:00",
       "summary": "Adgangstest kørt mod alle 30 kilder. Kun to domæner er reelt lukkede: transfercar.co.nz og apollocamper.co.nz. Easy Car Relo er en ren JavaScript-app uden læsbart indhold. Fire nye udbydere opdaget via branchekataloget rentalcarrelocation.co.nz: EuroCampers, Rad Car Hire, Camplify og Britz' interne flyttedatabase. BookMe-status afklaret: 1-NZD-priserne gælder kun 9.-17. august, altså før dit vindue åbner."
+    },
+    {
+      "ts": "2026-08-10T23:40:00+12:00",
+      "summary": "NYT: Imoova har lagt to camper-relocations op på ruten — 3-berth Hi-Top (RLC117207) og 4-berth (RLC117206), begge 17. aug-30. sep med 5 gratis dage plus 5 der kan tilkøbes, og 18 års aldersgrænse. Begge skriver 'NZ$150.00 Ferry Included', men det er et tilskud: en 3-berth koster 280-320 NZD over Cook Strait og en 4-berth 350-430, så der mangler 130-280 NZD. De er derfor 'tæt på', ikke 'passer'. Også ny: Sleepervan med 4 + 15 dage (19 i alt, længste på ruten) men uden færge, afhentning kun til 25. aug. Spaceships, Omega, Transfercar og Imoovas 10-dages bil er alle bekræftet stadig aktive."
     }
   ]
 }
