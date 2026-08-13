@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13T18:06:03+12:00",
+  "updated": "2026-08-13T22:44:49+12:00",
   "window": {
     "pickupFrom": "2026-08-21",
     "dropoffFrom": "2026-08-28",
@@ -236,7 +236,7 @@
         "to": "2026-10-31",
         "spaces": "37 køretøjer",
         "detail": "Afhentning muligt 2026-08-12 til 2026-10-31 med 10 dage til turen. 37 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 31. Aug",
@@ -270,7 +270,7 @@
         "to": "2026-09-30",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-08-17 til 2026-09-30 med 5 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 23. Aug → aflever 28. Aug",
@@ -304,7 +304,7 @@
         "to": "2026-09-30",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-08-17 til 2026-09-30 med 5 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 23. Aug → aflever 28. Aug",
@@ -338,7 +338,7 @@
         "to": "2026-10-31",
         "spaces": "20 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 20 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -372,7 +372,7 @@
         "to": "2026-10-31",
         "spaces": "10 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 10 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -406,7 +406,7 @@
         "to": "2026-10-31",
         "spaces": "10 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 10 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -440,7 +440,7 @@
         "to": "2026-09-30",
         "spaces": "16 køretøjer",
         "detail": "Afhentning muligt 2026-08-03 til 2026-09-30 med 7 dage til turen. 16 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -474,7 +474,7 @@
         "to": "2026-10-31",
         "spaces": "9 køretøjer",
         "detail": "Afhentning muligt 2026-10-01 til 2026-10-31 med 7 dage til turen. 9 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -508,7 +508,7 @@
         "to": "2026-08-23",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-14 til 2026-08-23 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -542,7 +542,7 @@
         "to": "2026-08-24",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-14 til 2026-08-24 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -576,7 +576,7 @@
         "to": "2026-08-24",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-14 til 2026-08-24 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -610,7 +610,7 @@
         "to": "2026-08-28",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-18 til 2026-08-28 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -644,7 +644,7 @@
         "to": "2026-09-01",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-13 til 2026-09-01 med 4 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "checkedAt": "2026-08-13T22:44:49+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 24. Aug → aflever 28. Aug",
@@ -1079,8 +1079,8 @@
       "summary": "Imoova automatisk tjek: ingen ændringer, 13 opslag på ruten."
     },
     {
-      "ts": "2026-08-13T18:06:03+12:00",
-      "summary": "Imoova automatisk tjek: Small Car · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 95 NZD + 49 NZD bookinggebyr, færge ubekræftet) · Intermediate LT · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 115 NZD + 49 NZD bookinggebyr, færge ubekræftet) · 10 Seat Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge ubekræftet) · 12 Seater Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge ubekræftet) · væk: Intermediate LT · automatgear · væk: Small Car · automatgear · væk: 10 Seat Mini Bus · automatgear · væk: 12 Seater Mini Bus · automatgear"
+      "ts": "2026-08-13T22:44:49+12:00",
+      "summary": "Imoova automatisk tjek: ingen ændringer, 13 opslag på ruten."
     }
   ]
 }
