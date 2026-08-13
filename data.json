@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13T12:44:22+12:00",
+  "updated": "2026-08-13T18:06:03+12:00",
   "window": {
     "pickupFrom": "2026-08-21",
     "dropoffFrom": "2026-08-28",
@@ -236,7 +236,7 @@
         "to": "2026-10-31",
         "spaces": "37 køretøjer",
         "detail": "Afhentning muligt 2026-08-12 til 2026-10-31 med 10 dage til turen. 37 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 31. Aug",
@@ -270,7 +270,7 @@
         "to": "2026-09-30",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-08-17 til 2026-09-30 med 5 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 23. Aug → aflever 28. Aug",
@@ -304,7 +304,7 @@
         "to": "2026-09-30",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-08-17 til 2026-09-30 med 5 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 23. Aug → aflever 28. Aug",
@@ -338,7 +338,7 @@
         "to": "2026-10-31",
         "spaces": "20 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 20 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -372,7 +372,7 @@
         "to": "2026-10-31",
         "spaces": "10 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 10 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -406,7 +406,7 @@
         "to": "2026-10-31",
         "spaces": "10 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 10 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -440,7 +440,7 @@
         "to": "2026-09-30",
         "spaces": "16 køretøjer",
         "detail": "Afhentning muligt 2026-08-03 til 2026-09-30 med 7 dage til turen. 16 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -474,7 +474,7 @@
         "to": "2026-10-31",
         "spaces": "9 køretøjer",
         "detail": "Afhentning muligt 2026-10-01 til 2026-10-31 med 7 dage til turen. 9 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -483,48 +483,14 @@
       "notes": "Automatisk aflæst fra Imoova. Reference RLC116378."
     },
     {
-      "id": "imoova-rlc117504",
+      "id": "imoova-rlc117659",
       "source": "imoova-auto",
       "provider": "Imoova",
       "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117504",
-      "vehicle": "Intermediate LT · automatgear",
-      "vehicleType": "sedan",
-      "imageUrl": "img/rlc117504.webp",
-      "imageCredit": "Foto: Imoova",
-      "route": "Christchurch → Auckland",
-      "days": 3,
-      "price": "1 NZD/dag + 3 ekstra dage à 115 NZD + 49 NZD bookinggebyr",
-      "pricePerDay": 1.0,
-      "totalCost": "52 NZD",
-      "ferry": "ubekræftet",
-      "ferryDetail": "Færge ikke nævnt på opslaget (står der: «3 days 18 + <a href=\"»).",
-      "fuel": "ikke nævnt",
-      "minAge": 18,
-      "bond": null,
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-08-13",
-        "to": "2026-08-23",
-        "spaces": "1 køretøjer",
-        "detail": "Afhentning muligt 2026-08-13 til 2026-08-23 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Ingen dato lander i dit vindue",
-      "fit": "nej",
-      "fitReason": "Ingen afhentningsdato lander i dit afleveringsvindue.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC117504."
-    },
-    {
-      "id": "imoova-rlc117501",
-      "source": "imoova-auto",
-      "provider": "Imoova",
-      "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117501",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117659",
       "vehicle": "Small Car · automatgear",
       "vehicleType": "sedan",
-      "imageUrl": "img/rlc117501.webp",
+      "imageUrl": "img/rlc117659.webp",
       "imageCredit": "Foto: Imoova",
       "route": "Christchurch → Auckland",
       "days": 3,
@@ -538,27 +504,61 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-08-13",
-        "to": "2026-08-22",
+        "from": "2026-08-14",
+        "to": "2026-08-23",
         "spaces": "1 køretøjer",
-        "detail": "Afhentning muligt 2026-08-13 til 2026-08-22 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "detail": "Afhentning muligt 2026-08-14 til 2026-08-23 med 3 dage til turen. 1 køretøjer ledige.",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
       "fit": "nej",
       "fitReason": "Ingen afhentningsdato lander i dit afleveringsvindue.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC117501."
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC117659."
     },
     {
-      "id": "imoova-rlc117502",
+      "id": "imoova-rlc117660",
       "source": "imoova-auto",
       "provider": "Imoova",
       "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117502",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117660",
+      "vehicle": "Intermediate LT · automatgear",
+      "vehicleType": "sedan",
+      "imageUrl": "img/rlc117660.webp",
+      "imageCredit": "Foto: Imoova",
+      "route": "Christchurch → Auckland",
+      "days": 3,
+      "price": "1 NZD/dag + 3 ekstra dage à 115 NZD + 49 NZD bookinggebyr",
+      "pricePerDay": 1.0,
+      "totalCost": "52 NZD",
+      "ferry": "ubekræftet",
+      "ferryDetail": "Færge ikke nævnt på opslaget (står der: «3 days 18 + <a href=\"»).",
+      "fuel": "ikke nævnt",
+      "minAge": 18,
+      "bond": null,
+      "availability": {
+        "state": "ikke-i-vindue",
+        "from": "2026-08-14",
+        "to": "2026-08-24",
+        "spaces": "1 køretøjer",
+        "detail": "Afhentning muligt 2026-08-14 til 2026-08-24 med 3 dage til turen. 1 køretøjer ledige.",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Ingen dato lander i dit vindue",
+      "fit": "nej",
+      "fitReason": "Ingen afhentningsdato lander i dit afleveringsvindue.",
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC117660."
+    },
+    {
+      "id": "imoova-rlc117657",
+      "source": "imoova-auto",
+      "provider": "Imoova",
+      "platform": "Imoova",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117657",
       "vehicle": "10 Seat Mini Bus · automatgear",
       "vehicleType": "campervan",
-      "imageUrl": "img/rlc117502.webp",
+      "imageUrl": "img/rlc117657.webp",
       "imageCredit": "Foto: Imoova",
       "route": "Christchurch → Auckland",
       "days": 3,
@@ -572,27 +572,27 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-08-13",
+        "from": "2026-08-14",
         "to": "2026-08-24",
         "spaces": "1 køretøjer",
-        "detail": "Afhentning muligt 2026-08-13 til 2026-08-24 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "detail": "Afhentning muligt 2026-08-14 til 2026-08-24 med 3 dage til turen. 1 køretøjer ledige.",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
       "fit": "nej",
       "fitReason": "Ingen afhentningsdato lander i dit afleveringsvindue.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC117502."
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC117657."
     },
     {
-      "id": "imoova-rlc117496",
+      "id": "imoova-rlc117655",
       "source": "imoova-auto",
       "provider": "Imoova",
       "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117496",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117655",
       "vehicle": "12 Seater Mini Bus · automatgear",
       "vehicleType": "campervan",
-      "imageUrl": "img/rlc117496.webp",
+      "imageUrl": "img/rlc117655.webp",
       "imageCredit": "Foto: Imoova",
       "route": "Christchurch → Auckland",
       "days": 3,
@@ -610,13 +610,13 @@
         "to": "2026-08-28",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-18 til 2026-08-28 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
       "fit": "naesten",
       "fitReason": "Datoer og pris passer, men færgen er ikke fuldt betalt.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC117496."
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC117655."
     },
     {
       "id": "imoova-rlc116643",
@@ -644,7 +644,7 @@
         "to": "2026-09-01",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-13 til 2026-09-01 med 4 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-13T12:44:22+12:00",
+        "checkedAt": "2026-08-13T18:06:03+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 24. Aug → aflever 28. Aug",
@@ -1077,6 +1077,10 @@
     {
       "ts": "2026-08-13T12:44:22+12:00",
       "summary": "Imoova automatisk tjek: ingen ændringer, 13 opslag på ruten."
+    },
+    {
+      "ts": "2026-08-13T18:06:03+12:00",
+      "summary": "Imoova automatisk tjek: Small Car · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 95 NZD + 49 NZD bookinggebyr, færge ubekræftet) · Intermediate LT · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 115 NZD + 49 NZD bookinggebyr, færge ubekræftet) · 10 Seat Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge ubekræftet) · 12 Seater Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge ubekræftet) · væk: Intermediate LT · automatgear · væk: Small Car · automatgear · væk: 10 Seat Mini Bus · automatgear · væk: 12 Seater Mini Bus · automatgear"
     }
   ]
 }
