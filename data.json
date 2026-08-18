@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18T22:03:49+12:00",
+  "updated": "2026-08-19T07:15:58+12:00",
   "window": {
     "pickupFrom": "2026-08-21",
     "dropoffFrom": "2026-08-28",
@@ -236,7 +236,7 @@
         "to": "2026-10-31",
         "spaces": "31 køretøjer",
         "detail": "Afhentning muligt 2026-08-12 til 2026-10-31 med 10 dage til turen. 31 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 31. Aug",
@@ -270,7 +270,7 @@
         "to": "2026-08-31",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-08-19 til 2026-08-31 med 3 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -294,7 +294,7 @@
       "pricePerDay": 1.0,
       "totalCost": "68 NZD",
       "ferry": "inkluderet",
-      "ferryDetail": "Imoova skriver «11 days Ferry Included <a href=\"».",
+      "ferryDetail": "Imoova skriver «10 days Ferry Included <a href=\"».",
       "fuel": "ikke nævnt",
       "minAge": 25,
       "bond": null,
@@ -304,7 +304,7 @@
         "to": "2026-09-01",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-18 til 2026-09-01 med 4 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 24. Aug → aflever 28. Aug",
@@ -338,7 +338,7 @@
         "to": "2026-09-30",
         "spaces": "16 køretøjer",
         "detail": "Afhentning muligt 2026-08-03 til 2026-09-30 med 7 dage til turen. 16 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -372,7 +372,7 @@
         "to": "2026-10-31",
         "spaces": "7 køretøjer",
         "detail": "Afhentning muligt 2026-10-01 til 2026-10-31 med 7 dage til turen. 7 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -406,7 +406,7 @@
         "to": "2026-10-31",
         "spaces": "10 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 10 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -440,7 +440,7 @@
         "to": "2026-10-31",
         "spaces": "9 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 9 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -474,7 +474,7 @@
         "to": "2026-10-31",
         "spaces": "19 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 19 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -508,7 +508,7 @@
         "to": "2026-08-28",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-19 til 2026-08-28 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -542,7 +542,7 @@
         "to": "2026-08-28",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-19 til 2026-08-28 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -576,7 +576,7 @@
         "to": "2026-08-28",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-19 til 2026-08-28 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -610,7 +610,7 @@
         "to": "2026-08-28",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-19 til 2026-08-28 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -644,7 +644,7 @@
         "to": "2026-09-11",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-09-01 til 2026-09-11 med 3 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-18T22:03:49+12:00",
+        "checkedAt": "2026-08-19T07:15:58+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 1. Sep → aflever 4. Sep",
@@ -1111,8 +1111,8 @@
       "summary": "Imoova automatisk tjek: Intermediate LT · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 115 NZD + 49 NZD bookinggebyr, færge ubekræftet) · NYT: 12 Seater Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge inkluderet) · ændret: 10 Seat Mini Bus · automatgear — nu naesten, 2026-08-17–2026-08-26 · væk: 4-Berth Camper · automatgear"
     },
     {
-      "ts": "2026-08-18T22:03:49+12:00",
-      "summary": "Imoova automatisk tjek: Small Car · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 95 NZD + 49 NZD bookinggebyr, færge ubekræftet) · 10 Seat Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge ubekræftet) · Intermediate LT · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 115 NZD + 49 NZD bookinggebyr, færge ubekræftet) · 12 Seater Mini Bus · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge ubekræftet) · NYT: 10 Seat Mini Bus AWD · automatgear (3 dage, 1 NZD/dag + 3 ekstra dage à 185 NZD + 49 NZD bookinggebyr, færge inkluderet) · væk: Toyota Campervan · sover 3 · automatgear · væk: Toyota Campervan · sover 3 · automatgear · væk: 10 Seat Mini Bus · automatgear · væk: Intermediate LT · automatgear · væk: 12 Seater Mini Bus · automatgear"
+      "ts": "2026-08-19T07:15:58+12:00",
+      "summary": "Imoova automatisk tjek: ingen ændringer, 13 opslag på ruten."
     }
   ]
 }
