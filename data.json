@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21T17:16:30+12:00",
+  "updated": "2026-08-21T22:07:36+12:00",
   "window": {
     "pickupFrom": "2026-08-21",
     "dropoffFrom": "2026-08-28",
@@ -236,7 +236,7 @@
         "to": "2026-10-22",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-10-08 til 2026-10-22 med 4 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -270,7 +270,7 @@
         "to": "2026-10-29",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-10-06 til 2026-10-29 med 4 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -304,7 +304,7 @@
         "to": "2026-10-22",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-09-29 til 2026-10-22 med 4 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -338,7 +338,7 @@
         "to": "2026-10-12",
         "spaces": "30 køretøjer",
         "detail": "Afhentning muligt 2026-08-20 til 2026-10-12 med 10 dage til turen. 30 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 31. Aug",
@@ -372,7 +372,7 @@
         "to": "2026-09-01",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-08-18 til 2026-09-01 med 4 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 24. Aug → aflever 28. Aug",
@@ -406,7 +406,7 @@
         "to": "2026-08-31",
         "spaces": "5 køretøjer",
         "detail": "Afhentning muligt 2026-08-19 til 2026-08-31 med 3 dage til turen. 5 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 25. Aug → aflever 28. Aug",
@@ -440,7 +440,7 @@
         "to": "2026-10-03",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-09-20 til 2026-10-03 med 4 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -474,7 +474,7 @@
         "to": "2026-10-08",
         "spaces": "1 køretøjer",
         "detail": "Afhentning muligt 2026-09-26 til 2026-10-08 med 4 dage til turen. 1 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -508,7 +508,7 @@
         "to": "2026-09-10",
         "spaces": "2 køretøjer",
         "detail": "Afhentning muligt 2026-08-24 til 2026-09-10 med 5 dage til turen. 2 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 24. Aug → aflever 29. Aug",
@@ -542,7 +542,7 @@
         "to": "2026-09-30",
         "spaces": "16 køretøjer",
         "detail": "Afhentning muligt 2026-08-03 til 2026-09-30 med 7 dage til turen. 16 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -576,7 +576,7 @@
         "to": "2026-10-31",
         "spaces": "7 køretøjer",
         "detail": "Afhentning muligt 2026-10-01 til 2026-10-31 med 7 dage til turen. 7 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -610,7 +610,7 @@
         "to": "2026-10-31",
         "spaces": "10 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 10 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
@@ -633,8 +633,8 @@
       "price": "1 NZD/dag + 7 ekstra dage à 110 NZD + 64 NZD bookinggebyr",
       "pricePerDay": 1.0,
       "totalCost": "71 NZD",
-      "ferry": "inkluderet",
-      "ferryDetail": "Imoova skriver «7 days 18 + Load more Frequently Asked Questions Get answers to common questions about vehicle relocations {\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How does Interislander ferry booking work with relocations?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ferry inclusions vary by supplier. Some pre-book the crossing and send details with your confirmation. Others offer reimbursement, requiring you to book the ferry yourself after your relocation is confirmed. If no ferry is included, you're responsible for arranging your own. If unsure, please contact us.\"}},{\"@type\":\"Question\",\"name\":\"When do Queenstown vehicle movements happen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Many suppliers shift vehicles before ski season (winter) and before summer adventure season. Relocation deals often appear in the shoulder periods, but availability varies each year.\"}},{\"@type\":\"Question\",\"name\":\"Why are there always relocations heading north?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Many travellers begin their trip in Auckland and travel south, creating regular demand for vehicles to be returned north. This often results in frequent northbound relocations, though patterns vary by supplier.\"}},{\"@type\":\"Question\",\"name\":\"Can I take scenic routes during Queenstown to Christchurch relocations?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Some suppliers allow additional scenic detours, while others require direct routes. Mountain passes may have seasonal restrictions. Always confirm permitted routes with your supplier.\"}},{\"@type\":\"Question\",\"name\":\"Are relocations allowed to Milford Sound?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Some suppliers allow travel to Milford Sound, while others restrict it due to road conditions and remoteness. If permitted, check weather forecasts and road safety updates, especially in winter.\"}},{\"@type\":\"Question\",\"name\":\"What's the speed limit for campervans in New Zealand?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Standard speed limits apply: 50km/h in towns and 100km/h on open roads. Some rental vehicles may have speed limiters. Always follow posted signs and vehicle instructions.\"}}]} New Zealand FAQs <button type=\"button\" data-value=\"\" data-orientat».",
+      "ferry": "ubekræftet",
+      "ferryDetail": "Færge ikke nævnt på opslaget (står der: «7 days 18 + <a href=\"»).",
       "fuel": "ikke nævnt",
       "minAge": 18,
       "bond": null,
@@ -644,13 +644,47 @@
         "to": "2026-10-31",
         "spaces": "9 køretøjer",
         "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 9 køretøjer ledige.",
-        "checkedAt": "2026-08-21T17:16:30+12:00",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Hent 21. Aug → aflever 28. Aug",
+      "fit": "naesten",
+      "fitReason": "Datoer og pris passer, men færgen er ikke fuldt betalt.",
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC117400."
+    },
+    {
+      "id": "imoova-rlc117401",
+      "source": "imoova-auto",
+      "provider": "Imoova",
+      "platform": "Imoova",
+      "url": "https://www.imoova.com/relocations/new-zealand/christchurch-to-auckland/RLC117401",
+      "vehicle": "Hitop Camper · automatgear",
+      "vehicleType": "campervan",
+      "imageUrl": "img/rlc117401.webp",
+      "imageCredit": "Foto: Imoova",
+      "route": "Christchurch → Auckland",
+      "days": 7,
+      "price": "1 NZD/dag + 7 ekstra dage à 75 NZD + 64 NZD bookinggebyr",
+      "pricePerDay": 1.0,
+      "totalCost": "71 NZD",
+      "ferry": "inkluderet",
+      "ferryDetail": "Imoova skriver «7 days 18 + Load more Frequently Asked Questions Get answers to common questions about vehicle relocations {\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How does Interislander ferry booking work with relocations?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ferry inclusions vary by supplier. Some pre-book the crossing and send details with your confirmation. Others offer reimbursement, requiring you to book the ferry yourself after your relocation is confirmed. If no ferry is included, you're responsible for arranging your own. If unsure, please contact us.\"}},{\"@type\":\"Question\",\"name\":\"When do Queenstown vehicle movements happen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Many suppliers shift vehicles before ski season (winter) and before summer adventure season. Relocation deals often appear in the shoulder periods, but availability varies each year.\"}},{\"@type\":\"Question\",\"name\":\"Why are there always relocations heading north?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Many travellers begin their trip in Auckland and travel south, creating regular demand for vehicles to be returned north. This often results in frequent northbound relocations, though patterns vary by supplier.\"}},{\"@type\":\"Question\",\"name\":\"Can I take scenic routes during Queenstown to Christchurch relocations?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Some suppliers allow additional scenic detours, while others require direct routes. Mountain passes may have seasonal restrictions. Always confirm permitted routes with your supplier.\"}},{\"@type\":\"Question\",\"name\":\"Are relocations allowed to Milford Sound?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Some suppliers allow travel to Milford Sound, while others restrict it due to road conditions and remoteness. If permitted, check weather forecasts and road safety updates, especially in winter.\"}},{\"@type\":\"Question\",\"name\":\"What's the speed limit for campervans in New Zealand?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Standard speed limits apply: 50km/h in towns and 100km/h on open roads. Some rental vehicles may have speed limiters. Always follow posted signs and vehicle instructions.\"}}]} New Zealand FAQs <button type=\"button\" data-value=\"\" data-orientation=\"vertical\" data-index=\"-1\" aria-disabled=\"false\" aria-expanded=\"false\" id=\"base-ui-_R_uiqaqH2_\" tabindex=\"0\" data-slot=\"accordion-trigger\" class=\"focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:text-muted-f».",
+      "fuel": "ikke nævnt",
+      "minAge": 18,
+      "bond": null,
+      "availability": {
+        "state": "ledig",
+        "from": "2026-08-11",
+        "to": "2026-10-31",
+        "spaces": "17 køretøjer",
+        "detail": "Afhentning muligt 2026-08-11 til 2026-10-31 med 7 dage til turen. 17 køretøjer ledige.",
+        "checkedAt": "2026-08-21T22:07:36+12:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 21. Aug → aflever 28. Aug",
       "fit": "passer",
       "fitReason": "Datoer, pris og betalt færge går alle op.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC117400."
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC117401."
     }
   ],
   "manualCheck": [
@@ -1133,6 +1167,10 @@
     {
       "ts": "2026-08-21T17:16:30+12:00",
       "summary": "Imoova automatisk tjek: NYT: Camper Van (5 dage, 1 NZD/dag + 20 ekstra dage à 70 NZD + 50 NZD bookinggebyr, færge inkluderet) · ændret: Hi5 Camper · sover 4 · automatgear — nu passer, 2026-08-11–2026-10-31 · væk: Hitop Camper · automatgear"
+    },
+    {
+      "ts": "2026-08-21T22:07:36+12:00",
+      "summary": "Imoova automatisk tjek: NYT: Hitop Camper · automatgear (7 dage, 1 NZD/dag + 7 ekstra dage à 75 NZD + 64 NZD bookinggebyr, færge inkluderet) · ændret: Hi5 Camper · sover 4 · automatgear — nu naesten, 2026-08-11–2026-10-31"
     }
   ]
 }
