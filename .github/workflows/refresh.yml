@@ -1,10 +1,8 @@
 name: Opdater relocation-tilbud
 
-# 06:50, 11:50, 16:50 og 21:50 newzealandsk tid (NZST = UTC+12).
-# Kører på GitHubs egne maskiner — hverken Karstens Mac eller claude.ai er involveret.
+# Automatisk opdatering er slået fra. Kun manuel kørsel:
+# GitHub -> Actions -> "Opdater relocation-tilbud" -> Run workflow.
 on:
-  schedule:
-    - cron: "50 4,9,18,23 * * *"
   workflow_dispatch:
 
 permissions:
