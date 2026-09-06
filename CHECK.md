@@ -45,6 +45,7 @@ Beregnes af `scripts/common.py → assess()`, så alle kilder vurderes ens:
 | Imoova | GraphQL-API (`api.imoova.com/graphql`), samme kald som deres side laver. Henter Brisbane, Gold Coast og Sunshine Coast → Sydney med alle sider. | `scripts/sources/imoova.py` |
 | Transfercar | REST-API (`api.transfercar.com.au/listings.json`). Kræver to CF-Access-headers, som søgesiden selv udleverer i sin HTML. De hentes ved hver kørsel og har en indbygget reserve, hvis de bliver skiftet. Detaljer pr. opslag hentes fra `/listing/<id>` for udlejer, depositum og aldersgrænse. | `scripts/sources/transfercar.py` |
 | Coseats | JSON-API bag app.coseats.com (`coseats-au.herokuapp.com/trips/search/findRelocations`). Filtreres på ruten. | `scripts/sources/coseats.py` |
+| DriveNow | REST-endpoint (`drivenow.com.au/rest/relocation-deal/list/AU`). Siden selv er bag Cloudflare og bygges med JavaScript, men adressen bagved svarer på et almindeligt kald. Alle opslag er THL. Feedet har af og til et forkert årstal i `arriveBy`, som modulet retter. | `scripts/sources/drivenow.py` |
 | Simba Car Hire | Åbent JSON-endpoint (`lrlwqpqeamafcsoegdvh.supabase.co/functions/v1/rcm-fetch-relocations`), som deres React-side kalder. Almindelige biler. | `scripts/sources/simba.py` |
 | Autosleepers | Almindelig HTML-tabel pr. afhentningsby på `autosleepers.com.au/relocations`. Står der «None at the moment», er der intet. | `scripts/sources/autosleepers.py` |
 
@@ -72,12 +73,14 @@ Kendte adgangsforhold:
   selv nøglerne. Det er derfor den nu læses automatisk. Skulle API'et lukke, svarer HTML-siderne stadig
   200 med fulde browser-headers (`Accept: text/html…`, `Sec-Fetch-Mode: navigate`, `Sec-Fetch-Dest: document`,
   `Upgrade-Insecure-Requests: 1`) over HTTP/1.1, og ellers virker WebSearch med `allowed_domains: ["transfercar.com.au"]`.
-- **drivenow.com.au**: Cloudflare afviser alt, og listen bygges af JavaScript med hash-routing
-  (`#/relocations/AU`). `onewayrentals.jspc` svarer 200 med fulde browser-headers, men rækkerne står
-  ikke i HTML'en, og der blev ikke fundet noget XHR-endpoint. Skal åbnes manuelt. Har en watch list.
+- **drivenow.com.au**: HTML-siden er reelt ubrugelig (Cloudflare plus en JavaScript-app med hash-routing),
+  men den henter selv sine data fra `/rest/relocation-deal/list/AU`, som svarer uden spærring. Det er sådan
+  den læses nu. Endpointet blev fundet ved at køre siden i en rigtig browser og logge dens netværkskald.
+  Samme trick er værd at prøve på nye kilder der ser blokerede ud.
 - **gumtree.com.au**, **backpackerjobboard.com.au**: 403 på alt. Brug WebSearch begrænset til domænet.
-- **cheapacampa.com.au**: relocation-siden ligger bag login. THL-koncernens (Britz, maui, Mighty,
-  Cheapa, Apollo, Hippie) flytninger sælges via Imoova, Coseats og DriveNow, eller på telefon 1800 331 454.
+- **cheapacampa.com.au**: relocation-siden ligger bag login. Det er en adgangsspærring, ikke en robotspærring,
+  så den kan ikke omgås, og det skal den heller ikke. THL-koncernens (Britz, maui, Mighty, Cheapa, Apollo,
+  Hippie) flytninger kommer alligevel ind via Imoova, Coseats og DriveNow, som alle tre læses automatisk.
 - **facebook.com**: alle sider og grupper kræver login. Transfercars egen side annoncerer ruten, men de
   samme opslag ender i deres søgeliste, som læses automatisk.
 
