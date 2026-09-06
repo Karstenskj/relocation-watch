@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T08:16:03+10:00",
+  "updated": "2026-09-07T08:19:04+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -1156,6 +1156,10 @@
     {
       "ts": "2026-09-07T08:16:03+10:00",
       "summary": "Automatisk tjek (Imoova 12 opslag, Transfercar 5 opslag, Coseats 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv · DriveNow kunne ikke læses herfra (kræver almindelig internetforbindelse)"
+    },
+    {
+      "ts": "2026-09-07T08:19:04+10:00",
+      "summary": "Overvågningen er slut. Sidste mulige afhentningsdag var 2026-09-01, så både det automatiske tjek i skyen og jobbet på Karstens Mac er slukket. Siden bliver stående som den så ud til sidst."
     }
   ],
   "watch": [
@@ -1255,5 +1259,9 @@
     "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations": "0ab0a991ed517122",
     "https://www.maui-rentals.com/motorhome-hire-australia/deals/relocation-vehicles": "a14850b779bff8f4",
     "https://www.autosleepers.com.au/relocations": "46df8acaf322ea72"
+  },
+  "stopped": {
+    "ts": "2026-09-07T08:19:04+10:00",
+    "reason": "Overvågningen sluttede efter 2026-09-01."
   }
 }
