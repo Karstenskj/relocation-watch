@@ -49,6 +49,16 @@ Beregnes af `scripts/common.py → assess()`, så alle kilder vurderes ens:
 | Simba Car Hire | Åbent JSON-endpoint (`lrlwqpqeamafcsoegdvh.supabase.co/functions/v1/rcm-fetch-relocations`), som deres React-side kalder. Almindelige biler. | `scripts/sources/simba.py` |
 | Autosleepers | Almindelig HTML-tabel pr. afhentningsby på `autosleepers.com.au/relocations`. Står der «None at the moment», er der intet. | `scripts/sources/autosleepers.py` |
 
+Dertil overvåges tolv udlejersider der ikke har nogen liste at aflæse, kun løbende tekst
+(`scripts/sources/watchpages.py`). Modulet gemmer et fingeraftryk af de afsnit der handler om
+flytninger og siger til i loggen, hvis teksten ændrer sig, eller hvis der optræder en rigtig rute
+fra Brisbane til Sydney. Bymenuer filtreres fra, ellers giver de falske alarmer hele tiden.
+
+**DriveNow er en undtagelse.** Cloudflare afviser GitHubs servere, også med en rigtig browser, så
+den står i `RESIDENTIAL_ONLY` i `scripts/refresh.py`. Den springes over uden at tælle som fejl, når
+jobbet kører i skyen, og læses i stedet når `scripts/local_refresh.sh` kører fra Karstens Mac
+(launchd-job `dk.cpha.relocation-watch`, fire gange dagligt i maskinens lokaltid).
+
 Fejler en kilde, beholdes dens gamle opslag, og fejlen står i loggen og på kildekortet («FEJLEDE»).
 Nye kilder tilføjes som en fil i `scripts/sources/` med `SOURCE`, `LABEL` og `fetch_deals(window, now)`,
 og navnet skrives ind i `SOURCES` i `scripts/refresh.py` plus `autoKey` på kilden i `data.json`.

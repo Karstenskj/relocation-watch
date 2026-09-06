@@ -44,6 +44,16 @@ def main():
                                   "count": counts.get(mod.LABEL),
                                   "skipped": mod.LABEL in skipped}
 
+    # Sider uden struktureret liste: hold øje med om de ændrer sig.
+    watch_notes = []
+    try:
+        from sources import watchpages
+        entries, fingerprints, watch_notes = watchpages.check(now, data.get("watchState") or {})
+        data["watch"] = entries
+        data["watchState"] = fingerprints
+    except Exception as e:
+        print(f"Sideovervågning fejlede ({type(e).__name__}: {str(e)[:100]})")
+
     old = {x["id"]: x for x in data["deals"] if x.get("source") in ok_sources}
     kept = [x for x in data["deals"] if x.get("source") not in ok_sources]
     data["deals"] = kept + fresh
@@ -72,6 +82,7 @@ def main():
                     f"{x['availability']['from']}–{x['availability']['to']}")
     for x in gone:
         bits.append(f"væk: {x['platform']}: {x['vehicle']} ({x['route']})")
+    bits += watch_notes
     bits += [f"FEJL: {f}" for f in failures]
     if skipped:
         bits.append(", ".join(skipped) + " kunne ikke læses herfra (kræver almindelig internetforbindelse)")

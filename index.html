@@ -271,6 +271,13 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="tags"><span class="tag">${esc(s.type)}</span>
      <span class="tag ${srcTag(s)[0]}">${srcTag(s)[1]}</span></div></div>`).join("")}</div>
 
+   ${d.watch&&d.watch.length?`<h2>Sider robotten holder øje med</h2>
+   <p class="hint">Disse udlejere har ingen liste at aflæse, kun løbende tekst. Robotten gemmer et aftryk af siden og siger til i loggen, hvis teksten ændrer sig, eller hvis der pludselig står en rute fra Brisbane til Sydney.</p>
+   <div class="srcgrid">${d.watch.map(x=>`<div class="item">
+     <div class="t"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)} →</a></div>
+     <div class="d">${esc(x.detail||"")}</div>
+     <div class="tags"><span class="tag ${x.status==="nævner Brisbane og Sydney"?"auto":x.status==="ændret"?"blok":""}">${esc(x.status)}</span></div></div>`).join("")}</div>`:""}
+
    <h2>Log</h2>
    <p class="hint">Hvad der er sket ved hvert tjek.</p>
    <div class="list">${[...d.log].reverse().map(l=>`<div class="item">
