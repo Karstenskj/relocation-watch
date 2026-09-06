@@ -1,8 +1,13 @@
 name: Opdater relocation-tilbud
 
-# Automatisk opdatering er slået fra. Kun manuel kørsel:
-# GitHub -> Actions -> "Opdater relocation-tilbud" -> Run workflow.
+# Fire gange i døgnet, kun i dagtimerne:
+# 20:30, 00:30, 04:30 og 08:30 UTC
+#   = 09:30, 13:30, 17:30 og 21:30 newzealandsk sommertid (fra 27. sep)
+#   = 06:30, 10:30, 14:30 og 18:30 Brisbane-tid (ingen sommertid i Queensland)
+# Kører på GitHubs egne maskiner — hverken Karstens Mac eller claude.ai er involveret.
 on:
+  schedule:
+    - cron: "30 20,0,4,8 * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,8 +27,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Hent og parse Imoova
-        run: python3 scripts/refresh_imoova.py
+      - name: Læs Imoova og Coseats
+        run: python3 scripts/refresh.py
 
       - name: Commit hvis noget ændrede sig
         run: |
@@ -33,6 +38,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Ingen ændringer."
           else
-            git commit -m "tjek: automatisk opdatering fra Imoova"
+            git commit -m "tjek: automatisk opdatering (Imoova + Coseats)"
             git push
           fi

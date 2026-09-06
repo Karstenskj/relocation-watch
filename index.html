@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c1424">
-<title>Relocation Watch — Christchurch → Auckland</title>
+<title>Relocation Watch — Brisbane → Sydney</title>
 <style>
 :root{
   --bg:#f4f6f9; --bg2:#eaeef4; --card:#fff; --ink:#0d1626; --ink2:#3d4a61; --muted:#6b7a91;
@@ -61,6 +61,7 @@ a{color:var(--accent)}
 /* sections */
 h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
 .hint{color:var(--muted);font-size:.87rem;margin:0 0 16px}
+.empty{background:var(--card);border:1px dashed var(--line2);border-radius:14px;padding:18px;color:var(--muted);font-size:.9rem}
 
 /* deal card */
 .deal{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
@@ -78,6 +79,8 @@ h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
   box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .avail.snaevert{background:var(--warn)}
 .avail.ikke{background:#8592a6}
+.sleep{position:absolute;top:11px;right:11px;font-size:.72rem;font-weight:700;padding:5px 10px;
+  border-radius:999px;background:rgba(13,22,38,.72);color:#fff;backdrop-filter:blur(6px)}
 .body{padding:17px 18px 18px}
 .dhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
 .prov{font-size:1.22rem;font-weight:730;letter-spacing:-.025em;line-height:1.25}
@@ -90,7 +93,7 @@ h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
 .veh{margin:11px 0 0;font-size:.93rem;color:var(--ink2)}
 .rt{margin:3px 0 0;font-size:.85rem;color:var(--muted)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:15px 0 0}
 .cell{background:var(--card);padding:10px 12px}
 .cell .k{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -142,31 +145,33 @@ footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);color:v
 
 <script>
 const SVGS={
- campervan:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M78 118V58c0-7 5-12 12-12h150c6 0 11 3 14 8l30 46c2 3 5 5 9 6l24 4c7 1 12 7 12 14v-6 0h-251z" fill="#8fa3bd"/><path d="M78 118V58c0-7 5-12 12-12h150c6 0 11 3 14 8l30 46c2 3 5 5 9 6l24 4c7 1 12 7 12 14H78z" fill="#a9bcd4"/><rect x="96" y="60" width="62" height="38" rx="4" fill="#e8eef6"/><rect x="168" y="60" width="52" height="38" rx="4" fill="#e8eef6"/><path d="M236 62h18l24 36h-42z" fill="#e8eef6"/><circle cx="126" cy="122" r="19" fill="#3f4b5e"/><circle cx="126" cy="122" r="8" fill="#c8d2df"/><circle cx="286" cy="122" r="19" fill="#3f4b5e"/><circle cx="286" cy="122" r="8" fill="#c8d2df"/></svg>',
+ campervan:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M78 118V58c0-7 5-12 12-12h150c6 0 11 3 14 8l30 46c2 3 5 5 9 6l24 4c7 1 12 7 12 14H78z" fill="#a9bcd4"/><rect x="96" y="60" width="62" height="38" rx="4" fill="#e8eef6"/><rect x="168" y="60" width="52" height="38" rx="4" fill="#e8eef6"/><path d="M236 62h18l24 36h-42z" fill="#e8eef6"/><circle cx="126" cy="122" r="19" fill="#3f4b5e"/><circle cx="126" cy="122" r="8" fill="#c8d2df"/><circle cx="286" cy="122" r="19" fill="#3f4b5e"/><circle cx="286" cy="122" r="8" fill="#c8d2df"/></svg>',
  sedan:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M58 122c-6 0-11-5-11-11v-16c0-8 5-14 13-16l38-9 30-22c5-4 11-6 17-6h68c7 0 13 3 17 8l25 27 44 9c9 2 15 10 15 19v6c0 6-5 11-11 11H58z" fill="#a9bcd4"/><path d="M139 52h56c4 0 8 2 10 5l19 22h-92l3-22c0-3 2-5 4-5z" fill="#e8eef6"/><path d="M118 57l-4 22H86l24-18c2-2 5-3 8-4z" fill="#e8eef6"/><circle cx="118" cy="122" r="21" fill="#3f4b5e"/><circle cx="118" cy="122" r="9" fill="#c8d2df"/><circle cx="288" cy="122" r="21" fill="#3f4b5e"/><circle cx="288" cy="122" r="9" fill="#c8d2df"/></svg>',
- sports:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 132h400v43H0z" fill="#c8d2df"/><path d="M40 126c-6 0-11-5-11-11v-9c0-9 6-16 15-18l55-11 39-21c6-3 12-5 19-5h58c8 0 15 3 20 9l22 25 47 8c11 2 19 11 19 22 0 6-5 11-11 11H40z" fill="#a9bcd4"/><path d="M152 60h51c4 0 8 2 11 5l17 20h-88l4-20c1-3 3-5 5-5z" fill="#e8eef6"/><circle cx="110" cy="126" r="22" fill="#3f4b5e"/><circle cx="110" cy="126" r="9" fill="#c8d2df"/><circle cx="296" cy="126" r="22" fill="#3f4b5e"/><circle cx="296" cy="126" r="9" fill="#c8d2df"/></svg>'};
+ van:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M70 120V54c0-6 5-11 11-11h190c6 0 11 3 14 8l34 44c3 4 8 7 13 7h4c6 0 10 5 10 10v8H70z" fill="#a9bcd4"/><rect x="90" y="56" width="70" height="40" rx="4" fill="#e8eef6"/><path d="M262 56h14l30 40h-44z" fill="#e8eef6"/><circle cx="120" cy="122" r="20" fill="#3f4b5e"/><circle cx="120" cy="122" r="8" fill="#c8d2df"/><circle cx="292" cy="122" r="20" fill="#3f4b5e"/><circle cx="292" cy="122" r="8" fill="#c8d2df"/></svg>'};
+SVGS.suv=SVGS.sedan; SVGS.truck=SVGS.van; SVGS.minibus=SVGS.van;
 const AVAIL={ledig:["","Ledig"],"ledig-snaevert":["snaevert","Ledig — snævert vindue"],"ikke-i-vindue":["ikke","Ikke i dit vindue"],udsolgt:["ikke","Udsolgt"],ukendt:["ikke","Ukendt"]};
 const VERD={passer:"Passer",naesten:"Tæt på",nej:"Opfylder ikke"};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dk=s=>s?new Date(s+"T00:00:00").toLocaleDateString("da-DK",{day:"numeric",month:"short"}):"";
+let CAP=50;
 
 function card(d){
   const [ac,at]=AVAIL[d.availability?.state]||["ikke","Ukendt"];
   const media=d.imageUrl
     ? `<img src="${esc(d.imageUrl)}" alt="${esc(d.vehicle)}" loading="lazy">${d.imageCredit?`<div class="credit">${esc(d.imageCredit)}</div>`:""}`
     : (SVGS[d.vehicleType]||SVGS.sedan);
+  const fuelOk=d.fuel&&!/^ikke/.test(d.fuel);
   const cells=[
-    ["Pris",esc(d.totalCost||d.price),d.pricePerDay!==null&&d.pricePerDay<=20?"ok":""],
+    ["Pris i alt",esc(d.totalCost||d.price),d.pricePerDay!==null&&d.pricePerDay<=CAP?"ok":"no"],
     ["Dage",d.days,""],
-    ["Færge",d.ferry==="inkluderet"?"Inkluderet":d.ferry==="ubekræftet"?"Ubekræftet":"Ikke inkl.",
-      d.ferry==="inkluderet"?"ok":"no"],
-    ["Brændstof",d.fuel&&d.fuel.startsWith("1 gratis")?"1 gratis tank":d.fuel==="ikke inkluderet"?"Selv":"—",
-      d.fuel&&d.fuel.startsWith("1 gratis")?"ok":""],
+    ["Brændstof",fuelOk?esc(d.fuel):"Selv",fuelOk?"ok":""],
+    ["Sove i bilen",d.canSleepIn?(d.sleeps?`Ja, ${d.sleeps} pers.`:"Ja"):"Nej",d.canSleepIn?"ok":""],
+    d.kmLimit?["Km inkl.",esc(d.kmLimit),""]:null,
     d.bond?["Depositum",esc(d.bond),""]:null,
     d.minAge?["Alderskrav",d.minAge+" år",""]:null
   ].filter(Boolean).map(([k,v,c])=>`<div class="cell ${c}"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
   return `<article class="deal ${d.fit}">
-   <div class="photo"><span class="avail ${ac}">${at}</span>${media}</div>
+   <div class="photo"><span class="avail ${ac}">${at}</span>${d.canSleepIn?'<span class="sleep">🛏 Kan sove i</span>':""}${media}</div>
    <div class="body">
      <div class="dhead">
        <div><div class="prov">${esc(d.provider)}</div><div class="plat">${esc(d.platform)}</div></div>
@@ -178,32 +183,33 @@ function card(d){
      <div class="plan"><div class="k">Din plan</div><div class="v">${esc(d.yourPlan)}</div></div>
      <p class="why">${esc(d.fitReason)}</p>
      <p class="meta">📅 ${esc(d.availability.detail)}${d.availability.spaces?` · ${esc(d.availability.spaces)}`:""}</p>
-     <p class="meta">⛴ ${esc(d.ferryDetail)}</p>
+     <p class="meta">🧾 ${esc(d.price)}</p>
      ${d.notes?`<p class="meta">${esc(d.notes)}</p>`:""}
-     <a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">Åbn hos ${esc(d.provider)} →</a>
+     <a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">Åbn hos ${esc(d.platform)} →</a>
    </div></article>`;
 }
 
 fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
-  const w=d.window, deals=d.deals, ord={passer:0,naesten:1,nej:2};
-  const by=f=>deals.filter(x=>x.fit===f).sort((a,b)=>(a.pricePerDay??99)-(b.pricePerDay??99));
+  const w=d.window, deals=d.deals; CAP=w.maxPricePerDayAUD;
+  const by=f=>deals.filter(x=>x.fit===f).sort((a,b)=>((a.pricePerDay??99)-(b.pricePerDay??99))||((b.canSleepIn?1:0)-(a.canSleepIn?1:0))||((b.days||0)-(a.days||0)));
   const upd=new Date(d.updated);
   document.getElementById("stamp").innerHTML=
     `Opdateret ${upd.toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}<br>Tjekkes 4× dagligt`;
 
-  const sec=(title,hint,html)=>html?`<h2>${title}</h2><p class="hint">${hint}</p>${html}`:"";
+  const sec=(title,hint,html,emptyText)=>`<h2>${title}</h2><p class="hint">${hint}</p>${html||`<div class="empty">${emptyText}</div>`}`;
+  const autoSrc=d.sources.filter(s=>s.access==="auto").length;
 
   document.getElementById("app").innerHTML=`
    <div class="hero">
      <div class="route"><span class="city">${esc(w.origin)}</span><span class="arrow">→</span><span class="city">${esc(w.destination)}</span></div>
-     <p class="lede">Gratis eller næsten gratis biler og campervans der skal flyttes nordpå. Overvåges automatisk fire gange i døgnet.</p>
+     <p class="lede">Gratis eller næsten gratis biler og campervans der skal flyttes sydpå. Overvåges automatisk fire gange i døgnet.</p>
      <div class="chips">
-       <span class="chip">Afhentning <b>fra ${dk(w.pickupFrom)}</b></span>
-       <span class="chip">Aflevering <b>${dk(w.dropoffFrom)} – ${dk(w.dropoffTo)}</b></span>
-       <span class="chip">Maks <b>${w.maxPricePerDayNZD} NZD/dag</b></span>
-       <span class="chip"><b>Færge betalt</b> — krav</span>
-       <span class="chip"><b>${w.pax} person</b></span>
+       <span class="chip">Afhentning <b>${dk(w.pickupFrom)} – ${dk(w.pickupTo)}</b></span>
+       <span class="chip">Aflevering <b>${esc(w.destination)}</b>, fleksibel dato</span>
+       <span class="chip">Maks <b>${w.maxPricePerDayAUD} AUD/dag</b></span>
+       <span class="chip"><b>${w.pax} personer</b></span>
        <span class="chip">${esc(w.preference)}</span>
+       ${w.originAlternatives?.length?`<span class="chip">Også ${esc(w.originAlternatives.join(" og "))} som «tæt på»</span>`:""}
      </div>
      <div class="stats">
        <div class="stat g"><div class="n">${by("passer").length}</div><div class="l">opfylder alle krav</div></div>
@@ -212,9 +218,9 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      </div>
    </div>
 
-   ${sec("Opfylder alle dine krav","Færgen er betalt, prisen er under grænsen, og datoerne går op.",by("passer").map(card).join(""))}
-   ${sec("Tæt på","Passer på datoer og pris, men mangler en bekræftelse eller har et forbehold.",by("naesten").map(card).join(""))}
-   ${sec("Opfylder ikke kravene","Med her så du kender nødløsningerne.",by("nej").map(card).join(""))}
+   ${sec("Opfylder alle dine krav","Afhentning i Brisbane 30. sep – 3. okt, prisen under grænsen.",by("passer").map(card).join(""),"Ingen lige nu. Udbyderne lægger typisk Brisbane → Sydney op 1-3 uger før afhentning, så siden tjekker fire gange dagligt og alarmerne nedenfor giver besked.")}
+   ${sec("Tæt på","Prisen passer, men datoerne rammer lige ved siden af, eller afhentningen er i Gold Coast/Sunshine Coast.",by("naesten").map(card).join(""),"Ingen lige nu.")}
+   ${sec("Opfylder ikke kravene","Med her så du kan se hvad ruten plejer at byde på.",by("nej").map(card).join(""),"Ingen lige nu.")}
 
    <h2>Disse skal du selv tjekke</h2>
    <p class="hint">Jeg kan ikke læse dem automatisk. Her står præcis hvorfor, og hvad jeg gør i stedet.</p>
@@ -230,20 +236,20 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="d">${esc(a.how)}<br><b>Hvorfor:</b> ${esc(a.why)}</div>
      <div class="tags"><span class="tag">${a.minutes} min</span></div></div>`).join("")}</div>
 
-   <h2>Sportsvogn — direkte henvendelser</h2>
-   <p class="hint">Relocation-platformene har aldrig sportsvogne. Det her er den eneste vej.</p>
+   <h2>Skriv direkte til udlejerne</h2>
+   <p class="hint">Mange udlejere lægger aldrig deres flytninger på platformene. En kort mail til afdelingen i Brisbane virker ofte.</p>
    <div class="list">${[...d.outreach].sort((a,b)=>a.priority-b.priority).map(o=>`<div class="item">
      <div class="t"><a href="${esc(o.email?"mailto:"+o.email:o.url)}" target="_blank" rel="noopener">${esc(o.name)} →</a></div>
-     <div class="d">${esc(o.why)}${o.email?`<br>✉ ${esc(o.email)}`:""}</div>
+     <div class="d">${esc(o.why)}${o.email?`<br>✉ ${esc(o.email)}`:""}${o.phone?`<br>☎ ${esc(o.phone)}`:""}</div>
      <div class="tags"><span class="tag">${esc(o.status)}</span></div></div>`).join("")}</div>
 
    <h2>Alle overvågede kilder</h2>
-   <p class="hint">${d.sources.filter(s=>s.access==="auto").length} læses automatisk · ${d.sources.filter(s=>s.access!=="auto").length} kræver omveje.</p>
+   <p class="hint">${autoSrc} læses automatisk · ${d.sources.length-autoSrc} kræver omveje.</p>
    <div class="srcgrid">${[...d.sources].sort((a,b)=>a.priority-b.priority).map(s=>`<div class="item">
      <div class="t"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} →</a></div>
-     <div class="d">${esc(s.note)}</div>
+     <div class="d">${esc(s.note)}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${new Date(s.lastCheck.ts).toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}${s.lastCheck.ok?` · ${s.lastCheck.count} opslag på ruten`:" · FEJLEDE"}</span>`:""}</div>
      <div class="tags"><span class="tag">${esc(s.type)}</span>
-     <span class="tag ${s.access==="auto"?"auto":"blok"}">${s.access==="auto"?"læses automatisk":s.access==="blokeret"?"blokeret":s.access==="js"?"kun JavaScript":"delvis"}</span></div></div>`).join("")}</div>
+     <span class="tag ${s.access==="auto"?"auto":"blok"}">${s.access==="auto"?"læses automatisk":s.access==="blokeret"?"blokeret":s.access==="js"?"kun JavaScript":s.access==="doed"?"død side":"delvis"}</span></div></div>`).join("")}</div>
 
    <h2>Log</h2>
    <p class="hint">Hvad der er sket ved hvert tjek.</p>
@@ -251,7 +257,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="t">${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}</div>
      <div class="d">${esc(l.summary)}</div></div>`).join("")}</div>
 
-   <footer>Tjekkes automatisk 06:50, 11:50, 16:50 og 21:50 newzealandsk tid.<br>
+   <footer>Tjekkes automatisk 09:30, 13:30, 17:30 og 21:30 newzealandsk tid (06:30, 10:30, 14:30 og 18:30 i Brisbane).<br>
    Alle datoer og priser skal bekræftes hos udlejeren før du booker.</footer>`;
 }).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json — ${esc(e.message)}</div>`});
 </script>
