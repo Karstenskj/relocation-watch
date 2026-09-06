@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T07:40:48+10:00",
+  "updated": "2026-09-07T07:49:57+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -43,7 +43,7 @@
         "to": "2026-09-15",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-15 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -79,7 +79,7 @@
         "to": "2026-09-15",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-15 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -115,7 +115,7 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
@@ -151,7 +151,7 @@
         "to": "2026-09-16",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-16 til 2026-09-16 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -187,7 +187,7 @@
         "to": "2026-09-21",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-19 til 2026-09-21 med 3 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -223,7 +223,7 @@
         "to": "2026-09-12",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-09 til 2026-09-12 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -259,7 +259,7 @@
         "to": "2026-09-13",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-13 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -295,7 +295,7 @@
         "to": "2026-09-11",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-11 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -331,7 +331,7 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -367,49 +367,13 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
       "fit": "nej",
       "fitReason": "Afhentning i Gold Coast og ingen dato i dit vindue.",
       "notes": "Automatisk aflæst fra Imoova. Reference RLC120731."
-    },
-    {
-      "id": "imoova-rlc120676",
-      "source": "imoova-auto",
-      "provider": "Imoova",
-      "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/australia/sunshine-coast-to-sydney/RLC120676",
-      "vehicle": "Standard SUV · 5 sæder · automatgear",
-      "vehicleType": "suv",
-      "sleeps": null,
-      "canSleepIn": false,
-      "imageUrl": "img/rlc120676.webp",
-      "imageCredit": "Foto: Imoova",
-      "route": "Sunshine Coast → Sydney",
-      "pickupCity": "Sunshine Coast",
-      "days": 4,
-      "price": "1 AUD/dag · 49 AUD bookinggebyr · op til 4 ekstra dage à 100 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "53 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1600 km",
-      "minAge": 21,
-      "bond": null,
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-09-11",
-        "to": "2026-09-27",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
-      "fit": "nej",
-      "fitReason": "Afhentning i Sunshine Coast og ingen dato i dit vindue.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC120676."
     },
     {
       "id": "imoova-rlc120668",
@@ -439,7 +403,7 @@
         "to": "2026-09-21",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-21 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -475,13 +439,49 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
       "fit": "nej",
       "fitReason": "Afhentning i Sunshine Coast og ingen dato i dit vindue.",
       "notes": "Automatisk aflæst fra Imoova. Reference RLC120669."
+    },
+    {
+      "id": "transfercar-672607",
+      "source": "transfercar-auto",
+      "provider": "Awesome Campers",
+      "platform": "Transfercar",
+      "url": "https://www.transfercar.com.au/relocation/Brisbane/Sydney/672607",
+      "vehicle": "2 Berth Campervan · sover 2",
+      "vehicleType": "campervan",
+      "sleeps": 2,
+      "canSleepIn": true,
+      "imageUrl": "img/tc-672607.png",
+      "imageCredit": "Foto: Transfercar",
+      "route": "Brisbane → Sydney",
+      "pickupCity": "Brisbane",
+      "days": 2,
+      "price": "0 AUD/dag i 2 gratis dage · op til 8 ekstra dage à 80 AUD · 100 AUD refunderbart depositum til udlejer",
+      "pricePerDay": 0.0,
+      "totalCost": "0 AUD + brændstof",
+      "fuel": "ikke inkluderet",
+      "kmLimit": null,
+      "minAge": 21,
+      "bond": "3000 AUD",
+      "availability": {
+        "state": "ikke-i-vindue",
+        "from": "2026-09-07",
+        "to": "2026-09-15",
+        "spaces": "1 køretøj",
+        "detail": "Afhentning mulig 2026-09-07 til 2026-09-15, aflevering senest 2026-09-16, 2 gratis dage.",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Ingen dato lander i dit vindue",
+      "fit": "nej",
+      "fitReason": "Ingen afhentningsdato lander i dit vindue.",
+      "notes": "Automatisk aflæst fra Transfercar (opslag 672607). Udlejer: Awesome Campers. Sikkerhedsstillelse (bond) 3000 AUD på kreditkort ved afhentning. Vejafgifter (tolls) er ikke inkluderet. Afhentning Virginia (Brisbane), aflevering Como (Sydney)."
     },
     {
       "id": "transfercar-671989",
@@ -511,7 +511,7 @@
         "to": "2026-09-13",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-13, aflevering senest 2026-09-14, 2 gratis dage.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -547,49 +547,13 @@
         "to": "2026-09-12",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-09 til 2026-09-12, aflevering senest 2026-09-13, 2 gratis dage.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
       "fit": "nej",
       "fitReason": "Ingen afhentningsdato lander i dit vindue.",
       "notes": "Automatisk aflæst fra Transfercar (opslag 671988). Udlejer: Camperman. Sikkerhedsstillelse (bond) 2000 AUD på kreditkort ved afhentning. Afhentning Virginia (Brisbane), aflevering Caringbah (Sydney)."
-    },
-    {
-      "id": "transfercar-671035",
-      "source": "transfercar-auto",
-      "provider": "Awesome Campers",
-      "platform": "Transfercar",
-      "url": "https://www.transfercar.com.au/relocation/Brisbane/Sydney/671035",
-      "vehicle": "2 Berth Campervan · sover 2",
-      "vehicleType": "campervan",
-      "sleeps": 2,
-      "canSleepIn": true,
-      "imageUrl": "img/tc-671035.png",
-      "imageCredit": "Foto: Transfercar",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 2,
-      "price": "0 AUD/dag i 2 gratis dage · 100 AUD refunderbart depositum til udlejer",
-      "pricePerDay": 0.0,
-      "totalCost": "0 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": null,
-      "minAge": 21,
-      "bond": "3000 AUD",
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-09-16",
-        "to": "2026-09-16",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-16 til 2026-09-16, aflevering senest 2026-09-17, 2 gratis dage.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Ingen dato lander i dit vindue",
-      "fit": "nej",
-      "fitReason": "Ingen afhentningsdato lander i dit vindue.",
-      "notes": "Automatisk aflæst fra Transfercar (opslag 671035). Udlejer: Awesome Campers. Sikkerhedsstillelse (bond) 3000 AUD på kreditkort ved afhentning. Vejafgifter (tolls) er ikke inkluderet. Afhentning Virginia (Brisbane), aflevering Como (Sydney)."
     },
     {
       "id": "transfercar-671036",
@@ -619,7 +583,7 @@
         "to": "2026-09-21",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-19 til 2026-09-21, aflevering senest 2026-09-22, 3 gratis dage.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -655,7 +619,7 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28, aflevering senest 2026-09-29, 2 gratis dage.",
-        "checkedAt": "2026-09-07T07:40:48+10:00",
+        "checkedAt": "2026-09-07T07:49:57+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -751,9 +715,9 @@
       "autoKey": "imoova",
       "note": "Størst i Australien. Læses via deres eget API, så alle opslag kommer med, også fra Gold Coast og Sunshine Coast.",
       "lastCheck": {
-        "ts": "2026-09-07T07:40:48+10:00",
+        "ts": "2026-09-07T07:49:57+10:00",
         "ok": true,
-        "count": 13
+        "count": 12
       }
     },
     {
@@ -765,7 +729,7 @@
       "autoKey": "transfercar",
       "note": "Gratis eller 1 AUD/dag, oftest Awesome Campers og Camperman på ruten. Siden blokerer robotter, men vi læser deres eget API med de nøgler siden selv udleverer.",
       "lastCheck": {
-        "ts": "2026-09-07T07:40:48+10:00",
+        "ts": "2026-09-07T07:49:57+10:00",
         "ok": true,
         "count": 5
       }
@@ -779,7 +743,7 @@
       "autoKey": "coseats",
       "note": "1 AUD/dag, 39 AUD bookinggebyr, ofte gratis brændstof. Sælger THL's campere (Britz, Maui, Mighty). Læses via deres app-API.",
       "lastCheck": {
-        "ts": "2026-09-07T07:40:48+10:00",
+        "ts": "2026-09-07T07:49:57+10:00",
         "ok": true,
         "count": 0
       }
@@ -793,7 +757,7 @@
       "autoKey": "simba",
       "note": "Almindelige personbiler, 20-50 AUD/dag med 1 AUD envejsgebyr. Har i dag ingen Brisbane → Sydney, men kører Sydney og Melbourne-ruter jævnligt.",
       "lastCheck": {
-        "ts": "2026-09-07T07:40:48+10:00",
+        "ts": "2026-09-07T07:49:57+10:00",
         "ok": true,
         "count": 0
       }
@@ -807,7 +771,7 @@
       "autoKey": "autosleepers",
       "note": "1 AUD/dag med egen Brisbane-afdeling. Listen står som almindelig tabel, så den læses automatisk. Tom lige nu.",
       "lastCheck": {
-        "ts": "2026-09-07T07:40:48+10:00",
+        "ts": "2026-09-07T07:49:57+10:00",
         "ok": true,
         "count": 0
       }
@@ -821,9 +785,9 @@
       "note": "Australiens tredjestørste relocation-liste (34 tilbud i dag), alle fra THL. Selve siden er spærret og bygges med JavaScript, men den adresse siden selv henter data fra svarer på et almindeligt kald, og det er den vi bruger. Fornys hver morgen for afrejse op til 30 dage frem.",
       "autoKey": "drivenow",
       "lastCheck": {
-        "ts": "2026-09-07T07:40:48+10:00",
-        "ok": true,
-        "count": 0
+        "ts": "2026-09-07T07:49:57+10:00",
+        "ok": false,
+        "count": null
       }
     },
     {
@@ -1161,6 +1125,10 @@
     {
       "ts": "2026-09-07T07:40:48+10:00",
       "summary": "Automatisk tjek (Imoova 13 opslag, Transfercar 5 opslag, Coseats 0 opslag, DriveNow 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): ingen ændringer."
+    },
+    {
+      "ts": "2026-09-07T07:49:57+10:00",
+      "summary": "Automatisk tjek (Imoova 12 opslag, Transfercar 5 opslag, Coseats 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): 1 nye opslag uden for dit vindue · væk: Imoova: Standard SUV · 5 sæder · automatgear (Sunshine Coast → Sydney) · væk: Transfercar: 2 Berth Campervan · sover 2 (Brisbane → Sydney) · FEJL: DriveNow kunne ikke læses (HTTPError: HTTP Error 403: Forbidden)"
     }
   ]
 }
