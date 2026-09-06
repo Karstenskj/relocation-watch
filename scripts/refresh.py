@@ -9,7 +9,7 @@ import importlib, json, sys, pathlib, traceback
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from common import ROOT, now_iso
 
-SOURCES = ["imoova", "coseats"]
+SOURCES = ["imoova", "coseats", "transfercar"]
 
 
 def main():

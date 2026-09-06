@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Læs Imoova og Coseats
+      - name: Læs Imoova, Coseats og Transfercar
         run: python3 scripts/refresh.py
 
       - name: Commit hvis noget ændrede sig
@@ -38,6 +38,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Ingen ændringer."
           else
-            git commit -m "tjek: automatisk opdatering (Imoova + Coseats)"
+            git commit -m "tjek: automatisk opdatering (Imoova, Coseats, Transfercar)"
             git push
           fi
