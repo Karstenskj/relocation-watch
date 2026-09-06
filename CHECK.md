@@ -118,6 +118,26 @@ Finder du en udbyder der ikke står i `sources`, så tilføj den med navn, URL, 
 6. Tilføj **én** post i `log`. Behold højst 40.
 7. Commit og push til `main` med beskeden `tjek: <kort opsummering>`.
 
+## Slukkeknappen
+
+Datoen står ét sted: `window.stopAfter` i `data.json`, sat til **2026-10-03**, som er Karstens
+sidste mulige afhentningsdag. Overvågningen kører til og med den dato og slukker derefter sig selv.
+
+- `scripts/refresh.py` tjekker datoen først. Er den passeret, hentes ingenting, der skrives en
+  afsluttende status (`stopped`) og en sidste log-post, og resten springes over.
+- GitHub-arbejdsgangen kalder derefter `PUT /actions/workflows/refresh.yml/disable`, så tidsplanen
+  holder op med at udløse. Den kan tændes igen med `gh workflow enable refresh.yml`.
+- `scripts/local_refresh.sh` omdøber sin egen plist til `.slukket` og kører
+  `launchctl bootout gui/$(id -u)/dk.cpha.relocation-watch`.
+- `index.html` viser et banner, dæmper prikken i topbaren og skriver «Slukket» i stedet for
+  «Tjekkes 4× dagligt`».
+
+Hele kæden er afprøvet 7. september 2026 ved at sætte datoen tilbage i tiden. Både tidsplanen og
+det lokale job slukkede korrekt, og begge blev tændt igen bagefter.
+
+Skal ruten bruges igen, så ret `stopAfter`, kør `gh workflow enable refresh.yml`, og geninstallér
+det lokale job med `launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/dk.cpha.relocation-watch.plist`.
+
 ## Vigtigt
 
 - Opfind aldrig et tilbud, en dato eller en inklusion. Karsten booker på det her.
