@@ -43,7 +43,10 @@ Beregnes af `scripts/common.py → assess()`, så alle kilder vurderes ens:
 | Kilde | Hvordan | Fil |
 |---|---|---|
 | Imoova | GraphQL-API (`api.imoova.com/graphql`), samme kald som deres side laver. Henter Brisbane, Gold Coast og Sunshine Coast → Sydney med alle sider. | `scripts/sources/imoova.py` |
+| Transfercar | REST-API (`api.transfercar.com.au/listings.json`). Kræver to CF-Access-headers, som søgesiden selv udleverer i sin HTML. De hentes ved hver kørsel og har en indbygget reserve, hvis de bliver skiftet. Detaljer pr. opslag hentes fra `/listing/<id>` for udlejer, depositum og aldersgrænse. | `scripts/sources/transfercar.py` |
 | Coseats | JSON-API bag app.coseats.com (`coseats-au.herokuapp.com/trips/search/findRelocations`). Filtreres på ruten. | `scripts/sources/coseats.py` |
+| Simba Car Hire | Åbent JSON-endpoint (`lrlwqpqeamafcsoegdvh.supabase.co/functions/v1/rcm-fetch-relocations`), som deres React-side kalder. Almindelige biler. | `scripts/sources/simba.py` |
+| Autosleepers | Almindelig HTML-tabel pr. afhentningsby på `autosleepers.com.au/relocations`. Står der «None at the moment», er der intet. | `scripts/sources/autosleepers.py` |
 
 Fejler en kilde, beholdes dens gamle opslag, og fejlen står i loggen og på kildekortet («FEJLEDE»).
 Nye kilder tilføjes som en fil i `scripts/sources/` med `SOURCE`, `LABEL` og `fetch_deals(window, now)`,
@@ -65,14 +68,18 @@ skal det stå i loggen med navn og årsag.
 
 Kendte adgangsforhold:
 
-- **transfercar.com.au**: Cloudflare afviser almindelige `curl`-kald (403), men svarer 200 når man
-  sender fulde browser-headers (`Accept: text/html…`, `Sec-Fetch-Mode: navigate`, `Sec-Fetch-Dest: document`,
-  `Upgrade-Insecure-Requests: 1`) over HTTP/1.1. Søgesiden er en Next.js-app, hvor opslagene hentes
-  af browseren. Bliver det ikke automatiseret, så brug WebSearch med `allowed_domains: ["transfercar.com.au"]`.
-- **drivenow.com.au**: samme Cloudflare-mønster. `onewayrentals.jspc` svarer 200 med fulde headers.
+- **transfercar.com.au**: selve hjemmesiden er bag Cloudflare, men API'et er åbent, og siden udleverer
+  selv nøglerne. Det er derfor den nu læses automatisk. Skulle API'et lukke, svarer HTML-siderne stadig
+  200 med fulde browser-headers (`Accept: text/html…`, `Sec-Fetch-Mode: navigate`, `Sec-Fetch-Dest: document`,
+  `Upgrade-Insecure-Requests: 1`) over HTTP/1.1, og ellers virker WebSearch med `allowed_domains: ["transfercar.com.au"]`.
+- **drivenow.com.au**: Cloudflare afviser alt, og listen bygges af JavaScript med hash-routing
+  (`#/relocations/AU`). `onewayrentals.jspc` svarer 200 med fulde browser-headers, men rækkerne står
+  ikke i HTML'en, og der blev ikke fundet noget XHR-endpoint. Skal åbnes manuelt. Har en watch list.
 - **gumtree.com.au**, **backpackerjobboard.com.au**: 403 på alt. Brug WebSearch begrænset til domænet.
-- **cheapacampa.com**: 403 på hele domænet. Apollo-koncernens (Apollo, Cheapa, Hippie, Star RV)
-  flytninger sælges typisk via Imoova og DriveNow.
+- **cheapacampa.com.au**: relocation-siden ligger bag login. THL-koncernens (Britz, maui, Mighty,
+  Cheapa, Apollo, Hippie) flytninger sælges via Imoova, Coseats og DriveNow, eller på telefon 1800 331 454.
+- **facebook.com**: alle sider og grupper kræver login. Transfercars egen side annoncerer ruten, men de
+  samme opslag ender i deres søgeliste, som læses automatisk.
 
 Søgninger der køres hver gang:
 
@@ -80,6 +87,10 @@ Søgninger der køres hver gang:
 - `relocation car Brisbane to Sydney october 2026`
 - `campervan relocation australia facebook group` (udlejere poster dér før platformene)
 - `one way relocation Gold Coast to Sydney`
+
+**Timing er det vigtigste på denne rute.** Udlejerne lægger Brisbane → Sydney op 1-3 uger før
+afhentning. For 30. sep til 3. okt betyder det, at tilbuddene først for alvor kommer fra omkring
+9.-12. september. Er listen tom før det, er det normalt og ikke en fejl.
 
 Finder du en udbyder der ikke står i `sources`, så tilføj den med navn, URL, type, prioritet,
 `access` og en kort note, også selvom den ikke har noget lige nu.

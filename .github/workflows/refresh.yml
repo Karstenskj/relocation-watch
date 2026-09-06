@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Læs Imoova, Coseats og Transfercar
+      - name: Læs alle automatiske kilder
         run: python3 scripts/refresh.py
 
       - name: Commit hvis noget ændrede sig

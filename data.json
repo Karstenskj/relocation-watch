@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T06:54:59+10:00",
+  "updated": "2026-09-07T07:01:09+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -43,7 +43,7 @@
         "to": "2026-09-15",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-15 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -79,7 +79,7 @@
         "to": "2026-09-15",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-15 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -115,7 +115,7 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
@@ -151,7 +151,7 @@
         "to": "2026-09-16",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-16 til 2026-09-16 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -187,7 +187,7 @@
         "to": "2026-09-21",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-19 til 2026-09-21 med 3 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -223,7 +223,7 @@
         "to": "2026-09-12",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-09 til 2026-09-12 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -259,7 +259,7 @@
         "to": "2026-09-11",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-11 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -295,7 +295,7 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -331,7 +331,7 @@
         "to": "2026-09-13",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-13 med 2 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -367,7 +367,7 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
@@ -403,7 +403,7 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
@@ -439,7 +439,7 @@
         "to": "2026-09-21",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-21 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -475,7 +475,7 @@
         "to": "2026-09-27",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-11 til 2026-09-27 med 4 dage til turen.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 27. sep, 3 dag(e) for tidligt",
@@ -511,7 +511,7 @@
         "to": "2026-09-13",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-07 til 2026-09-13, aflevering senest 2026-09-14, 2 gratis dage.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -547,7 +547,7 @@
         "to": "2026-09-12",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-09 til 2026-09-12, aflevering senest 2026-09-13, 2 gratis dage.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -583,7 +583,7 @@
         "to": "2026-09-16",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-16 til 2026-09-16, aflevering senest 2026-09-17, 2 gratis dage.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -619,7 +619,7 @@
         "to": "2026-09-21",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-19 til 2026-09-21, aflevering senest 2026-09-22, 3 gratis dage.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -655,7 +655,7 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28, aflevering senest 2026-09-29, 2 gratis dage.",
-        "checkedAt": "2026-09-07T06:54:59+10:00",
+        "checkedAt": "2026-09-07T07:01:09+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -664,8 +664,99 @@
       "notes": "Automatisk aflæst fra Transfercar (opslag 671983). Udlejer: Awesome Campers. Sikkerhedsstillelse (bond) 3000 AUD på kreditkort ved afhentning. Vejafgifter (tolls) er ikke inkluderet. Afhentning Virginia (Brisbane), aflevering Como (Sydney)."
     }
   ],
-  "manualCheck": [],
-  "alerts": [],
+  "manualCheck": [
+    {
+      "name": "DriveNow",
+      "url": "https://www.drivenow.com.au/onewayrentals.jspc",
+      "reason": "Cloudflare afviser alle automatiske kald, og selve listen bygges af JavaScript efter siden er loadet. Hverken browsersignatur, mobilsignatur eller læseproxy kommer igennem.",
+      "workaround": "Åbn den selv en gang om dagen. De har 34 australske tilbud lige nu, og listen opdateres hver morgen mellem 8.30 og 9.30 østaustralsk tid for afrejse to-tre uger frem. Sæt deres watch list op, så kommer de til dig i stedet.",
+      "impact": "høj",
+      "alertUrl": "https://www.drivenow.com.au/relocation-watchlist"
+    },
+    {
+      "name": "Facebook: Transfercar og udlejernes sider",
+      "url": "https://www.facebook.com/Transfercar/",
+      "reason": "Facebook kræver login for at vise opslag, og grupperne er lukkede.",
+      "workaround": "Transfercar annoncerede netop denne rute den 5. august med «Brisbane to Sydney for just $1 a day». De samme opslag ender i deres søgeliste, som jeg læser automatisk, så du taber kun timer, ikke tilbud.",
+      "impact": "middel",
+      "alertUrl": "https://www.facebook.com/Transfercar/"
+    },
+    {
+      "name": "Cheapa Campa, Apollo og Hippie",
+      "url": "https://www.cheapacampa.com.au/campervan-hire-deals",
+      "reason": "Cheapa Campas relocation-side ligger bag login, og Apollo har fjernet deres helt. Hippie er lagt sammen med Mighty.",
+      "workaround": "De tre hører under samme koncern og sælger flytningerne videre til Imoova og DriveNow, som er dækket. Vil du være sikker, så ring 1800 331 454.",
+      "impact": "middel",
+      "alertUrl": null
+    },
+    {
+      "name": "Camplify",
+      "url": "https://www.camplify.com.au/s?pickup=Brisbane&dropoff=Sydney",
+      "reason": "Søgeresultaterne hentes med JavaScript, så der er intet at læse i svaret.",
+      "workaround": "Jeg tjekkede de enkelte udlejere manuelt. Open Road Campervans i East Brisbane tilbyder envejs uden gebyr, men deres Brisbane → Sydney er sat til aflevering 21.-22. november, altså ikke dine datoer. Almindelige priser ligger på 130-250 AUD/dag.",
+      "impact": "lav",
+      "alertUrl": null
+    },
+    {
+      "name": "Indie Campers",
+      "url": "https://indiecampers.com/discover/en-us/deals/oceania",
+      "reason": "Tilbudsoversigten bygges af JavaScript. Serveren sender kun overskriften.",
+      "workaround": "Siden skriver selv «No deals found» i dag. De lover op til 80 procent rabat på envejsture, så den er værd at åbne en gang imellem.",
+      "impact": "lav",
+      "alertUrl": null
+    }
+  ],
+  "alerts": [
+    {
+      "name": "Transfercar e-mailalarm",
+      "url": "https://www.transfercar.com.au/",
+      "how": "Opret gratis login → My Transfercar → Email notification → gem ruten Brisbane til Sydney.",
+      "why": "Transfercar har flest tilbud på præcis din rute, og de bliver revet væk. Alarmen kommer før mit tjek fire gange dagligt.",
+      "minutes": 3
+    },
+    {
+      "name": "DriveNow watch list",
+      "url": "https://www.drivenow.com.au/relocation-watchlist",
+      "how": "Udfyld deres relocation watch list med Brisbane til Sydney og dine datoer.",
+      "why": "Det er den eneste vej ind i DriveNows liste, som jeg ikke kan læse automatisk. De opdaterer hver morgen.",
+      "minutes": 3
+    },
+    {
+      "name": "Coseats e-mailalarm",
+      "url": "https://app.coseats.com/campervan-relocation",
+      "how": "Vælg Brisbane og Sydney i de to felter og tryk «get email alerts».",
+      "why": "Coseats sælger THL's campere til 1 AUD/dag uden bookinggebyr. De har ikke ruten lige nu, så alarmen er den bedste måde at fange den på.",
+      "minutes": 2
+    },
+    {
+      "name": "Imoova venteliste",
+      "url": "https://www.imoova.com/waitlists",
+      "how": "Opret en waitlist for Brisbane til Sydney med afhentning 30. september til 3. oktober.",
+      "why": "Imoova lægger nye opslag op løbende. Ventelisten giver besked direkte, også mens du sover.",
+      "minutes": 2
+    },
+    {
+      "name": "THL chaufførdatabase (Britz, maui, Mighty)",
+      "url": "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations",
+      "how": "Send navn, adresse og telefonnummer til aurelocsonline@thlonline.com og bed om at komme i chaufførdatabasen.",
+      "why": "Koncernen offentliggør ikke alle flytninger. Databasen er den eneste indgang til dem der aldrig når platformene. Kræver at du er fyldt 21.",
+      "minutes": 3
+    },
+    {
+      "name": "Go With The Gecko chaufførdatabase",
+      "url": "https://gowiththegecko.com.au/relocations/",
+      "how": "Udfyld formularen på deres relocation-side.",
+      "why": "De flytter varevogne og ladvogne til Sydney hver uge, men annoncerer det aldrig. Man skal stå i databasen.",
+      "minutes": 2
+    },
+    {
+      "name": "Autosleepers nyhedsbrev",
+      "url": "https://www.autosleepers.com.au/relocations",
+      "how": "Tilmeld «News & Specials» nederst på deres relocation-side.",
+      "why": "De har egen afdeling i Brisbane og kører 1 AUD/dag. Listen er tom i dag, men jeg læser den automatisk fire gange dagligt, og nyhedsbrevet fanger resten.",
+      "minutes": 1
+    }
+  ],
   "sources": [
     {
       "name": "Imoova",
@@ -674,23 +765,23 @@
       "priority": 1,
       "access": "auto",
       "autoKey": "imoova",
-      "note": "Størst i Australien. Læses via deres eget API, så alle opslag kommer med, også Gold Coast og Sunshine Coast → Sydney.",
+      "note": "Størst i Australien. Læses via deres eget API, så alle opslag kommer med, også fra Gold Coast og Sunshine Coast.",
       "lastCheck": {
-        "ts": "2026-09-07T06:54:59+10:00",
+        "ts": "2026-09-07T07:01:09+10:00",
         "ok": true,
         "count": 13
       }
     },
     {
       "name": "Transfercar",
-      "url": "https://www.transfercar.com.au/search?pickup=custom%3Abrisbane&dropoff=custom%3Asydney&sort_col=dates",
+      "url": "https://www.transfercar.com.au/brisbane-to-sydney",
       "type": "aggregator",
       "priority": 1,
       "access": "auto",
       "autoKey": "transfercar",
-      "note": "Gratis eller 1 AUD/dag, typisk Awesome Campers og Camperman på ruten. Siden blokerer robotter, men vi læser deres eget API med de nøgler siden selv udleverer.",
+      "note": "Gratis eller 1 AUD/dag, oftest Awesome Campers og Camperman på ruten. Siden blokerer robotter, men vi læser deres eget API med de nøgler siden selv udleverer.",
       "lastCheck": {
-        "ts": "2026-09-07T06:54:59+10:00",
+        "ts": "2026-09-07T07:01:09+10:00",
         "ok": true,
         "count": 5
       }
@@ -702,15 +793,368 @@
       "priority": 1,
       "access": "auto",
       "autoKey": "coseats",
-      "note": "1 AUD/dag, 39 AUD bookinggebyr, ofte gratis brændstof. Sælger THL's (Britz/Maui/Mighty) flytninger. Læses via deres API.",
+      "note": "1 AUD/dag, 39 AUD bookinggebyr, ofte gratis brændstof. Sælger THL's campere (Britz, Maui, Mighty). Læses via deres app-API.",
       "lastCheck": {
-        "ts": "2026-09-07T06:54:59+10:00",
+        "ts": "2026-09-07T07:01:09+10:00",
         "ok": true,
         "count": 0
       }
+    },
+    {
+      "name": "Simba Car Hire",
+      "url": "https://www.simbacarhire.com.au/relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "autoKey": "simba",
+      "note": "Almindelige personbiler, 20-50 AUD/dag med 1 AUD envejsgebyr. Har i dag ingen Brisbane → Sydney, men kører Sydney og Melbourne-ruter jævnligt.",
+      "lastCheck": {
+        "ts": "2026-09-07T07:01:09+10:00",
+        "ok": true,
+        "count": 0
+      }
+    },
+    {
+      "name": "Autosleepers Campervan Hire",
+      "url": "https://www.autosleepers.com.au/relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "autoKey": "autosleepers",
+      "note": "1 AUD/dag med egen Brisbane-afdeling. Listen står som almindelig tabel, så den læses automatisk. Tom lige nu.",
+      "lastCheck": {
+        "ts": "2026-09-07T07:01:09+10:00",
+        "ok": true,
+        "count": 0
+      }
+    },
+    {
+      "name": "DriveNow",
+      "url": "https://www.drivenow.com.au/onewayrentals.jspc",
+      "type": "aggregator",
+      "priority": 1,
+      "access": "blokeret",
+      "note": "Australiens tredjestørste relocation-liste (34 tilbud i dag). Cloudflare afviser al automatisk læsning, og listen er en JavaScript-app. Opdateres dagligt kl. 8.30-9.30 østaustralsk tid."
+    },
+    {
+      "name": "Cheapa Campa",
+      "url": "https://www.cheapacampa.com.au/campervan-hire-deals",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "blokeret",
+      "note": "Relocation-siden ligger bag login. Deres tilbud dukker normalt op hos Imoova og DriveNow i stedet."
+    },
+    {
+      "name": "Apollo Motorhome Holidays",
+      "url": "https://www.apollocamper.com/campervan-hire-australia/deals",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "js",
+      "note": "Har ikke længere en relocation-side, alle de gamle adresser er væk. Sælger via Imoova og DriveNow. Telefon 1800 777 779."
+    },
+    {
+      "name": "Mighty Campers",
+      "url": "https://www.mightycampers.com/campervan-hire-australia/deals",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "js",
+      "note": "Tilbudslisten hentes med JavaScript. Hippie Camper er lagt ind under Mighty. THL-koncernen sælger deres flytninger via Coseats og Imoova."
+    },
+    {
+      "name": "Britz Australia",
+      "url": "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "delvis",
+      "note": "Ingen offentlig liste. De har en chaufførdatabase man skriver sig op til, og henviser til at ringe 1800 331 454 tre uger før afrejse."
+    },
+    {
+      "name": "maui Australia",
+      "url": "https://www.maui-rentals.com/motorhome-hire-australia/deals/relocation-vehicles",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "delvis",
+      "note": "Samme koncern som Britz og Mighty. Kun tilmelding til chaufførdatabasen, ingen liste."
+    },
+    {
+      "name": "Star RV Australia",
+      "url": "https://www.starrv.com/au/motorhome-hire-deals-au",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "Har lige nu 50 procent på envejsleje Brisbane → Sydney i en Polaris 6-personers, rejse til og med 30. september. Prisen står ikke på siden og skal hentes i bookingmotoren."
+    },
+    {
+      "name": "JUCY Australia",
+      "url": "https://www.jucy.com/au/en/deals/limited-time-deals",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "50 procent på envejsleje Brisbane → Sydney i en Condo, rejse til og med 30. september, book før 20. september. Rabat på normalpris, ikke en 1-dollar flytning."
+    },
+    {
+      "name": "Camperman Australia",
+      "url": "https://www.campermanaustralia.com/relocation-specials/",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "1 AUD/dag med afdelinger i både Brisbane og Sydney, aldersgrænse 18 år. Skriver selv at deres flytninger lægges op hos Transfercar, Imoova og Coseats, så de fanges automatisk."
+    },
+    {
+      "name": "Awesome Campers",
+      "url": "https://www.awesomecampers.com.au/relocation-specials",
+      "type": "udlejer",
+      "priority": 2,
+      "access": "auto",
+      "note": "1 AUD/dag. Ingen liste på siden, kun en formular, men deres vogne dukker op hos Transfercar (de står bag flere af de nuværende opslag)."
+    },
+    {
+      "name": "Wicked Campers",
+      "url": "https://www.wickedcampers.com.au/relocation",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "delvis",
+      "note": "1 AUD/dag, men ingen liste nogen steder. Man skal ringe på +61 481 606 805 og høre hvad der er."
+    },
+    {
+      "name": "Let's Go Motorhomes",
+      "url": "https://www.letsgomotorhomes.com.au/relocations/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Skriver at de kun lejlighedsvis har flytninger og at man skal ringe hvis man kan rejse inden for tre uger."
+    },
+    {
+      "name": "Travellers Autobarn",
+      "url": "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Har relocation-side, men ingen aktuel Brisbane → Sydney. De poster også på deres Facebook-side."
+    },
+    {
+      "name": "Travelwheels",
+      "url": "https://www.travelwheels.com.au/site/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Sydney-base, har historisk kørt Brisbane → Sydney til 1 AUD/dag med 200 AUD benzin. Ingen relocation-side længere, kun telefon og mail."
+    },
+    {
+      "name": "Go With The Gecko",
+      "url": "https://gowiththegecko.com.au/relocations/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Varevogne, ladvogne og lastbiler der skal retur til Sydney, Brisbane eller Melbourne. Kun chaufførdatabase, ingen liste."
+    },
+    {
+      "name": "Spaceships Australia",
+      "url": "https://www.spaceshipsrentals.com.au/deals",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Kører ikke relocations. De sælger i stedet envejsleje uden envejsgebyr, hvilket er dyrere end en flytning."
+    },
+    {
+      "name": "Cruisin Motorhomes",
+      "url": "https://www.cruisinmotorhomes.com.au/relocation-offers/",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Har en relocation-side, men ingen Brisbane → Sydney lige nu. Deres tilbud går typisk til Hobart og Cairns."
+    },
+    {
+      "name": "Camplify",
+      "url": "https://www.camplify.com.au/s?pickup=Brisbane&dropoff=Sydney",
+      "type": "markedsplads",
+      "priority": 3,
+      "access": "js",
+      "note": "Privat udlejning mellem personer. Listen kræver JavaScript. Enkelte ejere i Brisbane tilbyder envejs uden gebyr, men typisk 130-250 AUD/dag."
+    },
+    {
+      "name": "Indie Campers",
+      "url": "https://indiecampers.com/discover/en-us/deals/oceania",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "js",
+      "note": "Har en tilbudsside for Oceanien med op til 80 procent rabat, men den er tom i dag og hentes med JavaScript."
+    },
+    {
+      "name": "Budget Trucks",
+      "url": "https://www.budgettrucks.com.au/en/offers/qld/one-way-special-bne",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Fast envejstilbud Brisbane eller Gold Coast → Sydney i en 4,2 m flyttevogn, men det koster 1497 AUD for to dage. Langt over din grænse."
+    },
+    {
+      "name": "Motorhome Republic",
+      "url": "https://campers.motorhomerepublic.com/campervans/australia/relocations",
+      "type": "aggregator",
+      "priority": 3,
+      "access": "delvis",
+      "note": "Sammenligningsside der viser de samme udlejere. Deres relocation-side henviser videre til Imoova."
+    },
+    {
+      "name": "Backpacker Job Board",
+      "url": "https://www.backpackerjobboard.com.au/jobs/vehicle-relocations/",
+      "type": "community",
+      "priority": 3,
+      "access": "blokeret",
+      "note": "Statisk vejledningsside om relocations fra 5 AUD/dag, ingen dateret liste. Blokerer automatisk læsning."
+    },
+    {
+      "name": "Facebook: Transfercar, imoova og Coseats",
+      "url": "https://www.facebook.com/Transfercar/",
+      "type": "community",
+      "priority": 2,
+      "access": "blokeret",
+      "note": "Transfercar annoncerer ruter her først, bl.a. «Brisbane to Sydney for just $1 a day» 5. august. Kræver login, kan ikke overvåges automatisk."
+    },
+    {
+      "name": "Facebook-grupper for backpackere",
+      "url": "https://www.facebook.com/groups/australiabackpackersgroup/",
+      "type": "community",
+      "priority": 3,
+      "access": "blokeret",
+      "note": "Gennemgået: Australia Backpackers, Australian Backpackers, VanLife Community, Backpackers Brisbane og Sydney. Feedet er job, bolig og bilsalg, ingen relocation-opslag. Lav værdi."
+    },
+    {
+      "name": "Apex, Redspot, Alpha, East Coast, Bargain og Ace",
+      "url": "https://www.apexrentals.com.au/deals",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "auto",
+      "note": "Alle de billige biludlejere er gennemgået. Ingen af dem har en relocation-side i 2026, kun almindelige envejsgebyrer."
+    },
+    {
+      "name": "Hertz, Avis, Budget, Europcar, Sixt og Thrifty",
+      "url": "https://www.avis.com.au/en/deals/one-way-offers",
+      "type": "udlejer",
+      "priority": 3,
+      "access": "blokeret",
+      "note": "De store kæder offentliggør ikke flytninger. Avis har rabat på envejsleje uden ruter eller priser. Thrifty og Sixt blokerer læsning. Enterprise er lukket i Australien."
+    },
+    {
+      "name": "Døde og parkerede relocation-sider",
+      "url": "https://web.archive.org/web/20251115191811/https://www.rentalcarrelocation.com.au/",
+      "type": "katalog",
+      "priority": 3,
+      "access": "doed",
+      "note": "Tjekket og afskrevet: rentalcarrelocation.com.au, campervanrelocations.com.au, relocations.com.au, relocationcars.com.au, standbyrelocs.com (blev til Imoova), lucky-rentals.com.au og camperman.com.au. Ingen af dem svarer længere."
     }
   ],
-  "outreach": [],
+  "outreach": [
+    {
+      "name": "Star RV Australia",
+      "url": "https://www.starrv.com/au/motorhome-hire-deals-au",
+      "email": null,
+      "phone": "+61 1800 004 040",
+      "priority": 1,
+      "why": "Har lige nu et aktivt Brisbane → Sydney-tilbud med 50 procent rabat på en Polaris 6-personers motorhome, rejse til og med 30. september og booking senest 20. september. Ring og spørg om de forlænger til 1.-3. oktober, og hvad dagsprisen ender på. Det er den bedste konkrete åbning på dine datoer.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "THL relocations (Britz, maui, Mighty, Cheapa, Apollo)",
+      "url": "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations",
+      "email": "aurelocsonline@thlonline.com",
+      "phone": "1800 331 454",
+      "priority": 1,
+      "why": "Landets største camperflåde, og de siger selv at man skal ringe når man kan rejse inden for tre uger. Fra 9. september er dine datoer inden for tre uger. Sæt en påmindelse og ring der.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Camperman Australia",
+      "url": "https://www.campermanaustralia.com/relocation-specials/",
+      "email": "info@camperman.com.au",
+      "phone": "1800 216 223",
+      "priority": 1,
+      "why": "Har afdeling i både Brisbane og Sydney, kører 1 AUD/dag og har kun 18 års aldersgrænse. De står allerede bag flere af opslagene på Transfercar. Spørg direkte om de får vogne der skal sydpå omkring 1. oktober. Regn med 70 AUD i administrationsgebyr og 2000 AUD i sikkerhedsstillelse.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Awesome Campers",
+      "url": "https://www.awesomecampers.com.au/relocation-specials",
+      "email": null,
+      "phone": "+61 2 9740 7462",
+      "priority": 1,
+      "why": "Står bag tre af de nuværende Brisbane → Sydney-opslag på Transfercar, blandt andet en 2-personers Buddy med gratis dage. De lægger nye op løbende, så et opkald kan give dig et før det bliver offentligt. Sikkerhedsstillelse 3000-4000 AUD og 21 års aldersgrænse.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "JUCY Australia",
+      "url": "https://www.jucy.com/au/en/deals/limited-time-deals",
+      "email": null,
+      "phone": "1800 150 850",
+      "priority": 2,
+      "why": "Kører 50 procent på envejsleje Brisbane → Sydney i en Condo-camper med rejse til og med 30. september. Kun din første dag rammer inden for vinduet, så spørg om de forlænger. Prisen står ikke på siden, så få den oplyst før du regner med den.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Travelwheels",
+      "url": "https://www.travelwheels.com.au/site/",
+      "email": "info@travelwheels.com.au",
+      "phone": "+61 412 766 616",
+      "priority": 2,
+      "why": "Har historisk kørt netop Brisbane → Sydney til 1 AUD/dag med op til 200 AUD gratis benzin. De har ingen liste længere, så det kræver en mail eller et opkald.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Wicked Campers",
+      "url": "https://www.wickedcampers.com.au/relocation",
+      "email": "online@wickedcampers.com",
+      "phone": "+61 481 606 805",
+      "priority": 2,
+      "why": "1 AUD/dag og vogne over hele landet, men de offentliggør intet. Deres egen side siger direkte at man skal ringe. Har afdelinger i både Brisbane og Sydney.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Let's Go Motorhomes",
+      "url": "https://www.letsgomotorhomes.com.au/relocations/",
+      "email": "info@letsgomotorhomes.com.au",
+      "phone": "1300 738 003",
+      "priority": 2,
+      "why": "Har afdelinger i både Brisbane og Sydney og skriver at man skal ringe hvis man kan rejse inden for tre uger. Samme timing som THL.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Travellers Autobarn",
+      "url": "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations",
+      "email": "info@travellers-autobarn.com.au",
+      "phone": "1800 674 374",
+      "priority": 3,
+      "why": "Har relocation-side og afdelinger i Brisbane og Sydney, men ingenting på ruten lige nu. Værd at have med i en samlet rundsending.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Go With The Gecko",
+      "url": "https://gowiththegecko.com.au/relocations/",
+      "email": null,
+      "phone": "1300 826 883",
+      "priority": 3,
+      "why": "Varevogne og ladvogne der skal retur til Sydney. Man kan ikke sove i dem, men det er billig transport hvis intet andet dukker op.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Open Road Campervans (via Camplify)",
+      "url": "https://www.camplify.com.au/rv/14954",
+      "email": null,
+      "phone": null,
+      "priority": 3,
+      "why": "Privat udlejer i East Brisbane der annoncerer envejs uden gebyr. Deres Brisbane → Sydney er sat til november, men spørg om de kan flytte den til starten af oktober.",
+      "status": "ikke kontaktet"
+    },
+    {
+      "name": "Autosleepers Campervan Hire",
+      "url": "https://www.autosleepers.com.au/relocations",
+      "email": "info@autosleepers.com.au",
+      "phone": "1800 787 878",
+      "priority": 3,
+      "why": "Egen afdeling i Brisbane og 1 AUD/dag. Listen er tom nu, men de kan sige om der kommer noget til starten af oktober.",
+      "status": "ikke kontaktet"
+    }
+  ],
   "log": [
     {
       "ts": "2026-09-06T20:00:00+10:00",
@@ -725,8 +1169,8 @@
       "summary": "Automatisk tjek (Imoova 14 opslag, Coseats 0 opslag, Transfercar 5 opslag): tæt på: Transfercar: 2 Berth Campervan (Campervan Compact (2 berth)) · sover 2 (Brisbane → Sydney, 2 dage, 0 AUD/dag i 2 gratis dage · 100 AUD refunderbart depositum til udlejer, afhentning 2026-09-26–2026-09-28) · 4 nye opslag uden for dit vindue"
     },
     {
-      "ts": "2026-09-07T06:54:59+10:00",
-      "summary": "Automatisk tjek (Imoova 13 opslag, Coseats 0 opslag, Transfercar 5 opslag): ændret: Imoova: Toyota Compact EV · 5 sæder · automatgear — nu nej, 2026-09-07–2026-09-15 · ændret: Imoova: Toyota Compact EV · 5 sæder · automatgear — nu nej, 2026-09-07–2026-09-15 · ændret: Imoova: 4.5T Truck · 2 sæder · automatgear — nu nej, 2026-09-07–2026-09-11 · væk: Imoova: Standard SUV · 5 sæder · automatgear (Gold Coast → Sydney)"
+      "ts": "2026-09-07T07:01:09+10:00",
+      "summary": "Automatisk tjek (Imoova 13 opslag, Transfercar 5 opslag, Coseats 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): ingen ændringer."
     }
   ]
 }
