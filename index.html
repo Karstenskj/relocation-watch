@@ -212,7 +212,12 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   const foldSec=(title,hint,list,emptyText)=>list.length
     ? `<details class="fold"><summary><span class="fh2">${title}</span><span class="cnt">${list.length}</span></summary><p class="hint">${hint}</p>${list.map(card).join("")}</details>`
     : `<h2>${title}</h2><p class="hint">${hint}</p><div class="empty">${emptyText}</div>`;
-  const autoSrc=d.sources.filter(s=>s.access==="auto").length;
+  const autoSrc=d.sources.filter(s=>s.autoKey).length;
+  const srcTag=s=>s.autoKey?["auto","læses automatisk 4× dagligt"]
+    :s.access==="blokeret"?["blok","blokerer robotter"]
+    :s.access==="js"?["blok","kun JavaScript"]
+    :s.access==="doed"?["blok","død side"]
+    :["","gennemgået manuelt"];
 
   document.getElementById("app").innerHTML=`
    <div class="hero">
@@ -259,12 +264,12 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="tags"><span class="tag">${esc(o.status)}</span></div></div>`).join("")}</div>
 
    <h2>Alle overvågede kilder</h2>
-   <p class="hint">${autoSrc} læses automatisk · ${d.sources.length-autoSrc} kræver omveje.</p>
-   <div class="srcgrid">${[...d.sources].sort((a,b)=>a.priority-b.priority).map(s=>`<div class="item">
+   <p class="hint">${autoSrc} kilder læses af robotten fire gange i døgnet. De ${d.sources.length-autoSrc} andre er gennemgået manuelt, og her står hvorfor de ikke kan automatiseres.</p>
+   <div class="srcgrid">${[...d.sources].sort((a,b)=>((b.autoKey?1:0)-(a.autoKey?1:0))||(a.priority-b.priority)).map(s=>`<div class="item">
      <div class="t"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} →</a></div>
      <div class="d">${esc(s.note)}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${new Date(s.lastCheck.ts).toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}${s.lastCheck.ok?` · ${s.lastCheck.count} opslag på ruten`:" · FEJLEDE"}</span>`:""}</div>
      <div class="tags"><span class="tag">${esc(s.type)}</span>
-     <span class="tag ${s.access==="auto"?"auto":"blok"}">${s.access==="auto"?"læses automatisk":s.access==="blokeret"?"blokeret":s.access==="js"?"kun JavaScript":s.access==="doed"?"død side":"delvis"}</span></div></div>`).join("")}</div>
+     <span class="tag ${srcTag(s)[0]}">${srcTag(s)[1]}</span></div></div>`).join("")}</div>
 
    <h2>Log</h2>
    <p class="hint">Hvad der er sket ved hvert tjek.</p>
