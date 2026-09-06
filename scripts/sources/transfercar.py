@@ -120,12 +120,17 @@ def build(r, det, w, now):
     for t in inc_txt:
         if "fuel" in t.lower() or "petrol" in t.lower() or "tank" in t.lower():
             fuel = t
-    vt = r.get("vehicle_type") or "Køretøj"
+    category = r.get("vehicle_type") or "Køretøj"
+    vt = category
     dvt = (det or {}).get("vehicle_type")
     if isinstance(dvt, dict) and dvt.get("name"):
-        vt = f"{dvt['name'].strip()} ({vt})" if dvt["name"].strip().lower() not in vt.lower() else vt
-    vtype = vehicle_type(vt)
-    berth = re.search(r"(\d+)\s*berth", vt.lower())
+        # Modelnavnet ("Maxie 3 person high-top") siger mere end kategorien ("Campervan (3 berth)").
+        # Har modellen allerede et tal, står den alene, ellers hænger vi kategorien på.
+        name = re.sub(r"\s+", " ", dvt["name"]).strip()
+        vt = name if re.search(r"\d", name) else f"{name} ({category.lower()})"
+    vtype = vehicle_type(category)
+    # Antal sovepladser tages fra Transfercars egen kategori, ikke fra modelnavnet.
+    berth = re.search(r"(\d+)\s*berth", category.lower())
     sleeps = int(berth.group(1)) if berth else None
 
     price = (f"{rate:.0f} AUD/dag i {free_days} gratis dag{'e' if free_days != 1 else ''}"

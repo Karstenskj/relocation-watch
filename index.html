@@ -131,6 +131,18 @@ h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
 .tag.blok{background:var(--warnbg);color:var(--warn)}
 .srcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:9px}
 
+/* foldable section */
+details.fold{margin:44px 0 0}
+details.fold>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;
+  padding:0 0 4px;user-select:none}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::after{content:"▸";color:var(--muted);font-size:.9rem;transition:transform .15s}
+details.fold[open]>summary::after{transform:rotate(90deg)}
+.fh2{font-size:1.18rem;letter-spacing:-.025em;font-weight:720}
+.cnt{font-size:.72rem;font-weight:700;color:var(--muted);background:var(--badbg);
+  border-radius:999px;padding:2px 9px}
+details.fold h2{margin-top:0}
+
 footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.81rem}
 .err{background:var(--warnbg);color:var(--warn);padding:16px;border-radius:12px}
 @media(max-width:560px){.city{font-size:1.5rem}.stats{grid-template-columns:1fr 1fr}}
@@ -197,6 +209,9 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
     `Opdateret ${upd.toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}<br>Tjekkes 4× dagligt`;
 
   const sec=(title,hint,html,emptyText)=>`<h2>${title}</h2><p class="hint">${hint}</p>${html||`<div class="empty">${emptyText}</div>`}`;
+  const foldSec=(title,hint,list,emptyText)=>list.length
+    ? `<details class="fold"><summary><span class="fh2">${title}</span><span class="cnt">${list.length}</span></summary><p class="hint">${hint}</p>${list.map(card).join("")}</details>`
+    : `<h2>${title}</h2><p class="hint">${hint}</p><div class="empty">${emptyText}</div>`;
   const autoSrc=d.sources.filter(s=>s.access==="auto").length;
 
   document.getElementById("app").innerHTML=`
@@ -220,7 +235,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
 
    ${sec("Opfylder alle dine krav","Afhentning i Brisbane 30. sep – 3. okt, prisen under grænsen.",by("passer").map(card).join(""),"Ingen lige nu. Udbyderne lægger typisk Brisbane → Sydney op 1-3 uger før afhentning, så siden tjekker fire gange dagligt og alarmerne nedenfor giver besked.")}
    ${sec("Tæt på","Prisen passer, men datoerne rammer lige ved siden af, eller afhentningen er i Gold Coast/Sunshine Coast.",by("naesten").map(card).join(""),"Ingen lige nu.")}
-   ${sec("Opfylder ikke kravene","Med her så du kan se hvad ruten plejer at byde på.",by("nej").map(card).join(""),"Ingen lige nu.")}
+   ${foldSec("Opfylder ikke kravene","Med her så du kan se hvad ruten plejer at byde på. Klik for at folde ud.",by("nej"),"Ingen lige nu.")}
 
    <h2>Disse skal du selv tjekke</h2>
    <p class="hint">Jeg kan ikke læse dem automatisk. Her står præcis hvorfor, og hvad jeg gør i stedet.</p>
