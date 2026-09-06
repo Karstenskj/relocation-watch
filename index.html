@@ -131,6 +131,12 @@ h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
 .tag.blok{background:var(--warnbg);color:var(--warn)}
 .srcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:9px}
 
+/* slukket-banner */
+.stopped{background:var(--card);border:1px solid var(--line2);border-left:4px solid var(--muted);
+  border-radius:14px;padding:16px 18px;margin:22px 0 6px}
+.stopped b{display:block;font-size:1.05rem;letter-spacing:-.02em;margin-bottom:4px}
+.stopped p{margin:0;color:var(--ink2);font-size:.9rem}
+
 /* foldable section */
 details.fold{margin:44px 0 0}
 details.fold>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;
@@ -206,7 +212,8 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   const by=f=>deals.filter(x=>x.fit===f).sort((a,b)=>((a.pricePerDay??99)-(b.pricePerDay??99))||((b.canSleepIn?1:0)-(a.canSleepIn?1:0))||((b.days||0)-(a.days||0)));
   const upd=new Date(d.updated);
   document.getElementById("stamp").innerHTML=
-    `Opdateret ${upd.toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}<br>Tjekkes 4× dagligt`;
+    `Opdateret ${upd.toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}<br>${d.stopped?"Slukket — opdateres ikke mere":"Tjekkes 4× dagligt"}`;
+  if(d.stopped){const dot=document.querySelector(".dot"); if(dot){dot.style.background="var(--muted)";dot.style.boxShadow="none";}}
 
   const sec=(title,hint,html,emptyText)=>`<h2>${title}</h2><p class="hint">${hint}</p>${html||`<div class="empty">${emptyText}</div>`}`;
   const foldSec=(title,hint,list,emptyText)=>list.length
@@ -220,6 +227,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
     :["","gennemgået manuelt"];
 
   document.getElementById("app").innerHTML=`
+   ${d.stopped?`<div class="stopped"><b>Overvågningen er slut</b><p>${esc(d.stopped.reason)} Både det automatiske tjek i skyen og jobbet på Karstens Mac er slukket, og siden opdateres ikke længere. Den bliver stående som den så ud til sidst.</p></div>`:""}
    <div class="hero">
      <div class="route"><span class="city">${esc(w.origin)}</span><span class="arrow">→</span><span class="city">${esc(w.destination)}</span></div>
      <p class="lede">Gratis eller næsten gratis biler og campervans der skal flyttes sydpå. Overvåges automatisk fire gange i døgnet.</p>
@@ -284,7 +292,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="t">${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}</div>
      <div class="d">${esc(l.summary)}</div></div>`).join("")}</div>
 
-   <footer>Tjekkes automatisk fire gange i døgnet, kl. 06:30, 10:30, 14:30 og 18:30 i Brisbane. Det er morgen til aften i New Zealand, aldrig om natten.<br>
+   <footer>${d.stopped?"Overvågningen er slut og siden opdateres ikke længere.":`Tjekkes automatisk fire gange i døgnet, kl. 06:30, 10:30, 14:30 og 18:30 i Brisbane. Det er morgen til aften i New Zealand, aldrig om natten. Slukker af sig selv efter ${dk(w.stopAfter)}, din sidste mulige afhentningsdag.`}<br>
    Udlejerne lægger typisk Brisbane → Sydney op 1-3 uger før afhentning, så de fleste tilbud til dine datoer dukker først op fra midten af september.<br>
    Alle datoer og priser skal bekræftes hos udlejeren før du booker.</footer>`;
 }).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json — ${esc(e.message)}</div>`});

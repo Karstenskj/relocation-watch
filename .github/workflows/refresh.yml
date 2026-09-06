@@ -5,6 +5,8 @@ name: Opdater relocation-tilbud
 #   = 09:30, 13:30, 17:30 og 21:30 newzealandsk sommertid (fra 27. sep)
 #   = 06:30, 10:30, 14:30 og 18:30 Brisbane-tid (ingen sommertid i Queensland)
 # Kører på GitHubs egne maskiner — hverken Karstens Mac eller claude.ai er involveret.
+#
+# Slukker sig selv efter den dato der står i data.json som window.stopAfter.
 on:
   schedule:
     - cron: "30 20,0,4,8 * * *"
@@ -12,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: refresh
@@ -27,6 +30,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Er sidste brugsdag passeret?
+        id: cutoff
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, sys
+          sys.path.insert(0, "scripts")
+          from common import past_cutoff
+          w = json.load(open("data.json"))["window"]
+          print(f"stop={'yes' if past_cutoff(w) else 'no'}")
+          print(f"date={w.get('stopAfter', '')}")
+          PY
+
       - name: Læs alle automatiske kilder
         run: python3 scripts/refresh.py
 
@@ -38,6 +53,18 @@ jobs:
           if git diff --cached --quiet; then
             echo "Ingen ændringer."
           else
-            git commit -m "tjek: automatisk opdatering (Imoova, Coseats, Transfercar)"
+            git commit -m "tjek: automatisk opdatering"
             git push
           fi
+
+      # Efter sidste brugsdag afmelder jobbet sin egen tidsplan, så der ikke kører mere.
+      # Det kan slås til igen med: gh workflow enable "Opdater relocation-tilbud"
+      - name: Sluk tidsplanen
+        if: steps.cutoff.outputs.stop == 'yes'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Sidste brugsdag (${{ steps.cutoff.outputs.date }}) er passeret. Slukker tidsplanen."
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/refresh.yml/disable" \
+            && echo "Tidsplanen er slået fra." \
+            || echo "Kunne ikke slå tidsplanen fra. Jobbet henter alligevel ingenting mere."

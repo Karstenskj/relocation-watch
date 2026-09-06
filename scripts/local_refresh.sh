@@ -6,11 +6,16 @@
 # fem kilder fire gange i døgnet uanset om maskinen er tændt, så det her er et supplement,
 # ikke en erstatning.
 #
-# Slå den fra igen med:
+# Efter datoen i data.json (window.stopAfter) afinstallerer scriptet sig selv.
+#
+# Slå den fra i utide med:
 #   launchctl bootout gui/$(id -u)/dk.cpha.relocation-watch
 set -u
 cd "$(dirname "$0")/.." || exit 1
 export PATH="/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+LABEL="dk.cpha.relocation-watch"
+PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*"; }
 
@@ -33,4 +38,21 @@ if git diff --cached --quiet; then
 else
   git commit --quiet -m "tjek: automatisk opdatering fra Karstens Mac (inkl. DriveNow)"
   if git push --quiet origin main; then log "pushet"; else log "kunne ikke pushe"; fi
+fi
+
+# Er sidste brugsdag passeret, afmelder vi os selv. refresh.py har allerede skrevet
+# den afsluttende status, og den er pushet ovenfor.
+STOPPED=$(python3 -c "
+import json, sys
+sys.path.insert(0, 'scripts')
+from common import past_cutoff
+print('yes' if past_cutoff(json.load(open('data.json'))['window']) else 'no')
+" 2>/dev/null || echo no)
+
+if [ "$STOPPED" = "yes" ]; then
+  log "sidste brugsdag er passeret, afinstallerer det lokale job"
+  if [ -f "$PLIST" ]; then
+    mv "$PLIST" "$PLIST.slukket" && log "flyttede $PLIST til $PLIST.slukket"
+  fi
+  launchctl bootout "gui/$(id -u)/$LABEL" 2>/dev/null && log "jobbet er afmeldt"
 fi

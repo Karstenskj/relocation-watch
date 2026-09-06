@@ -124,6 +124,18 @@ def assess(window, pickup_from, pickup_to, days, price_per_day, origin, count=No
             "overlap": overlap}
 
 
+def past_cutoff(window):
+    """Er sidste brugsdag passeret? Datoen står i data.json som window.stopAfter.
+
+    Vi regner i Brisbane-tid, fordi det er der bilen skal hentes. Overvågningen kører
+    til og med den dato og slukker derefter sig selv, både i skyen og lokalt.
+    """
+    stop = window.get("stopAfter")
+    if not stop:
+        return False
+    return datetime.datetime.now(BNE).date() > datetime.date.fromisoformat(stop)
+
+
 def save_image(url, dest, referer=None):
     """Hent et billede ned lokalt hvis det ikke allerede findes. Returnerer True ved succes."""
     p = ROOT / dest

@@ -7,7 +7,7 @@ gamle opslag og skriver fejlen i loggen, så Karsten kan se at den ikke blev tje
 import importlib, json, sys, pathlib, traceback
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from common import ROOT, now_iso
+from common import ROOT, now_iso, past_cutoff
 
 SOURCES = ["imoova", "transfercar", "coseats", "drivenow", "simba", "autosleepers"]
 
@@ -21,6 +21,21 @@ def main():
     data = json.loads(path.read_text(encoding="utf-8"))
     w = data["window"]
     now = now_iso()
+
+    # Slukket: efter sidste brugsdag henter vi ingenting mere.
+    if past_cutoff(w):
+        if not data.get("stopped"):
+            data["stopped"] = {"ts": now, "reason": f"Overvågningen sluttede efter {w['stopAfter']}."}
+            data["log"].append({"ts": now, "summary": (
+                f"Overvågningen er slut. Sidste mulige afhentningsdag var {w['stopAfter']}, "
+                "så både det automatiske tjek i skyen og jobbet på Karstens Mac er slukket. "
+                "Siden bliver stående som den så ud til sidst.")})
+            data["updated"] = now
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            print("Slukket: sidste brugsdag er passeret. Skrev afsluttende status.")
+        else:
+            print("Slukket: sidste brugsdag er passeret. Ingenting at gøre.")
+        return 0
 
     fresh, ok_sources, failures, skipped, counts = [], set(), [], [], {}
     for name in SOURCES:
