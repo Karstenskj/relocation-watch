@@ -11,6 +11,10 @@ from common import ROOT, now_iso
 
 SOURCES = ["imoova", "transfercar", "coseats", "drivenow", "simba", "autosleepers"]
 
+# Kilder der afviser GitHubs servere (Cloudflare blokerer datacenter-adresser), men som virker fint
+# fra en almindelig internetforbindelse. De må fejle uden at det tæller som en rigtig fejl.
+RESIDENTIAL_ONLY = {"drivenow"}
+
 
 def main():
     path = ROOT / "data.json"
@@ -18,7 +22,7 @@ def main():
     w = data["window"]
     now = now_iso()
 
-    fresh, ok_sources, failures, counts = [], set(), [], {}
+    fresh, ok_sources, failures, skipped, counts = [], set(), [], [], {}
     for name in SOURCES:
         mod = importlib.import_module(f"sources.{name}")
         try:
@@ -27,13 +31,18 @@ def main():
             ok_sources.add(mod.SOURCE)
             counts[mod.LABEL] = len(deals)
         except Exception as e:
-            failures.append(f"{mod.LABEL} kunne ikke læses ({type(e).__name__}: {str(e)[:120]})")
-            traceback.print_exc()
+            if name in RESIDENTIAL_ONLY:
+                skipped.append(mod.LABEL)
+                print(f"{mod.LABEL} sprunget over: afviser denne maskines IP-adresse ({type(e).__name__}).")
+            else:
+                failures.append(f"{mod.LABEL} kunne ikke læses ({type(e).__name__}: {str(e)[:120]})")
+                traceback.print_exc()
         # Status på kildekortet
         for s in data.get("sources", []):
             if s.get("autoKey") == name:
                 s["lastCheck"] = {"ts": now, "ok": mod.SOURCE in ok_sources,
-                                  "count": counts.get(mod.LABEL)}
+                                  "count": counts.get(mod.LABEL),
+                                  "skipped": mod.LABEL in skipped}
 
     old = {x["id"]: x for x in data["deals"] if x.get("source") in ok_sources}
     kept = [x for x in data["deals"] if x.get("source") not in ok_sources]
@@ -64,6 +73,8 @@ def main():
     for x in gone:
         bits.append(f"væk: {x['platform']}: {x['vehicle']} ({x['route']})")
     bits += [f"FEJL: {f}" for f in failures]
+    if skipped:
+        bits.append(", ".join(skipped) + " kunne ikke læses herfra (kræver almindelig internetforbindelse)")
 
     n_pass = sum(1 for x in data["deals"] if x["fit"] == "passer")
     head = "Automatisk tjek (" + ", ".join(f"{k} {v} opslag" for k, v in counts.items()) + "): "
