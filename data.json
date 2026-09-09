@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-09T14:57:35+10:00",
+  "updated": "2026-09-09T23:03:05+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -44,7 +44,7 @@
         "to": "2026-11-03",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-11-02 til 2026-11-03 med 2 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -80,7 +80,7 @@
         "to": "2026-09-12",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-09 til 2026-09-12 med 2 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -116,7 +116,7 @@
         "to": "2026-09-25",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-25 til 2026-09-25 med 3 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 25. sep, 5 dag(e) for tidligt",
@@ -152,7 +152,7 @@
         "to": "2026-09-20",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-14 til 2026-09-20 med 2 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -188,7 +188,7 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28 med 2 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -222,9 +222,9 @@
         "state": "ikke-i-vindue",
         "from": "2026-09-09",
         "to": "2026-09-18",
-        "spaces": "2 køretøjer",
+        "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-09 til 2026-09-18 med 3 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -260,7 +260,7 @@
         "to": "2026-09-18",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-12 til 2026-09-18 med 2 dage til turen.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -296,7 +296,7 @@
         "to": "2026-09-15",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-10 til 2026-09-15, aflevering senest 2026-09-16, 2 gratis dage.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -332,7 +332,7 @@
         "to": "2026-09-15",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-10 til 2026-09-15, aflevering senest 2026-09-16, 2 gratis dage.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -368,7 +368,7 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28, aflevering senest 2026-09-29, 2 gratis dage.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -404,7 +404,7 @@
         "to": "2026-11-03",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-11-02 til 2026-11-03, aflevering senest 2026-11-04, 2 gratis dage.",
-        "checkedAt": "2026-09-09T14:57:35+10:00",
+        "checkedAt": "2026-09-09T23:03:05+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Ingen dato lander i dit vindue",
@@ -500,7 +500,7 @@
       "autoKey": "imoova",
       "note": "Størst i Australien. Læses via deres eget API, så alle opslag kommer med, også fra Gold Coast og Sunshine Coast.",
       "lastCheck": {
-        "ts": "2026-09-09T14:57:35+10:00",
+        "ts": "2026-09-09T23:03:05+10:00",
         "ok": true,
         "count": 7,
         "skipped": false
@@ -515,7 +515,7 @@
       "autoKey": "transfercar",
       "note": "Gratis eller 1 AUD/dag, oftest Awesome Campers og Camperman på ruten. Siden blokerer robotter, men vi læser deres eget API med de nøgler siden selv udleverer.",
       "lastCheck": {
-        "ts": "2026-09-09T14:57:35+10:00",
+        "ts": "2026-09-09T23:03:05+10:00",
         "ok": true,
         "count": 4,
         "skipped": false
@@ -530,7 +530,7 @@
       "autoKey": "coseats",
       "note": "1 AUD/dag, 39 AUD bookinggebyr, ofte gratis brændstof. Sælger THL's campere (Britz, Maui, Mighty). Læses via deres app-API.",
       "lastCheck": {
-        "ts": "2026-09-09T14:57:35+10:00",
+        "ts": "2026-09-09T23:03:05+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -545,7 +545,7 @@
       "autoKey": "simba",
       "note": "Almindelige personbiler, 20-50 AUD/dag med 1 AUD envejsgebyr. Har i dag ingen Brisbane → Sydney, men kører Sydney og Melbourne-ruter jævnligt.",
       "lastCheck": {
-        "ts": "2026-09-09T14:57:35+10:00",
+        "ts": "2026-09-09T23:03:05+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -560,7 +560,7 @@
       "autoKey": "autosleepers",
       "note": "1 AUD/dag med egen Brisbane-afdeling. Listen står som almindelig tabel, så den læses automatisk. Tom lige nu.",
       "lastCheck": {
-        "ts": "2026-09-09T14:57:35+10:00",
+        "ts": "2026-09-09T23:03:05+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -575,10 +575,10 @@
       "note": "Australiens tredjestørste relocation-liste (34 tilbud i dag), alle fra THL. Selve siden er spærret og bygges med JavaScript, men den adresse siden selv henter data fra svarer på et almindeligt kald, og det er den vi bruger. Fornys hver morgen for afrejse op til 30 dage frem.",
       "autoKey": "drivenow",
       "lastCheck": {
-        "ts": "2026-09-09T14:57:35+10:00",
-        "ok": true,
-        "count": 0,
-        "skipped": false
+        "ts": "2026-09-09T23:03:05+10:00",
+        "ok": false,
+        "count": null,
+        "skipped": true
       }
     },
     {
@@ -976,90 +976,94 @@
     {
       "ts": "2026-09-09T14:57:35+10:00",
       "summary": "Automatisk tjek (Imoova 7 opslag, Transfercar 4 opslag, Coseats 0 opslag, DriveNow 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): ændret: Transfercar: 2 Berth Campervan · sover 2 — nu nej, 2026-09-10–2026-09-15 · ændret: Transfercar: 2 Berth Campervan · sover 2 — nu nej, 2026-09-10–2026-09-15 · væk: Transfercar: 2 Berth With Shower and Toilet · sover 2 (Brisbane → Sydney) · væk: Transfercar: 2 Berth With Shower and Toilet · sover 2 (Brisbane → Sydney) · væk: Transfercar: 2 Berth With Shower and Toilet · sover 2 (Brisbane → Sydney) · væk: Transfercar: D5 AWD · sover 2 (Brisbane → Sydney) · væk: Transfercar: Maxie 3 person high-top · sover 3 (Brisbane → Sydney) · væk: Transfercar: Juliette 2-3 person high-top · sover 3 (Brisbane → Sydney) · væk: Coseats: Campervan (CAMPERVAN-3-BERTH) · sover 3 (Brisbane → Sydney) · væk: Coseats: Campervan (CAMPERVAN-2-3-BERTH) · sover 2 (Brisbane → Sydney) · Awesome Campers har ændret sin flytningsside · Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv"
+    },
+    {
+      "ts": "2026-09-09T23:03:05+10:00",
+      "summary": "Automatisk tjek (Imoova 7 opslag, Transfercar 4 opslag, Coseats 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): Awesome Campers har ændret sin flytningsside · Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv · DriveNow kunne ikke læses herfra (kræver almindelig internetforbindelse)"
     }
   ],
   "watch": [
     {
       "name": "Cruisin Motorhomes",
       "url": "https://www.cruisinmotorhomes.com.au/relocation-offers/",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Travellers Autobarn",
       "url": "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Let's Go Motorhomes",
       "url": "https://www.letsgomotorhomes.com.au/relocations/",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Camperman Australia",
       "url": "https://www.campermanaustralia.com/relocation-specials/",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Awesome Campers",
       "url": "https://www.awesomecampers.com.au/relocation-specials",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "ændret",
       "detail": "Teksten om flytninger er ændret siden sidste tjek."
     },
     {
       "name": "Wicked Campers",
       "url": "https://www.wickedcampers.com.au/relocation",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Spaceships Australia",
       "url": "https://www.spaceshipsrentals.com.au/deals",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Star RV Australia",
       "url": "https://www.starrv.com/au/motorhome-hire-deals-au",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "nævner Brisbane og Sydney",
       "detail": "Brisbane - Sydney"
     },
     {
       "name": "JUCY Australia",
       "url": "https://www.jucy.com/au/en/deals/limited-time-deals",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Britz Australia",
       "url": "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "maui Australia",
       "url": "https://www.maui-rentals.com/motorhome-hire-australia/deals/relocation-vehicles",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Autosleepers Campervan Hire",
       "url": "https://www.autosleepers.com.au/relocations",
-      "checkedAt": "2026-09-09T14:57:35+10:00",
+      "checkedAt": "2026-09-09T23:03:05+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     }
@@ -1069,7 +1073,7 @@
     "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations": "2801a1cb883b4de1",
     "https://www.letsgomotorhomes.com.au/relocations/": "d87f478b664b5b7a",
     "https://www.campermanaustralia.com/relocation-specials/": "743a8cf601361571",
-    "https://www.awesomecampers.com.au/relocation-specials": "e3b0c44298fc1c14",
+    "https://www.awesomecampers.com.au/relocation-specials": "97f3cd3950cfdfe4",
     "https://www.wickedcampers.com.au/relocation": "d9fce1a4ebc35e54",
     "https://www.spaceshipsrentals.com.au/deals": "3102d0ef601d20c3",
     "https://www.starrv.com/au/motorhome-hire-deals-au": "15d2795c26a76600",
