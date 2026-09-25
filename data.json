@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25T15:09:49+10:00",
+  "updated": "2026-09-26T00:01:04+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -40,11 +40,11 @@
       "bond": null,
       "availability": {
         "state": "ledig-snaevert",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-30",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-30 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-30 med 3 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -76,11 +76,11 @@
       "bond": null,
       "availability": {
         "state": "ledig",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-10-01",
         "spaces": "2 køretøjer",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-01 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-10-01 med 3 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–1. okt)",
@@ -112,11 +112,11 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-29",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-29 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-29 med 2 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -148,11 +148,11 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-25",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-25 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-25 med 2 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 25. sep, 5 dag(e) for tidligt",
@@ -184,11 +184,11 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-29",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-29 med 1 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-29 med 1 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -220,11 +220,11 @@
       "bond": null,
       "availability": {
         "state": "ledig-snaevert",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-30",
         "spaces": "3 køretøjer",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-30 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-30 med 3 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -256,11 +256,11 @@
       "bond": null,
       "availability": {
         "state": "ledig-snaevert",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-30",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-30 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-30 med 2 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 2. okt",
@@ -292,11 +292,11 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-28",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-28 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-28 med 2 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
@@ -328,11 +328,11 @@
       "bond": null,
       "availability": {
         "state": "ledig-snaevert",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-30",
         "spaces": "3 køretøjer",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-30 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-30 med 3 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -364,53 +364,17 @@
       "bond": null,
       "availability": {
         "state": "ledig",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-10-01",
         "spaces": "2 køretøjer",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-01 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-10-01 med 3 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–1. okt)",
       "fit": "passer",
       "fitReason": "Afhentning i dit vindue, prisen er under grænsen.",
       "notes": "Automatisk aflæst fra Imoova. Reference RLC123272."
-    },
-    {
-      "id": "imoova-rlc123007",
-      "source": "imoova-auto",
-      "provider": "Imoova",
-      "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/australia/brisbane-to-sydney/RLC123007",
-      "vehicle": "Toyota MAXIE 4 DELUXE · 4 sæder",
-      "vehicleType": "campervan",
-      "sleeps": null,
-      "canSleepIn": true,
-      "imageUrl": "img/rlc123007.webp",
-      "imageCredit": "Foto: Imoova",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 2,
-      "price": "1 AUD/dag · 59 AUD bookinggebyr · op til 3 ekstra dage à 90 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "61 AUD",
-      "fuel": "100 AUD brændstof refunderes",
-      "kmLimit": "1200 km",
-      "minAge": 18,
-      "bond": null,
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-09-26",
-        "to": "2026-09-28",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-26 til 2026-09-28 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
-      "fit": "naesten",
-      "fitReason": "Prisen passer, men seneste afhentning er 28. sep, 2 dag(e) før dit vindue. Udbyderne forlænger ofte, så den overvåges.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC123007. Inkluderet: Free linen."
     },
     {
       "id": "imoova-rlc122580",
@@ -436,11 +400,11 @@
       "bond": null,
       "availability": {
         "state": "ikke-i-vindue",
-        "from": "2026-09-25",
+        "from": "2026-09-26",
         "to": "2026-09-29",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-09-29 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-29 med 2 dage til turen.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -476,13 +440,49 @@
         "to": "2026-09-28",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-28, aflevering senest 2026-09-29, 2 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
       "fit": "naesten",
       "fitReason": "Prisen passer, men seneste afhentning er 28. sep, 2 dag(e) før dit vindue. Udbyderne forlænger ofte, så den overvåges.",
       "notes": "Automatisk aflæst fra Transfercar (opslag 676645). Udlejer: Autosleepers. Sikkerhedsstillelse (bond) 2000 AUD på kreditkort ved afhentning. Afhentning Virginia (Brisbane), aflevering Caringbah (Sydney)."
+    },
+    {
+      "id": "transfercar-677651",
+      "source": "transfercar-auto",
+      "provider": "Autosleepers",
+      "platform": "Transfercar",
+      "url": "https://www.transfercar.com.au/relocation/Brisbane/Sydney/677651",
+      "vehicle": "4 Berth HiTop · sover 4",
+      "vehicleType": "campervan",
+      "sleeps": 4,
+      "canSleepIn": true,
+      "imageUrl": "img/tc-677651.png",
+      "imageCredit": "Foto: Transfercar",
+      "route": "Brisbane → Sydney",
+      "pickupCity": "Brisbane",
+      "days": 2,
+      "price": "1 AUD/dag i 2 gratis dage",
+      "pricePerDay": 1.0,
+      "totalCost": "2 AUD",
+      "fuel": "1 free tank of fuel",
+      "kmLimit": null,
+      "minAge": 21,
+      "bond": "2000 AUD",
+      "availability": {
+        "state": "ikke-i-vindue",
+        "from": "2026-09-26",
+        "to": "2026-09-29",
+        "spaces": "1 køretøj",
+        "detail": "Afhentning mulig 2026-09-26 til 2026-09-29, aflevering senest 2026-09-30, 2 gratis dage.",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
+        "confidence": "direkte"
+      },
+      "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
+      "fit": "naesten",
+      "fitReason": "Prisen passer, men seneste afhentning er 29. sep, 1 dag(e) før dit vindue. Udbyderne forlænger ofte, så den overvåges.",
+      "notes": "Automatisk aflæst fra Transfercar (opslag 677651). Udlejer: Autosleepers. Sikkerhedsstillelse (bond) 2000 AUD på kreditkort ved afhentning. Afhentning Virginia (Brisbane), aflevering Caringbah (Sydney)."
     },
     {
       "id": "transfercar-677497",
@@ -512,7 +512,7 @@
         "to": "2026-09-30",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-09-30, aflevering senest 2026-10-01, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 1. okt",
@@ -548,7 +548,7 @@
         "to": "2026-10-01",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-10-01, aflevering senest 2026-10-02, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 2. okt (afhentning mulig 30. sep–1. okt)",
@@ -584,7 +584,7 @@
         "to": "2026-10-01",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-10-01, aflevering senest 2026-10-02, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 2. okt (afhentning mulig 30. sep–1. okt)",
@@ -620,7 +620,7 @@
         "to": "2026-10-01",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-10-01, aflevering senest 2026-10-02, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 2. okt (afhentning mulig 30. sep–1. okt)",
@@ -656,7 +656,7 @@
         "to": "2026-10-02",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-10-02, aflevering senest 2026-10-03, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–2. okt)",
@@ -692,85 +692,13 @@
         "to": "2026-10-02",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-09-26 til 2026-10-02, aflevering senest 2026-10-03, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–2. okt)",
       "fit": "passer",
       "fitReason": "Afhentning i dit vindue, prisen er under grænsen. Kun ét køretøj, så book hurtigt.",
       "notes": "Automatisk aflæst fra Transfercar (opslag 677619). Udlejer: Thl Rentals Australia. Sikkerhedsstillelse (bond) 1000 AUD på kreditkort ved afhentning. Afhentning Brisbane Airport, aflevering Bankstown Sydney Airport."
-    },
-    {
-      "id": "transfercar-677651",
-      "source": "transfercar-auto",
-      "provider": "Autosleepers",
-      "platform": "Transfercar",
-      "url": "https://www.transfercar.com.au/relocation/Brisbane/Sydney/677651",
-      "vehicle": "4 Berth HiTop · sover 4",
-      "vehicleType": "campervan",
-      "sleeps": 4,
-      "canSleepIn": true,
-      "imageUrl": "img/tc-677651.png",
-      "imageCredit": "Foto: Transfercar",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 2,
-      "price": "1 AUD/dag i 2 gratis dage",
-      "pricePerDay": 1.0,
-      "totalCost": "2 AUD",
-      "fuel": "1 free tank of fuel",
-      "kmLimit": null,
-      "minAge": 21,
-      "bond": "2000 AUD",
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-09-26",
-        "to": "2026-09-29",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-26 til 2026-09-29, aflevering senest 2026-09-30, 2 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
-      "fit": "naesten",
-      "fitReason": "Prisen passer, men seneste afhentning er 29. sep, 1 dag(e) før dit vindue. Udbyderne forlænger ofte, så den overvåges.",
-      "notes": "Automatisk aflæst fra Transfercar (opslag 677651). Udlejer: Autosleepers. Sikkerhedsstillelse (bond) 2000 AUD på kreditkort ved afhentning. Afhentning Virginia (Brisbane), aflevering Caringbah (Sydney)."
-    },
-    {
-      "id": "transfercar-677184",
-      "source": "transfercar-auto",
-      "provider": "Camperman",
-      "platform": "Transfercar",
-      "url": "https://www.transfercar.com.au/relocation/Brisbane/Sydney/677184",
-      "vehicle": "Maxie 4 Deluxe · sover 4",
-      "vehicleType": "campervan",
-      "sleeps": 4,
-      "canSleepIn": true,
-      "imageUrl": "img/tc-677184.png",
-      "imageCredit": "Foto: Transfercar",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 2,
-      "price": "1 AUD/dag i 2 gratis dage · op til 3 ekstra dage à 75 AUD · 100 AUD refunderbart depositum til udlejer",
-      "pricePerDay": 1.0,
-      "totalCost": "2 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": null,
-      "minAge": null,
-      "bond": "2000 AUD",
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-09-26",
-        "to": "2026-09-28",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-26 til 2026-09-28, aflevering senest 2026-09-29, 2 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Seneste afhentning 28. sep, 2 dag(e) for tidligt",
-      "fit": "naesten",
-      "fitReason": "Prisen passer, men seneste afhentning er 28. sep, 2 dag(e) før dit vindue. Udbyderne forlænger ofte, så den overvåges.",
-      "notes": "Automatisk aflæst fra Transfercar (opslag 677184). Udlejer: Camperman. Sikkerhedsstillelse (bond) 2000 AUD på kreditkort ved afhentning. Afhentning Virginia (Brisbane), aflevering Caringbah (Sydney)."
     },
     {
       "id": "transfercar-676699",
@@ -800,229 +728,13 @@
         "to": "2026-10-11",
         "spaces": "1 køretøj",
         "detail": "Afhentning mulig 2026-10-10 til 2026-10-11, aflevering senest 2026-10-12, 3 gratis dage.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Tidligste afhentning 10. okt, 7 dag(e) for sent",
       "fit": "naesten",
       "fitReason": "Prisen passer, men tidligste afhentning er 10. okt, 7 dag(e) efter dit vindue.",
       "notes": "Automatisk aflæst fra Transfercar (opslag 676699). Udlejer: Awesome Campers. Sikkerhedsstillelse (bond) 3000 AUD på kreditkort ved afhentning. Vejafgifter (tolls) er ikke inkluderet. Afhentning Virginia (Brisbane), aflevering Como (Sydney)."
-    },
-    {
-      "id": "coseats-6258559",
-      "source": "coseats-auto",
-      "provider": "THL (Britz / Maui / Mighty)",
-      "platform": "Coseats",
-      "url": "https://app.coseats.com/campervan-relocation",
-      "vehicle": "6-berth motorhome · sover 6",
-      "vehicleType": "campervan",
-      "sleeps": 6,
-      "canSleepIn": true,
-      "imageUrl": "img/coseats-6re.jpg",
-      "imageCredit": "Foto: Coseats",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "42 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1350 km",
-      "minAge": 21,
-      "bond": "1000 AUD",
-      "availability": {
-        "state": "ledig",
-        "from": "2026-09-25",
-        "to": "2026-10-02",
-        "spaces": "Ukendt",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-02 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–2. okt)",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen.",
-      "notes": "Automatisk aflæst fra Coseats (opslag 6258559). Aldersgrænse 21 år. Depositum 1000 AUD. Bookes i Coseats-appen, ingen direkte link til det enkelte opslag."
-    },
-    {
-      "id": "coseats-6258557",
-      "source": "coseats-auto",
-      "provider": "THL (Britz / Maui / Mighty)",
-      "platform": "Coseats",
-      "url": "https://app.coseats.com/campervan-relocation",
-      "vehicle": "6-berth motorhome · sover 6",
-      "vehicleType": "campervan",
-      "sleeps": 6,
-      "canSleepIn": true,
-      "imageUrl": "img/coseats-6re.jpg",
-      "imageCredit": "Foto: Coseats",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "42 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1350 km",
-      "minAge": 21,
-      "bond": "1000 AUD",
-      "availability": {
-        "state": "ledig",
-        "from": "2026-09-25",
-        "to": "2026-10-02",
-        "spaces": "Ukendt",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-02 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–2. okt)",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen.",
-      "notes": "Automatisk aflæst fra Coseats (opslag 6258557). Aldersgrænse 21 år. Depositum 1000 AUD. Bookes i Coseats-appen, ingen direkte link til det enkelte opslag."
-    },
-    {
-      "id": "coseats-6258558",
-      "source": "coseats-auto",
-      "provider": "THL (Britz / Maui / Mighty)",
-      "platform": "Coseats",
-      "url": "https://app.coseats.com/campervan-relocation",
-      "vehicle": "6-berth motorhome · sover 6",
-      "vehicleType": "campervan",
-      "sleeps": 6,
-      "canSleepIn": true,
-      "imageUrl": "img/coseats-6re.jpg",
-      "imageCredit": "Foto: Coseats",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "42 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1350 km",
-      "minAge": 21,
-      "bond": "1000 AUD",
-      "availability": {
-        "state": "ledig",
-        "from": "2026-09-25",
-        "to": "2026-10-02",
-        "spaces": "Ukendt",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-02 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–2. okt)",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen.",
-      "notes": "Automatisk aflæst fra Coseats (opslag 6258558). Aldersgrænse 21 år. Depositum 1000 AUD. Bookes i Coseats-appen, ingen direkte link til det enkelte opslag."
-    },
-    {
-      "id": "coseats-6258561",
-      "source": "coseats-auto",
-      "provider": "THL (Britz / Maui / Mighty)",
-      "platform": "Coseats",
-      "url": "https://app.coseats.com/campervan-relocation",
-      "vehicle": "2-berth campervan · sover 2",
-      "vehicleType": "campervan",
-      "sleeps": 2,
-      "canSleepIn": true,
-      "imageUrl": "img/coseats-2re.jpg",
-      "imageCredit": "Foto: Coseats",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "42 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1350 km",
-      "minAge": 21,
-      "bond": "1000 AUD",
-      "availability": {
-        "state": "ledig",
-        "from": "2026-09-25",
-        "to": "2026-10-03",
-        "spaces": "Ukendt",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-03 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–3. okt)",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen.",
-      "notes": "Automatisk aflæst fra Coseats (opslag 6258561). Aldersgrænse 21 år. Depositum 1000 AUD. Bookes i Coseats-appen, ingen direkte link til det enkelte opslag."
-    },
-    {
-      "id": "coseats-6258562",
-      "source": "coseats-auto",
-      "provider": "THL (Britz / Maui / Mighty)",
-      "platform": "Coseats",
-      "url": "https://app.coseats.com/campervan-relocation",
-      "vehicle": "2-berth campervan · sover 2",
-      "vehicleType": "campervan",
-      "sleeps": 2,
-      "canSleepIn": true,
-      "imageUrl": "img/coseats-2re.jpg",
-      "imageCredit": "Foto: Coseats",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "42 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1350 km",
-      "minAge": 21,
-      "bond": "1000 AUD",
-      "availability": {
-        "state": "ledig",
-        "from": "2026-09-25",
-        "to": "2026-10-03",
-        "spaces": "Ukendt",
-        "detail": "Afhentning mulig 2026-09-25 til 2026-10-03 med 3 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–3. okt)",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen.",
-      "notes": "Automatisk aflæst fra Coseats (opslag 6258562). Aldersgrænse 21 år. Depositum 1000 AUD. Bookes i Coseats-appen, ingen direkte link til det enkelte opslag."
-    },
-    {
-      "id": "coseats-6258678",
-      "source": "coseats-auto",
-      "provider": "Camperman",
-      "platform": "Coseats",
-      "url": "https://app.coseats.com/campervan-relocation",
-      "vehicle": "Campervan (CAMPERVAN-4-BERTH) · sover 4",
-      "vehicleType": "campervan",
-      "sleeps": 4,
-      "canSleepIn": true,
-      "imageUrl": "img/coseats-campervan-4-berth.jpg",
-      "imageCredit": "Foto: Coseats",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 2,
-      "price": "1 AUD/dag · 29 AUD bookinggebyr · op til 5 dage, ekstra dage à 75 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "31 AUD",
-      "fuel": "100 AUD brændstof inkluderet",
-      "kmLimit": null,
-      "minAge": 21,
-      "bond": "2000 AUD",
-      "availability": {
-        "state": "ikke-i-vindue",
-        "from": "2026-09-26",
-        "to": "2026-09-29",
-        "spaces": "Ukendt",
-        "detail": "Afhentning mulig 2026-09-26 til 2026-09-29 med 2 dage til turen.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
-      "fit": "naesten",
-      "fitReason": "Prisen passer, men seneste afhentning er 29. sep, 1 dag(e) før dit vindue. Udbyderne forlænger ofte, så den overvåges.",
-      "notes": "Automatisk aflæst fra Coseats (opslag 6258678). Aldersgrænse 21 år. Depositum 2000 AUD. Bookes i Coseats-appen, ingen direkte link til det enkelte opslag."
     },
     {
       "id": "drivenow-fa62c09f",
@@ -1052,7 +764,7 @@
         "to": "2026-09-25",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-09-28, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 25. sep, 5 dag(e) for tidligt",
@@ -1088,7 +800,7 @@
         "to": "2026-09-29",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-02, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -1124,7 +836,7 @@
         "to": "2026-09-29",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-02, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -1160,7 +872,7 @@
         "to": "2026-09-29",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-02, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -1196,7 +908,7 @@
         "to": "2026-09-29",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-02, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -1232,7 +944,7 @@
         "to": "2026-09-29",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-02, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -1268,7 +980,7 @@
         "to": "2026-09-29",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-02, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Seneste afhentning 29. sep, 1 dag(e) for tidligt",
@@ -1304,7 +1016,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1340,7 +1052,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1376,7 +1088,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1412,7 +1124,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1448,7 +1160,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1484,7 +1196,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1520,7 +1232,7 @@
         "to": "2026-09-30",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-09-24, skal være i Sydney senest 2026-10-03, 3 dage inkluderet.",
-        "checkedAt": "2026-09-25T15:09:49+10:00",
+        "checkedAt": "2026-09-26T00:01:04+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 30. sep → aflever 3. okt",
@@ -1616,9 +1328,9 @@
       "autoKey": "imoova",
       "note": "Størst i Australien. Læses via deres eget API, så alle opslag kommer med, også fra Gold Coast og Sunshine Coast.",
       "lastCheck": {
-        "ts": "2026-09-25T15:09:49+10:00",
+        "ts": "2026-09-26T00:01:04+10:00",
         "ok": true,
-        "count": 12,
+        "count": 11,
         "skipped": false
       }
     },
@@ -1631,9 +1343,9 @@
       "autoKey": "transfercar",
       "note": "Gratis eller 1 AUD/dag, oftest Awesome Campers og Camperman på ruten. Siden blokerer robotter, men vi læser deres eget API med de nøgler siden selv udleverer.",
       "lastCheck": {
-        "ts": "2026-09-25T15:09:49+10:00",
+        "ts": "2026-09-26T00:01:04+10:00",
         "ok": true,
-        "count": 10,
+        "count": 9,
         "skipped": false
       }
     },
@@ -1646,9 +1358,9 @@
       "autoKey": "coseats",
       "note": "1 AUD/dag, 39 AUD bookinggebyr, ofte gratis brændstof. Sælger THL's campere (Britz, Maui, Mighty). Læses via deres app-API.",
       "lastCheck": {
-        "ts": "2026-09-25T15:09:49+10:00",
+        "ts": "2026-09-26T00:01:04+10:00",
         "ok": true,
-        "count": 6,
+        "count": 0,
         "skipped": false
       }
     },
@@ -1661,7 +1373,7 @@
       "autoKey": "simba",
       "note": "Almindelige personbiler, 20-50 AUD/dag med 1 AUD envejsgebyr. Har i dag ingen Brisbane → Sydney, men kører Sydney og Melbourne-ruter jævnligt.",
       "lastCheck": {
-        "ts": "2026-09-25T15:09:49+10:00",
+        "ts": "2026-09-26T00:01:04+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -1676,7 +1388,7 @@
       "autoKey": "autosleepers",
       "note": "1 AUD/dag med egen Brisbane-afdeling. Listen står som almindelig tabel, så den læses automatisk. Tom lige nu.",
       "lastCheck": {
-        "ts": "2026-09-25T15:09:49+10:00",
+        "ts": "2026-09-26T00:01:04+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -1691,7 +1403,7 @@
       "note": "Australiens tredjestørste relocation-liste (34 tilbud i dag), alle fra THL. Selve siden er spærret og bygges med JavaScript, men den adresse siden selv henter data fra svarer på et almindeligt kald, og det er den vi bruger. Fornys hver morgen for afrejse op til 30 dage frem.",
       "autoKey": "drivenow",
       "lastCheck": {
-        "ts": "2026-09-25T15:09:49+10:00",
+        "ts": "2026-09-26T00:01:04+10:00",
         "ok": true,
         "count": 14,
         "skipped": false
@@ -2018,10 +1730,6 @@
   ],
   "log": [
     {
-      "ts": "2026-09-12T14:49:07+10:00",
-      "summary": "Automatisk tjek (Imoova 5 opslag, Transfercar 4 opslag, Coseats 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv · DriveNow kunne ikke læses herfra (kræver almindelig internetforbindelse)"
-    },
-    {
       "ts": "2026-09-12T22:15:38+10:00",
       "summary": "Automatisk tjek (Imoova 5 opslag, Transfercar 4 opslag, Coseats 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): Awesome Campers har ændret sin flytningsside · Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv · DriveNow kunne ikke læses herfra (kræver almindelig internetforbindelse)"
     },
@@ -2176,90 +1884,94 @@
     {
       "ts": "2026-09-25T15:09:49+10:00",
       "summary": "Automatisk tjek (Imoova 12 opslag, Transfercar 10 opslag, Coseats 6 opslag, DriveNow 14 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): NYT: Imoova: 2 Berth Toilet & Shower · sover 2 · 2 sæder · automatgear (Brisbane → Sydney, 3 dage, 1 AUD/dag · 59 AUD bookinggebyr · op til 1 ekstra dag à 100 AUD, afhentning 2026-09-25–2026-10-01) · tæt på: Imoova: Kea 6 Berth Motorhome · 5 sæder · automatgear (Brisbane → Sydney, 2 dage, 1 AUD/dag · 59 AUD bookinggebyr, afhentning 2026-09-25–2026-09-29) · NYT: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney, 3 dage, 1 AUD/dag · 59 AUD bookinggebyr · op til 1 ekstra dag à 100 AUD, afhentning 2026-09-25–2026-09-30) · NYT: Imoova: 4 Berth-Hitop · 4 sæder · automatgear (Brisbane → Sydney, 2 dage, 1 AUD/dag · 59 AUD bookinggebyr, afhentning 2026-09-25–2026-09-30) · NYT: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney, 3 dage, 1 AUD/dag · 59 AUD bookinggebyr · op til 1 ekstra dag à 100 AUD, afhentning 2026-09-25–2026-09-30) · NYT: Imoova: 2 Berth Toilet & Shower · sover 2 · 2 sæder · automatgear (Brisbane → Sydney, 3 dage, 1 AUD/dag · 59 AUD bookinggebyr · op til 1 ekstra dag à 100 AUD, afhentning 2026-09-25–2026-10-01) · NYT: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney, 2 dage, 1 AUD/dag i 3 gratis dage · op til 1 ekstra dag à 75 AUD · 75 AUD refunderbart depositum til udlejer, afhentning 2026-09-26–2026-10-01) · NYT: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney, 2 dage, 1 AUD/dag i 3 gratis dage · op til 1 ekstra dag à 75 AUD · 75 AUD refunderbart depositum til udlejer, afhentning 2026-09-26–2026-10-01) · NYT: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney, 2 dage, 1 AUD/dag i 3 gratis dage · op til 1 ekstra dag à 75 AUD · 75 AUD refunderbart depositum til udlejer, afhentning 2026-09-26–2026-10-01) · NYT: Transfercar: 2 Berth Campervan with Toilet and Shower · sover 2 (Brisbane → Bankstown Sydney, 3 dage, 1 AUD/dag i 3 gratis dage · op til 1 ekstra dag à 75 AUD · 75 AUD refunderbart depositum til udlejer, afhentning 2026-09-26–2026-10-02) · NYT: Transfercar: 2 Berth Campervan with Toilet and Shower · sover 2 (Brisbane → Bankstown Sydney, 3 dage, 1 AUD/dag i 3 gratis dage · op til 1 ekstra dag à 75 AUD · 75 AUD refunderbart depositum til udlejer, afhentning 2026-09-26–2026-10-02) · tæt på: Transfercar: 4 Berth HiTop · sover 4 (Brisbane → Sydney, 2 dage, 1 AUD/dag i 2 gratis dage, afhentning 2026-09-26–2026-09-29) · NYT: Coseats: 6-berth motorhome · sover 6 (Brisbane → Sydney, 3 dage, 1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD, afhentning 2026-09-25–2026-10-02) · NYT: Coseats: 6-berth motorhome · sover 6 (Brisbane → Sydney, 3 dage, 1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD, afhentning 2026-09-25–2026-10-02) · NYT: Coseats: 6-berth motorhome · sover 6 (Brisbane → Sydney, 3 dage, 1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD, afhentning 2026-09-25–2026-10-02) · NYT: Coseats: 2-berth campervan · sover 2 (Brisbane → Sydney, 3 dage, 1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD, afhentning 2026-09-25–2026-10-03) · NYT: Coseats: 2-berth campervan · sover 2 (Brisbane → Sydney, 3 dage, 1 AUD/dag · 39 AUD bookinggebyr · op til 4 dage, ekstra dage à 75 AUD, afhentning 2026-09-25–2026-10-03) · tæt på: Coseats: Campervan (CAMPERVAN-4-BERTH) · sover 4 (Brisbane → Sydney, 2 dage, 1 AUD/dag · 29 AUD bookinggebyr · op til 5 dage, ekstra dage à 75 AUD, afhentning 2026-09-26–2026-09-29) · ændret: Imoova: Toyota MAXIE 4 DELUXE · 4 sæder — nu naesten, 2026-09-26–2026-09-28 · ændret: Transfercar: 6 Berth Motorhome · sover 6 — nu naesten, 2026-09-26–2026-09-28 · ændret: Transfercar: Mystery Machine 2 Hightop · sover 2 — nu passer, 2026-09-26–2026-09-30 · ændret: Transfercar: Maxie 4 Deluxe · sover 4 — nu naesten, 2026-09-26–2026-09-28 · væk: Imoova: 2 Berth Toilet & Shower · sover 2 · 2 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: Kea 2+1 Berth Motor-home · 3 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: 2 Berth Hi-Top · 2 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: Toyota MAXIE 4 DELUXE · 4 sæder (Brisbane → Sydney) · væk: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney) · væk: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney) · væk: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney) · væk: Transfercar: 6 Berth Motorhome with Toilet and Shower · sover 6 (Brisbane → Bankstown Sydney) · væk: Transfercar: 2 Berth Campervan with Toilet and Shower · sover 2 (Brisbane → Bankstown Sydney) · væk: Transfercar: 2 Berth Campervan with Toilet and Shower · sover 2 (Brisbane → Bankstown Sydney) · væk: Transfercar: 2 Berth Campervan with Toilet and Shower · sover 2 (Brisbane → Bankstown Sydney) · væk: Transfercar: Maxie 4 Deluxe · sover 4 (Brisbane → Sydney) · væk: Transfercar: Maxie 4 Deluxe · sover 4 (Brisbane → Sydney) · væk: Coseats: Campervan (CAMPERVAN-4-BERTH) · sover 4 (Brisbane → Sydney) · væk: Coseats: Campervan (CAMPERVAN-4-BERTH) · sover 4 (Brisbane → Sydney)"
+    },
+    {
+      "ts": "2026-09-26T00:01:04+10:00",
+      "summary": "Automatisk tjek (Imoova 11 opslag, Transfercar 9 opslag, Coseats 0 opslag, DriveNow 14 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): ændret: Imoova: Mystery Machine 2 Hightop · sover 2 · 2 sæder · manuelt gear — nu passer, 2026-09-26–2026-09-30 · ændret: Imoova: 2 Berth Toilet & Shower · sover 2 · 2 sæder · automatgear — nu passer, 2026-09-26–2026-10-01 · ændret: Imoova: Kea 6 Berth Motorhome · 5 sæder · automatgear — nu naesten, 2026-09-26–2026-09-29 · ændret: Imoova: Kea 6 Berth Motorhome · 5 sæder · automatgear — nu naesten, 2026-09-26–2026-09-25 · ændret: Imoova: 4.5T Truck · 2 sæder · automatgear — nu naesten, 2026-09-26–2026-09-29 · ændret: Imoova: 6 Berth Motorhome · 6 sæder · automatgear — nu passer, 2026-09-26–2026-09-30 · ændret: Imoova: 4 Berth-Hitop · 4 sæder · automatgear — nu passer, 2026-09-26–2026-09-30 · ændret: Imoova: 4.5T Truck · 2 sæder · automatgear — nu naesten, 2026-09-26–2026-09-28 · ændret: Imoova: 6 Berth Motorhome · 6 sæder · automatgear — nu passer, 2026-09-26–2026-09-30 · ændret: Imoova: 2 Berth Toilet & Shower · sover 2 · 2 sæder · automatgear — nu passer, 2026-09-26–2026-10-01 · ændret: Imoova: 4.5T Truck · 2 sæder · automatgear — nu nej, 2026-09-26–2026-09-29 · væk: Imoova: Toyota MAXIE 4 DELUXE · 4 sæder (Brisbane → Sydney) · væk: Transfercar: Maxie 4 Deluxe · sover 4 (Brisbane → Sydney) · væk: Coseats: 6-berth motorhome · sover 6 (Brisbane → Sydney) · væk: Coseats: 6-berth motorhome · sover 6 (Brisbane → Sydney) · væk: Coseats: 6-berth motorhome · sover 6 (Brisbane → Sydney) · væk: Coseats: 2-berth campervan · sover 2 (Brisbane → Sydney) · væk: Coseats: 2-berth campervan · sover 2 (Brisbane → Sydney) · væk: Coseats: Campervan (CAMPERVAN-4-BERTH) · sover 4 (Brisbane → Sydney) · Wicked Campers har ændret sin flytningsside"
     }
   ],
   "watch": [
     {
       "name": "Cruisin Motorhomes",
       "url": "https://www.cruisinmotorhomes.com.au/relocation-offers/",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Travellers Autobarn",
       "url": "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Let's Go Motorhomes",
       "url": "https://www.letsgomotorhomes.com.au/relocations/",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Camperman Australia",
       "url": "https://www.campermanaustralia.com/relocation-specials/",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Awesome Campers",
       "url": "https://www.awesomecampers.com.au/relocation-specials",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Wicked Campers",
       "url": "https://www.wickedcampers.com.au/relocation",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
-      "status": "uændret",
-      "detail": "Ingen ændring siden sidste tjek."
+      "checkedAt": "2026-09-26T00:01:04+10:00",
+      "status": "ændret",
+      "detail": "Teksten om flytninger er ændret siden sidste tjek."
     },
     {
       "name": "Spaceships Australia",
       "url": "https://www.spaceshipsrentals.com.au/deals",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Star RV Australia",
       "url": "https://www.starrv.com/au/motorhome-hire-deals-au",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "JUCY Australia",
       "url": "https://www.jucy.com/au/en/deals/limited-time-deals",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Britz Australia",
       "url": "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "maui Australia",
       "url": "https://www.maui-rentals.com/motorhome-hire-australia/deals/relocation-vehicles",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Autosleepers Campervan Hire",
       "url": "https://www.autosleepers.com.au/relocations",
-      "checkedAt": "2026-09-25T15:09:49+10:00",
+      "checkedAt": "2026-09-26T00:01:04+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     }
@@ -2270,7 +1982,7 @@
     "https://www.letsgomotorhomes.com.au/relocations/": "d87f478b664b5b7a",
     "https://www.campermanaustralia.com/relocation-specials/": "743a8cf601361571",
     "https://www.awesomecampers.com.au/relocation-specials": "97f3cd3950cfdfe4",
-    "https://www.wickedcampers.com.au/relocation": "02b1c001196defdd",
+    "https://www.wickedcampers.com.au/relocation": "2b32f45899d8b67f",
     "https://www.spaceshipsrentals.com.au/deals": "3102d0ef601d20c3",
     "https://www.starrv.com/au/motorhome-hire-deals-au": "09547c5a356c870a",
     "https://www.jucy.com/au/en/deals/limited-time-deals": "ad0b1df8cc56231a",
