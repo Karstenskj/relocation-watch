@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T09:50:54+10:00",
+  "updated": "2026-09-30T15:47:07+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -17,148 +17,40 @@
   },
   "deals": [
     {
-      "id": "imoova-rlc123937",
+      "id": "imoova-rlc123979",
       "source": "imoova-auto",
       "provider": "Imoova",
       "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/australia/brisbane-to-sydney/RLC123937",
-      "vehicle": "6 Berth Motorhome · 6 sæder · automatgear",
-      "vehicleType": "campervan",
+      "url": "https://www.imoova.com/relocations/australia/brisbane-to-sydney/RLC123979",
+      "vehicle": "4.5T Truck · 2 sæder · automatgear",
+      "vehicleType": "truck",
       "sleeps": null,
-      "canSleepIn": true,
-      "imageUrl": "img/rlc123937.webp",
-      "imageCredit": "Foto: Imoova",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "1 AUD/dag · 59 AUD bookinggebyr · op til 1 ekstra dag à 100 AUD",
-      "pricePerDay": 1.0,
-      "totalCost": "62 AUD + brændstof",
-      "fuel": "ikke inkluderet",
-      "kmLimit": "1350 km",
-      "minAge": 21,
-      "bond": null,
-      "availability": {
-        "state": "ledig",
-        "from": "2026-10-01",
-        "to": "2026-10-03",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-10-01 til 2026-10-03 med 3 dage til turen.",
-        "checkedAt": "2026-09-30T09:50:54+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 1. okt → aflever 4. okt (afhentning mulig 1. okt–3. okt)",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen. Kun ét køretøj, så book hurtigt.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC123937."
-    },
-    {
-      "id": "imoova-rlc123280",
-      "source": "imoova-auto",
-      "provider": "Imoova",
-      "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/australia/brisbane-to-sydney/RLC123280",
-      "vehicle": "4 Berth-Hitop · 4 sæder · automatgear",
-      "vehicleType": "campervan",
-      "sleeps": null,
-      "canSleepIn": true,
-      "imageUrl": "img/rlc123280.webp",
+      "canSleepIn": false,
+      "imageUrl": "img/rlc123979.webp",
       "imageCredit": "Foto: Imoova",
       "route": "Brisbane → Sydney",
       "pickupCity": "Brisbane",
       "days": 2,
-      "price": "1 AUD/dag · 59 AUD bookinggebyr",
+      "price": "1 AUD/dag · 59 AUD bookinggebyr · op til 5 ekstra dage à 329 AUD",
       "pricePerDay": 1.0,
-      "totalCost": "61 AUD",
-      "fuel": "150 AUD brændstof refunderes (Refund against receipts)",
-      "kmLimit": null,
-      "minAge": 21,
-      "bond": null,
-      "availability": {
-        "state": "ledig-snaevert",
-        "from": "2026-09-30",
-        "to": "2026-09-30",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-30 til 2026-09-30 med 2 dage til turen.",
-        "checkedAt": "2026-09-30T09:50:54+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 2. okt",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen. Kun ét køretøj, så book hurtigt.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC123280."
-    },
-    {
-      "id": "imoova-rlc123600",
-      "source": "imoova-auto",
-      "provider": "Imoova",
-      "platform": "Imoova",
-      "url": "https://www.imoova.com/relocations/australia/brisbane-to-sydney/RLC123600",
-      "vehicle": "Kea 2+1 Berth Motor-home · 3 sæder · automatgear",
-      "vehicleType": "campervan",
-      "sleeps": null,
-      "canSleepIn": true,
-      "imageUrl": "img/rlc123600.webp",
-      "imageCredit": "Foto: Imoova",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 2,
-      "price": "1 AUD/dag · 59 AUD bookinggebyr",
-      "pricePerDay": 1.0,
-      "totalCost": "61 AUD",
-      "fuel": "250 AUD brændstof refunderes (Refund against receipts)",
-      "kmLimit": null,
-      "minAge": 21,
-      "bond": null,
-      "availability": {
-        "state": "ledig-snaevert",
-        "from": "2026-09-30",
-        "to": "2026-09-30",
-        "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-30 til 2026-09-30 med 2 dage til turen.",
-        "checkedAt": "2026-09-30T09:50:54+10:00",
-        "confidence": "direkte"
-      },
-      "yourPlan": "Hent 30. sep → aflever 2. okt",
-      "fit": "passer",
-      "fitReason": "Afhentning i dit vindue, prisen er under grænsen. Kun ét køretøj, så book hurtigt.",
-      "notes": "Automatisk aflæst fra Imoova. Reference RLC123600."
-    },
-    {
-      "id": "transfercar-679136",
-      "source": "transfercar-auto",
-      "provider": "Calypso Campervan Rentals",
-      "platform": "Transfercar",
-      "url": "https://www.transfercar.com.au/relocation/Brisbane/Sydney/679136",
-      "vehicle": "Riverina (campervan (4 berth)) · sover 4",
-      "vehicleType": "campervan",
-      "sleeps": 4,
-      "canSleepIn": true,
-      "imageUrl": "img/tc-679136.png",
-      "imageCredit": "Foto: Transfercar",
-      "route": "Brisbane → Sydney",
-      "pickupCity": "Brisbane",
-      "days": 3,
-      "price": "0 AUD/dag i 3 gratis dage · op til 4 ekstra dage à 85 AUD",
-      "pricePerDay": 0.0,
-      "totalCost": "0 AUD + brændstof",
+      "totalCost": "61 AUD + brændstof",
       "fuel": "ikke inkluderet",
-      "kmLimit": null,
-      "minAge": 21,
-      "bond": "2000 AUD",
+      "kmLimit": "1100 km",
+      "minAge": 23,
+      "bond": null,
       "availability": {
         "state": "ledig",
-        "from": "2026-09-30",
-        "to": "2026-10-06",
+        "from": "2026-10-02",
+        "to": "2026-10-08",
         "spaces": "1 køretøj",
-        "detail": "Afhentning mulig 2026-09-30 til 2026-10-06, aflevering senest 2026-10-07, 3 gratis dage.",
-        "checkedAt": "2026-09-30T09:50:54+10:00",
+        "detail": "Afhentning mulig 2026-10-02 til 2026-10-08 med 2 dage til turen.",
+        "checkedAt": "2026-09-30T15:47:07+10:00",
         "confidence": "direkte"
       },
-      "yourPlan": "Hent 30. sep → aflever 3. okt (afhentning mulig 30. sep–3. okt)",
+      "yourPlan": "Hent 2. okt → aflever 4. okt (afhentning mulig 2. okt–3. okt)",
       "fit": "passer",
       "fitReason": "Afhentning i dit vindue, prisen er under grænsen. Kun ét køretøj, så book hurtigt.",
-      "notes": "Automatisk aflæst fra Transfercar (opslag 679136). Udlejer: Calypso Campervan Rentals. Sikkerhedsstillelse (bond) 2000 AUD på kreditkort ved afhentning. 3 anden/andre har allerede bedt om den. Afhentning Brisbane, aflevering Sydney."
+      "notes": "Automatisk aflæst fra Imoova. Reference RLC123979."
     },
     {
       "id": "drivenow-be77b70c",
@@ -188,7 +80,7 @@
         "to": "2026-10-02",
         "spaces": "Ukendt",
         "detail": "Afhentning fra 2026-10-01, skal være i Sydney senest 2026-10-05, 3 dage inkluderet.",
-        "checkedAt": "2026-09-30T09:50:54+10:00",
+        "checkedAt": "2026-09-30T15:47:07+10:00",
         "confidence": "direkte"
       },
       "yourPlan": "Hent 1. okt → aflever 4. okt (afhentning mulig 1. okt–2. okt)",
@@ -284,9 +176,9 @@
       "autoKey": "imoova",
       "note": "Størst i Australien. Læses via deres eget API, så alle opslag kommer med, også fra Gold Coast og Sunshine Coast.",
       "lastCheck": {
-        "ts": "2026-09-30T09:50:54+10:00",
+        "ts": "2026-09-30T15:47:07+10:00",
         "ok": true,
-        "count": 3,
+        "count": 1,
         "skipped": false
       }
     },
@@ -299,9 +191,9 @@
       "autoKey": "transfercar",
       "note": "Gratis eller 1 AUD/dag, oftest Awesome Campers og Camperman på ruten. Siden blokerer robotter, men vi læser deres eget API med de nøgler siden selv udleverer.",
       "lastCheck": {
-        "ts": "2026-09-30T09:50:54+10:00",
+        "ts": "2026-09-30T15:47:07+10:00",
         "ok": true,
-        "count": 1,
+        "count": 0,
         "skipped": false
       }
     },
@@ -314,7 +206,7 @@
       "autoKey": "coseats",
       "note": "1 AUD/dag, 39 AUD bookinggebyr, ofte gratis brændstof. Sælger THL's campere (Britz, Maui, Mighty). Læses via deres app-API.",
       "lastCheck": {
-        "ts": "2026-09-30T09:50:54+10:00",
+        "ts": "2026-09-30T15:47:07+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -329,7 +221,7 @@
       "autoKey": "simba",
       "note": "Almindelige personbiler, 20-50 AUD/dag med 1 AUD envejsgebyr. Har i dag ingen Brisbane → Sydney, men kører Sydney og Melbourne-ruter jævnligt.",
       "lastCheck": {
-        "ts": "2026-09-30T09:50:54+10:00",
+        "ts": "2026-09-30T15:47:07+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -344,7 +236,7 @@
       "autoKey": "autosleepers",
       "note": "1 AUD/dag med egen Brisbane-afdeling. Listen står som almindelig tabel, så den læses automatisk. Tom lige nu.",
       "lastCheck": {
-        "ts": "2026-09-30T09:50:54+10:00",
+        "ts": "2026-09-30T15:47:07+10:00",
         "ok": true,
         "count": 0,
         "skipped": false
@@ -359,7 +251,7 @@
       "note": "Australiens tredjestørste relocation-liste (34 tilbud i dag), alle fra THL. Selve siden er spærret og bygges med JavaScript, men den adresse siden selv henter data fra svarer på et almindeligt kald, og det er den vi bruger. Fornys hver morgen for afrejse op til 30 dage frem.",
       "autoKey": "drivenow",
       "lastCheck": {
-        "ts": "2026-09-30T09:50:54+10:00",
+        "ts": "2026-09-30T15:47:07+10:00",
         "ok": true,
         "count": 1,
         "skipped": false
@@ -686,10 +578,6 @@
   ],
   "log": [
     {
-      "ts": "2026-09-17T09:05:33+10:00",
-      "summary": "Automatisk tjek (Imoova 6 opslag, Transfercar 1 opslag, Coseats 0 opslag, DriveNow 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): ændret: Imoova: Standard SUV · 5 sæder · automatgear — nu naesten, 2026-09-17–2026-09-27 · ændret: Imoova: Standard SUV · 5 sæder · automatgear — nu nej, 2026-09-17–2026-09-27 · ændret: Imoova: 4.5T Truck · 2 sæder · automatgear — nu nej, 2026-09-17–2026-09-21 · ændret: Imoova: Standard SUV · 5 sæder · automatgear — nu nej, 2026-09-17–2026-09-27 · Awesome Campers har ændret sin flytningsside · Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv"
-    },
-    {
       "ts": "2026-09-17T15:04:27+10:00",
       "summary": "Automatisk tjek (Imoova 6 opslag, Transfercar 1 opslag, Coseats 0 opslag, DriveNow 0 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): 1 nye opslag uden for dit vindue · væk: Imoova: Fiat Oc Active Standard 2 Auto Select · sover 2 · 4 sæder · automatgear (Brisbane → Sydney) · Awesome Campers har ændret sin flytningsside · Star RV Australia nævner nu Brisbane og Sydney på sin flytningsside — tjek den selv"
     },
@@ -844,90 +732,94 @@
     {
       "ts": "2026-09-30T09:50:54+10:00",
       "summary": "Automatisk tjek (Imoova 3 opslag, Transfercar 1 opslag, Coseats 0 opslag, DriveNow 1 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): NYT: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney, 3 dage, 1 AUD/dag · 59 AUD bookinggebyr · op til 1 ekstra dag à 100 AUD, afhentning 2026-10-01–2026-10-03) · NYT: DriveNow: Campervan, 6 sovepladser (THL-kode 6RE) (Brisbane → Sydney, 3 dage, 1 AUD/dag i 3 dage · kan forlænges til 4 dage, afhentning 2026-10-01–2026-10-02) · væk: Imoova: Kea 6 Berth Motorhome · 5 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: Medium SUV · 5 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney) · væk: DriveNow: Campervan, 6 sovepladser (THL-kode 6RE) (Brisbane → Sydney) · væk: DriveNow: Campervan, 6 sovepladser (THL-kode 6RE) (Brisbane → Sydney) · væk: DriveNow: Campervan, 6 sovepladser (THL-kode 6RE) (Brisbane → Sydney) · væk: DriveNow: Campervan, 2 sovepladser (THL-kode 2RE) (Brisbane → Sydney)"
+    },
+    {
+      "ts": "2026-09-30T15:47:07+10:00",
+      "summary": "Automatisk tjek (Imoova 1 opslag, Transfercar 0 opslag, Coseats 0 opslag, DriveNow 1 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): NYT: Imoova: 4.5T Truck · 2 sæder · automatgear (Brisbane → Sydney, 2 dage, 1 AUD/dag · 59 AUD bookinggebyr · op til 5 ekstra dage à 329 AUD, afhentning 2026-10-02–2026-10-08) · væk: Imoova: 6 Berth Motorhome · 6 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: 4 Berth-Hitop · 4 sæder · automatgear (Brisbane → Sydney) · væk: Imoova: Kea 2+1 Berth Motor-home · 3 sæder · automatgear (Brisbane → Sydney) · væk: Transfercar: Riverina (campervan (4 berth)) · sover 4 (Brisbane → Sydney) · Awesome Campers har ændret sin flytningsside"
     }
   ],
   "watch": [
     {
       "name": "Cruisin Motorhomes",
       "url": "https://www.cruisinmotorhomes.com.au/relocation-offers/",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Travellers Autobarn",
       "url": "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Let's Go Motorhomes",
       "url": "https://www.letsgomotorhomes.com.au/relocations/",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Camperman Australia",
       "url": "https://www.campermanaustralia.com/relocation-specials/",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Awesome Campers",
       "url": "https://www.awesomecampers.com.au/relocation-specials",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
-      "status": "uændret",
-      "detail": "Ingen ændring siden sidste tjek."
+      "checkedAt": "2026-09-30T15:47:07+10:00",
+      "status": "ændret",
+      "detail": "Teksten om flytninger er ændret siden sidste tjek."
     },
     {
       "name": "Wicked Campers",
       "url": "https://www.wickedcampers.com.au/relocation",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Spaceships Australia",
       "url": "https://www.spaceshipsrentals.com.au/deals",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Star RV Australia",
       "url": "https://www.starrv.com/au/motorhome-hire-deals-au",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "JUCY Australia",
       "url": "https://www.jucy.com/au/en/deals/limited-time-deals",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Britz Australia",
       "url": "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "maui Australia",
       "url": "https://www.maui-rentals.com/motorhome-hire-australia/deals/relocation-vehicles",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     },
     {
       "name": "Autosleepers Campervan Hire",
       "url": "https://www.autosleepers.com.au/relocations",
-      "checkedAt": "2026-09-30T09:50:54+10:00",
+      "checkedAt": "2026-09-30T15:47:07+10:00",
       "status": "uændret",
       "detail": "Ingen ændring siden sidste tjek."
     }
@@ -937,7 +829,7 @@
     "https://www.travellers-autobarn.com.au/campervan-hire-australia/campervan-relocations": "2801a1cb883b4de1",
     "https://www.letsgomotorhomes.com.au/relocations/": "d87f478b664b5b7a",
     "https://www.campermanaustralia.com/relocation-specials/": "743a8cf601361571",
-    "https://www.awesomecampers.com.au/relocation-specials": "1af5534bc517f87f",
+    "https://www.awesomecampers.com.au/relocation-specials": "e3b0c44298fc1c14",
     "https://www.wickedcampers.com.au/relocation": "2b32f45899d8b67f",
     "https://www.spaceshipsrentals.com.au/deals": "3102d0ef601d20c3",
     "https://www.starrv.com/au/motorhome-hire-deals-au": "09547c5a356c870a",
