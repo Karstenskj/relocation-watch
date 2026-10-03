@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T23:34:22+10:00",
+  "updated": "2026-10-04T09:13:16+10:00",
   "window": {
     "pickupFrom": "2026-09-30",
     "pickupTo": "2026-10-03",
@@ -772,6 +772,10 @@
     {
       "ts": "2026-10-03T23:34:22+10:00",
       "summary": "Automatisk tjek (Imoova 0 opslag, Transfercar 2 opslag, Coseats 0 opslag, DriveNow 1 opslag, Simba Car Hire 0 opslag, Autosleepers 0 opslag): Awesome Campers har ændret sin flytningsside"
+    },
+    {
+      "ts": "2026-10-04T09:13:16+10:00",
+      "summary": "Overvågningen er slut. Sidste mulige afhentningsdag var 2026-10-03, så både det automatiske tjek i skyen og jobbet på Karstens Mac er slukket. Siden bliver stående som den så ud til sidst."
     }
   ],
   "watch": [
@@ -873,5 +877,9 @@
     "https://www.britz.com/au/en/campervan-hire-deals/campervan-relocations": "7798f8a871272459",
     "https://www.maui-rentals.com/motorhome-hire-australia/deals/relocation-vehicles": "a14850b779bff8f4",
     "https://www.autosleepers.com.au/relocations": "46df8acaf322ea72"
+  },
+  "stopped": {
+    "ts": "2026-10-04T09:13:16+10:00",
+    "reason": "Overvågningen sluttede efter 2026-10-03."
   }
 }
