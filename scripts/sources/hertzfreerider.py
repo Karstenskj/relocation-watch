@@ -2,8 +2,9 @@
 
 Der er ingen robots.txt (404) og ingen nøgle. Danmark findes ikke længere (country=DENMARK
 giver en tom liste), men mange ture ender i Malmö, Lund og Helsingborg. Freerider kræver
-svensk kørekort og svensk personnummer med BankID, så med dansk kørekort kan turene ikke
-bookes. De vises derfor kun, så man kan se mønstret, og mærkes altid "nej".
+svensk personnummer i profilen. Kørekort fra EØS-lande accepteres ifølge FAQ'en, men uden
+personnummer kan turene ikke bookes. De vises derfor kun, så man kan se mønstret, og mærkes
+altid "nej". Kilde: https://www.hertzfreerider.se/page-data/faq/sv-se/page-data.json
 """
 import sys, time, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
@@ -13,8 +14,8 @@ SOURCE = "freerider-auto"
 LABEL = "Hertz Freerider"
 API = "https://www.hertzfreerider.se/api/transport-routes/?country="
 PAGE = "https://www.hertzfreerider.se/sv-se/"
-BLOCKER = ("Kræver svensk kørekort og svensk personnummer med BankID, så turen kan ikke "
-           "bookes med dansk kørekort.")
+BLOCKER = ("Kræver svensk personnummer i profilen. Dansk kørekort (EØS) accepteres ifølge "
+           "FAQ'en, men uden personnummer kan turen ikke bookes.")
 LAST_OTHER = None
 
 

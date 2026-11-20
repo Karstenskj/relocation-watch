@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c1424">
-<title>Relocation Watch — Danmark ved nytår</title>
+<title>Relocation Watch, Danmark ved nytår</title>
 <style>
 :root{
   --bg:#f4f6f9; --bg2:#eaeef4; --card:#fff; --ink:#0d1626; --ink2:#3d4a61; --muted:#6b7a91;
@@ -177,7 +177,8 @@ const kr=n=>Math.round(n).toLocaleString("da-DK");
 let CAP=250;
 
 function card(d){
-  const [ac,at]=AVAIL[d.availability?.state]||["ikke","Ukendt"];
+  let [ac,at]=AVAIL[d.availability?.state]||["ikke","Ukendt"];
+  if(d.availability?.confidence&&d.availability.confidence!=="direkte"&&String(d.availability.state).startsWith("ledig")) at="I vinduet, ledighed ikke bekræftet";
   const media=d.imageUrl
     ? `<img src="${esc(d.imageUrl)}" alt="${esc(d.vehicle)}" loading="lazy">`
     : (SVGS[d.vehicleType]||SVGS.sedan);
@@ -237,14 +238,14 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
     :s.access==="js"?["blok","kun app eller JavaScript"]
     :s.access==="login"?["blok","kræver login"]
     :["","tjek selv"];
-  const emptyNY="Ingen lige nu. Udbyderne lægger flyttebiler op med kort varsel. Imoova 2 til 14 dage før afhentning og de svenske ordninger 0 til 7 dage før, så nytårsbiler ventes tidligst omkring 12. dec. Ture med en ende i Danmark er sjældne. Siden tjekker hver tredje time.";
+  const emptyNY="Ingen lige nu. Udbyderne lægger flyttebiler op med kort varsel. Imoova 2 til 14 dage før afhentning og de svenske ordninger 0 til 7 dage før, så nytårsbiler ventes tidligst omkring 12. dec. Ture med en ende i Danmark er sjældne."+(d.stopped?"":" Siden tjekker hver tredje time.");
   const fx=w.fxSource||{};
 
   document.getElementById("app").innerHTML=`
-   ${d.stopped?`<div class="stopped"><b>Overvågningen er slut</b><p>${esc(d.stopped.reason)} Det automatiske tjek er slukket, og siden opdateres ikke længere.</p></div>`:""}
+   ${d.stopped?`<div class="stopped"><b>Overvågningen er slut</b><p>Overvågningen sluttede efter ${dk(w.stopAfter)}. Det automatiske tjek er slukket, og siden opdateres ikke længere.</p></div>`:""}
    <div class="hero">
      <div class="route"><span class="city">${esc(w.home)}</span><span class="arrow">⇄</span><span class="city">Europa</span></div>
-     <p class="lede">Gratis eller næsten gratis flyttebiler, der skal til eller fra Danmark omkring nytår. Begge retninger tæller. Overvåges automatisk hver tredje time.</p>
+     <p class="lede">Gratis eller næsten gratis flyttebiler, der skal til eller fra Danmark omkring nytår. Begge retninger tæller.${d.stopped?"":" Overvåges automatisk hver tredje time."}</p>
      <div class="chips">
        <span class="chip">Afhentning <b>${dk(w.pickupFrom)} 2026 til ${dk(w.pickupTo)} 2027</b></span>
        <span class="chip">Den ene ende i <b>${esc(w.home)}</b>, gerne ${esc(w.homeCity)}</span>
@@ -308,7 +309,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
    <p class="hint">${autoSrc} kilder læses af robotten hver tredje time. De ${d.sources.length-autoSrc} andre er gennemgået i hånden, og her står hvorfor de ikke kan automatiseres.</p>
    <div class="srcgrid">${[...d.sources].sort((a,b)=>((b.autoKey?1:0)-(a.autoKey?1:0))||(a.priority-b.priority)).map(s=>`<div class="item">
      <div class="t"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} →</a></div>
-     <div class="d">${esc(s.note)}<br><b>Danmark:</b> ${esc(s.denmark||"ikke bekræftet")}<br><b>Alder:</b> ${esc(s.minAge||"ikke bekræftet")}<br><b>Ung fører-tillæg:</b> ${esc(s.youngDriverFee||"ikke bekræftet")}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${ts(s.lastCheck.ts)}${s.lastCheck.ok?` · ${s.lastCheck.count} med Danmark eller nærby${s.lastCheck.others!=null?`, ${s.lastCheck.others} andre`:""}`:" · FEJLEDE"}</span>`:""}</div>
+     <div class="d">${esc(s.note)}<br><b>Danmark:</b> ${esc(s.denmark||"ikke bekræftet")}<br><b>Alder:</b> ${esc(s.minAge||"ikke bekræftet")}<br><b>Ung fører-tillæg:</b> ${esc(s.youngDriverFee||"ikke bekræftet")}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${ts(s.lastCheck.ts)}${s.lastCheck.ok?` · ${s.lastCheck.count} med Danmark eller nærby${s.lastCheck.others!=null?`, ${s.lastCheck.others} andre`:""}${s.lastCheck.partial?` · ${esc(s.lastCheck.partial)}`:""}`:" · FEJLEDE"}</span>`:""}</div>
      <div class="tags"><span class="tag">${esc(s.type)}</span>
      <span class="tag ${srcTag(s)[0]}">${srcTag(s)[1]}</span></div></div>`).join("")}</div>
 
@@ -325,7 +326,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="t">${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}</div>
      <div class="d">${esc(l.summary)}</div></div>`).join("")}</div>
 
-   <footer>${d.stopped?"Overvågningen er slut, og siden opdateres ikke længere.":`Tjekkes automatisk hver tredje time døgnet rundt. Slukker af sig selv efter ${dk(w.stopAfter)}, den sidste afhentningsdag.`}<br>
+   <footer>${d.stopped?"Overvågningen er slut, og siden opdateres ikke længere.":`Tjekkes automatisk hver tredje time døgnet rundt. Slukker af sig selv efter ${dk(w.stopAfter)}, den sidste afhentningsdag, der tæller som tæt på.`}<br>
    Priser i kroner er cirka. Kurserne er ${esc(fx.name||"")} fra ${dk(fx.rateDate)}, <a href="${esc(fx.url)}" target="_blank" rel="noopener">kilde</a>.<br>
    Alle datoer og priser skal bekræftes hos udlejeren, før du booker.</footer>`;
 }).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json. ${esc(e.message)}</div>`});

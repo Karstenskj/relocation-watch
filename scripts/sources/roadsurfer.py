@@ -7,7 +7,7 @@ Roadsurfer har ingen station i Danmark, så alt herfra er højst "tæt på".
 """
 import datetime, html as H, re, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from common import fetch, assess, build_deal, direction, money, near_country, to_dkk
+from common import fetch, assess, build_deal, direction, money, near_country, to_dkk, da, d
 
 SOURCE = "roadsurfer-auto"
 LABEL = "Roadsurfer Rally"
@@ -72,7 +72,7 @@ def fetch_deals(w, now):
             minAgeNote="18 år i de fleste europæiske lande ifølge Roadsurfer, ikke bekræftet for afhentningslandet",
             youngDriverFee="ikke bekræftet", bond="depositum før turen, beløb ikke bekræftet",
             availability={"from": pick, "to": pick, "spaces": "Ukendt",
-                          "detail": f"Fast afhentning {pick}, aflevering senest {ret}.",
+                          "detail": f"Fast afhentning {da(d(pick)) if pick else 'ikke oplyst'}, aflevering senest {da(d(ret)) if ret else 'ikke oplyst'}.",
                           "confidence": "liste, ledighed ikke bekræftet"},
             notes=("Automatisk aflæst fra Roadsurfers rally-side. Om turen stadig er ledig, kan kun ses "
                    "på bookingsiden. Op til 4 personer, anden fører gratis."),

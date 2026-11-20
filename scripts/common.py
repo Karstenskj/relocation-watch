@@ -75,7 +75,8 @@ def near_city(window, name):
     """Navnet på nærbyen, hvis `name` er en af nærbyerne (Malmö, Hamburg osv.), ellers None."""
     s = slug(name)
     for c in window["nearCities"]:
-        if slug(c["name"]) in s or any(a in s for a in c.get("aliases", [])):
+        keys = [slug(c["name"])] + [slug(a) for a in c.get("aliases", [])]
+        if any(re.search(rf"(^|-){k}($|-)", s) for k in keys if k):
             return c["name"]
     return None
 
@@ -106,9 +107,9 @@ def direction(window, from_country, to_country, from_city="", to_city=""):
 
 
 def to_dkk(window, amount, currency):
-    if amount is None:
+    if amount is None or not currency:
         return None
-    rate = window["fx"].get((currency or "DKK").upper())
+    rate = window["fx"].get(currency.upper())
     return None if rate is None else round(amount * rate, 2)
 
 
@@ -146,7 +147,14 @@ def assess(window, pickup_from, pickup_to, days, price_per_day, currency, direct
 
     end_txt = {"naer": "Den ene ende er en nærby, ikke Danmark.",
                "indenrigs": "Turen går inden for Danmark."}.get(direction_, "")
-    price_txt = (f"ca. {dkk:.0f} kr./dag" if dkk is not None else "prisen er ikke oplyst")
+    if dkk is not None:
+        price_txt = f"ca. {dkk:.0f} kr./dag"
+    elif price_per_day is None:
+        price_txt = "prisen er ikke oplyst"
+    elif not currency:
+        price_txt = "valuta ukendt"
+    else:
+        price_txt = f"kurs for {currency.upper()} mangler"
 
     if min_age is not None and max_age is not None and min_age > max_age:
         fit, reason = "nej", f"Kræver fører på mindst {min_age} år."
@@ -166,7 +174,7 @@ def assess(window, pickup_from, pickup_to, days, price_per_day, currency, direct
     elif dates_ok and not price_ok:
         fit = "nej"
         reason = (f"Datoerne passer, men {price_txt} er over loftet på {cap} kr."
-                  if dkk is not None else "Datoerne passer, men prisen er ikke oplyst.")
+                  if dkk is not None else f"Datoerne passer, men {price_txt}.")
     elif not dates_ok:
         fit = "nej"
         if near_before or near_after:

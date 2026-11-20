@@ -63,6 +63,19 @@ og navnet skrives ind i `SOURCES` i `scripts/refresh.py` plus `autoKey` på kild
 `RESIDENTIAL_ONLY` i `refresh.py` er tom. Viser en kørsel i skyen, at en kilde afviser GitHubs servere,
 kommer den på listen, og så kan det lokale job (`scripts/local_refresh.sh`) læse den fra Karstens Mac.
 
+**Det lokale job er slukket** (21. nov. 2026), fordi ingen kilde kræver Mac'en. Plist-filen hedder
+`~/Library/LaunchAgents/dk.cpha.relocation-watch.plist.slukket`. Tænd det kun igen, hvis en kilde
+kommer på `RESIDENTIAL_ONLY`:
+
+```
+mv ~/Library/LaunchAgents/dk.cpha.relocation-watch.plist.slukket ~/Library/LaunchAgents/dk.cpha.relocation-watch.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/dk.cpha.relocation-watch.plist
+```
+
+Imoova læses side for side. Svarer en by-side ikke, prøves den én gang til efter 5 sekunder, og
+resten læses alligevel. Kildekortet skriver så «delvist læst». Kun hvis alle by-sider fejler, tæller
+Imoova som fejlet.
+
 ## Regler for adgang
 
 - Ærlig, generisk User-Agent (`Mozilla/5.0 (compatible; deal-watcher/2.0)`). Ingen falsk browser.
@@ -84,8 +97,8 @@ Nytårsbiler ventes tidligst omkring 12. dec. En tom liste før det er normalt.
 
 ## Slukkeknappen
 
-Datoen står ét sted: `window.stopAfter` i `data.json`, sat til **2027-01-04**, den sidste
-afhentningsdag. Overvågningen kører til og med den dato (dansk tid) og slukker derefter sig selv.
+Datoen står ét sted: `window.stopAfter` i `data.json`, sat til **2027-01-09**, den sidste
+afhentningsdag, der tæller som «tæt på» (4. jan. plus 5 dage). Overvågningen kører til og med den dato (dansk tid) og slukker derefter sig selv.
 
 - `scripts/refresh.py` tjekker datoen først. Er den passeret, hentes ingenting, der skrives en
   afsluttende status (`stopped`) og en sidste log-post.

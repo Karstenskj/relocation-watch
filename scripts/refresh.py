@@ -7,7 +7,7 @@ gamle opslag og skriver fejlen i loggen, så Karsten kan se at den ikke blev tje
 import importlib, json, sys, pathlib, time, traceback
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from common import ROOT, now_iso, past_cutoff
+from common import ROOT, now_iso, past_cutoff, da, d
 
 SOURCES = ["imoova", "roadsurfer", "driveback", "hertzfreerider"]
 
@@ -25,9 +25,9 @@ def main():
     # Slukket: efter sidste brugsdag henter vi ingenting mere.
     if past_cutoff(w):
         if not data.get("stopped"):
-            data["stopped"] = {"ts": now, "reason": f"Overvågningen sluttede efter {w['stopAfter']}."}
+            data["stopped"] = {"ts": now, "reason": f"Overvågningen sluttede efter {da(d(w['stopAfter']))}."}
             data["log"].append({"ts": now, "summary": (
-                f"Overvågningen er slut. Sidste mulige afhentningsdag var {w['stopAfter']}, "
+                f"Overvågningen er slut. Sidste dag, der talte med, var {da(d(w['stopAfter']))}, "
                 "så det automatiske tjek er slukket. Siden bliver stående, som den så ud til sidst.")})
             data["updated"] = now
             path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -37,7 +37,7 @@ def main():
         return 0
 
     data.pop("stopped", None)
-    fresh, ok_sources, failures, skipped, counts, others = [], set(), [], [], {}, {}
+    fresh, ok_sources, failures, skipped, counts, others, partial = [], set(), [], [], {}, {}, {}
     for i, name in enumerate(SOURCES):
         if i:
             time.sleep(1)
@@ -49,6 +49,8 @@ def main():
             counts[mod.LABEL] = len(deals)
             if getattr(mod, "LAST_OTHER", None) is not None:
                 others[mod.LABEL] = mod.LAST_OTHER
+            if getattr(mod, "PARTIAL", None):
+                partial[mod.LABEL] = mod.PARTIAL
         except Exception as e:
             if name in RESIDENTIAL_ONLY:
                 skipped.append(mod.LABEL)
@@ -62,7 +64,9 @@ def main():
                 s["lastCheck"] = {"ts": now, "ok": mod.SOURCE in ok_sources,
                                   "count": counts.get(mod.LABEL),
                                   "others": others.get(mod.LABEL),
-                                  "skipped": mod.LABEL in skipped}
+                                  "skipped": mod.LABEL in skipped,
+                                  "partial": (f"delvist læst, {len(partial[mod.LABEL])} side(r) svarede ikke"
+                                              if mod.LABEL in partial else None)}
 
     # Sider uden struktureret liste: hold øje med om de ændrer sig.
     watch_notes = []
@@ -104,13 +108,14 @@ def main():
         bits.append(f"væk: {x['platform']}: {x['vehicle']} ({x['route']})")
     bits += watch_notes
     bits += [f"FEJL: {f}" for f in failures]
+    bits += [f"{k} delvist læst ({', '.join(v)} svarede ikke)" for k, v in partial.items()]
     if skipped:
         bits.append(", ".join(skipped) + " kunne ikke læses herfra (kræver almindelig internetforbindelse)")
 
     n_pass = sum(1 for x in data["deals"] if x["fit"] == "passer")
-    head = "Automatisk tjek (" + ", ".join(
+    head = ("Automatisk tjek (" + ", ".join(
         f"{k} {v} med Danmark eller nærby" + (f" og {others[k]} andre" if k in others else "")
-        for k, v in counts.items()) + "): "
+        for k, v in counts.items()) + "): ") if counts else "Automatisk tjek (ingen kilder kunne læses): "
     summary = head + (" · ".join(bits) if bits else "ingen ændringer.")
 
     log = data.setdefault("log", [])

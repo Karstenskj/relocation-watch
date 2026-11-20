@@ -40,7 +40,11 @@ jobs:
           print(f"date={w.get('stopAfter', '')}")
           PY
 
+      # Fejler alle kilder, committer vi alligevel loglinjen, så siden viser fejlen,
+      # og melder først fejl til sidst.
       - name: Læs alle automatiske kilder
+        id: refresh
+        continue-on-error: true
         run: python3 scripts/refresh.py
 
       - name: Commit hvis noget ændrede sig
@@ -54,6 +58,12 @@ jobs:
             git commit -m "tjek: automatisk opdatering"
             git push
           fi
+
+      - name: Meld fejl, hvis ingen kilde kunne læses
+        if: steps.refresh.outcome == 'failure'
+        run: |
+          echo "Ingen automatisk kilde kunne læses i denne kørsel. Se loggen på siden."
+          exit 1
 
       # Efter sidste brugsdag afmelder jobbet sin egen tidsplan, så der ikke kører mere.
       # Det kan slås til igen med: gh workflow enable "Opdater relocation-tilbud"

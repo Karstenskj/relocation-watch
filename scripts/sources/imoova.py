@@ -14,8 +14,9 @@ LABEL = "Imoova"
 BASE = "https://www.imoova.com/deals/europe/"
 SLUGS = ["denmark", "copenhagen", "to-copenhagen", "malmo", "to-malmo", "hamburg", "to-hamburg",
          "flensburg", "to-flensburg", "kiel", "to-kiel", "lubeck", "to-lubeck", "rostock", "to-rostock"]
-PAUSE = 1.5
-LAST_OTHER = None   # antal opslag i hele Europa, som ikke rører Danmark eller en nærby
+PAUSE = 3
+LAST_OTHER = None
+PARTIAL = None    # by-sider der ikke kunne læses i sidste kørsel   # antal opslag i hele Europa, som ikke rører Danmark eller en nærby
 
 FIELD = re.compile(r'(\w+):("(?:[^"\\]|\\.)*"|\$R\[\d+\]|[^,{}\[\]]*)')
 VTYPE = {"MOTOR_HOME": "campervan", "CAMPER_VAN": "campervan", "CAR": "sedan", "SUV": "suv",
@@ -70,17 +71,39 @@ def parse(html):
     return rows, int(total.group(1)) if total else None
 
 
+def get(url):
+    """Én side, med ét nyt forsøg efter 5 sekunder, hvis forbindelsen svigter."""
+    try:
+        return fetch(url, timeout=45).decode("utf-8", "replace")
+    except Exception:
+        time.sleep(5)
+        return fetch(url, timeout=45).decode("utf-8", "replace")
+
+
 def fetch_deals(w, now):
     global LAST_OTHER
-    europe_html = fetch(BASE.rstrip("/"), timeout=45).decode("utf-8", "replace")
-    _, europe_total = parse(europe_html)
-    seen, out = {}, []
+    global PARTIAL
+    europe_total, err = None, None
+    try:
+        _, europe_total = parse(get(BASE.rstrip("/")))
+    except Exception as e:
+        err = e
+    europe_failed = err is not None
+    seen, out, failed = {}, [], []
     for s in SLUGS:
         time.sleep(PAUSE)
-        rows, _ = parse(fetch(BASE + s, timeout=45).decode("utf-8", "replace"))
+        try:
+            rows, _ = parse(get(BASE + s))
+        except Exception as e:
+            failed.append(s)
+            err = e
+            continue
         for r in rows:
             if r.get("reference"):
                 seen[r["reference"]] = r
+    if len(failed) == len(SLUGS):
+        raise err   # ingen by-side kunne læses: kilden tæller som fejlet, og gamle opslag beholdes
+    PARTIAL = (failed + (["europe"] if europe_failed else [])) or None
     for ref, r in seen.items():
         fc, tc = r.get("from") or {}, r.get("to") or {}
         dirn = direction(w, fc.get("state"), tc.get("state"), fc.get("name"), tc.get("name"))
