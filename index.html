@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c1424">
-<title>Relocation Watch — Brisbane → Sydney</title>
+<title>Relocation Watch — Danmark ved nytår</title>
 <style>
 :root{
   --bg:#f4f6f9; --bg2:#eaeef4; --card:#fff; --ink:#0d1626; --ink2:#3d4a61; --muted:#6b7a91;
@@ -167,124 +167,157 @@ const SVGS={
  sedan:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M58 122c-6 0-11-5-11-11v-16c0-8 5-14 13-16l38-9 30-22c5-4 11-6 17-6h68c7 0 13 3 17 8l25 27 44 9c9 2 15 10 15 19v6c0 6-5 11-11 11H58z" fill="#a9bcd4"/><path d="M139 52h56c4 0 8 2 10 5l19 22h-92l3-22c0-3 2-5 4-5z" fill="#e8eef6"/><path d="M118 57l-4 22H86l24-18c2-2 5-3 8-4z" fill="#e8eef6"/><circle cx="118" cy="122" r="21" fill="#3f4b5e"/><circle cx="118" cy="122" r="9" fill="#c8d2df"/><circle cx="288" cy="122" r="21" fill="#3f4b5e"/><circle cx="288" cy="122" r="9" fill="#c8d2df"/></svg>',
  van:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M70 120V54c0-6 5-11 11-11h190c6 0 11 3 14 8l34 44c3 4 8 7 13 7h4c6 0 10 5 10 10v8H70z" fill="#a9bcd4"/><rect x="90" y="56" width="70" height="40" rx="4" fill="#e8eef6"/><path d="M262 56h14l30 40h-44z" fill="#e8eef6"/><circle cx="120" cy="122" r="20" fill="#3f4b5e"/><circle cx="120" cy="122" r="8" fill="#c8d2df"/><circle cx="292" cy="122" r="20" fill="#3f4b5e"/><circle cx="292" cy="122" r="8" fill="#c8d2df"/></svg>'};
 SVGS.suv=SVGS.sedan; SVGS.truck=SVGS.van; SVGS.minibus=SVGS.van;
-const AVAIL={ledig:["","Ledig"],"ledig-snaevert":["snaevert","Ledig — snævert vindue"],"ikke-i-vindue":["ikke","Ikke i dit vindue"],udsolgt:["ikke","Udsolgt"],ukendt:["ikke","Ukendt"]};
+const AVAIL={ledig:["","Ledig"],"ledig-snaevert":["snaevert","Ledig, snævert vindue"],"ikke-i-vindue":["ikke","Ikke i vinduet"],udsolgt:["ikke","Udsolgt"],ukendt:["ikke","Ukendt"]};
 const VERD={passer:"Passer",naesten:"Tæt på",nej:"Opfylder ikke"};
+const DIR={"fra-dk":"Fra Danmark","til-dk":"Til Danmark",naer:"Nærby","indenrigs":"Inden for Danmark"};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dk=s=>s?new Date(s+"T00:00:00").toLocaleDateString("da-DK",{day:"numeric",month:"short"}):"";
-let CAP=50;
+const ts=s=>new Date(s).toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+const kr=n=>Math.round(n).toLocaleString("da-DK");
+let CAP=250;
 
 function card(d){
   const [ac,at]=AVAIL[d.availability?.state]||["ikke","Ukendt"];
   const media=d.imageUrl
-    ? `<img src="${esc(d.imageUrl)}" alt="${esc(d.vehicle)}" loading="lazy">${d.imageCredit?`<div class="credit">${esc(d.imageCredit)}</div>`:""}`
+    ? `<img src="${esc(d.imageUrl)}" alt="${esc(d.vehicle)}" loading="lazy">`
     : (SVGS[d.vehicleType]||SVGS.sedan);
-  const fuelOk=d.fuel&&!/^ikke/.test(d.fuel);
+  const day=d.pricePerDay==null?"Ikke oplyst"
+    : d.pricePerDay===0?"Gratis"
+    : `${esc(String(d.pricePerDay).replace(".",","))} ${esc(d.currency)}${d.pricePerDayDKK!=null&&d.currency!=="DKK"?` · ca. ${kr(d.pricePerDayDKK)} kr.`:""}`;
+  const age=d.minAge!=null?`Mindst ${d.minAge} år`:"Tjek aldersgrænsen";
   const cells=[
-    ["Pris i alt",esc(d.totalCost||d.price),d.pricePerDay!==null&&d.pricePerDay<=CAP?"ok":"no"],
-    ["Dage",d.days,""],
-    ["Brændstof",fuelOk?esc(d.fuel):"Selv",fuelOk?"ok":""],
-    ["Sove i bilen",d.canSleepIn?(d.sleeps?`Ja, ${d.sleeps} pers.`:"Ja"):"Nej",d.canSleepIn?"ok":""],
-    d.kmLimit?["Km inkl.",esc(d.kmLimit),""]:null,
-    d.bond?["Depositum",esc(d.bond),""]:null,
-    d.minAge?["Alderskrav",d.minAge+" år",""]:null
+    ["Pris pr. dag",day,d.pricePerDayDKK!=null&&d.pricePerDayDKK<=CAP?"ok":"no"],
+    ["Dage",d.days??"?",""],
+    ["Alderskrav",esc(age)+(d.licenseYears?`, kørekort ${d.licenseYears} år`:""),d.minAge!=null?"":"no"],
+    ["Brændstof",d.fuel&&!/^ikke/.test(d.fuel)?esc(d.fuel):"Selv",""],
+    d.kmLimit?["Km",esc(d.kmLimit),""]:null,
+    d.bond?["Depositum",esc(d.bond),""]:null
   ].filter(Boolean).map(([k,v,c])=>`<div class="cell ${c}"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
   return `<article class="deal ${d.fit}">
-   <div class="photo"><span class="avail ${ac}">${at}</span>${d.canSleepIn?'<span class="sleep">🛏 Kan sove i</span>':""}${media}</div>
+   <div class="photo"><span class="avail ${ac}">${at}</span>${d.direction?`<span class="sleep">${esc(DIR[d.direction]||d.direction)}</span>`:""}${media}</div>
    <div class="body">
      <div class="dhead">
        <div><div class="prov">${esc(d.provider)}</div><div class="plat">${esc(d.platform)}</div></div>
        <span class="verdict ${d.fit}">${VERD[d.fit]}</span>
      </div>
-     <p class="veh">${esc(d.vehicle)}</p>
-     <p class="rt">${esc(d.route)}</p>
+     <p class="veh">${esc(d.vehicle)}${d.canSleepIn?" · kan sove i":""}</p>
+     <p class="rt">${esc(d.route)}${d.pickupCountry||d.dropoffCountry?` (${esc(d.pickupCountry||"?")} til ${esc(d.dropoffCountry||"?")})`:""}</p>
      <div class="grid">${cells}</div>
      <div class="plan"><div class="k">Din plan</div><div class="v">${esc(d.yourPlan)}</div></div>
      <p class="why">${esc(d.fitReason)}</p>
      <p class="meta">📅 ${esc(d.availability.detail)}${d.availability.spaces?` · ${esc(d.availability.spaces)}`:""}</p>
-     <p class="meta">🧾 ${esc(d.price)}</p>
+     <p class="meta">🧾 ${esc(d.price)}${d.totalCost?`. I alt ${esc(d.totalCost)}`:""}</p>
+     ${d.minAgeNote?`<p class="meta">Alder: ${esc(d.minAgeNote)}</p>`:""}
+     <p class="meta">Ung fører-tillæg: ${esc(d.youngDriverFee||"ikke bekræftet")}</p>
      ${d.notes?`<p class="meta">${esc(d.notes)}</p>`:""}
      <a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">Åbn hos ${esc(d.platform)} →</a>
    </div></article>`;
 }
 
 fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
-  const w=d.window, deals=d.deals; CAP=w.maxPricePerDayAUD;
-  const by=f=>deals.filter(x=>x.fit===f).sort((a,b)=>((a.pricePerDay??99)-(b.pricePerDay??99))||((b.canSleepIn?1:0)-(a.canSleepIn?1:0))||((b.days||0)-(a.days||0)));
-  const upd=new Date(d.updated);
+  const w=d.window; CAP=w.maxPricePerDayDKK;
+  const tooOld=x=>x.minAge!=null&&w.maxMinAge!=null&&x.minAge>w.maxMinAge;
+  const shown=d.deals.filter(x=>!tooOld(x)), hidden=d.deals.length-shown.length;
+  const sortf=(a,b)=>((a.pricePerDayDKK??9e9)-(b.pricePerDayDKK??9e9))||((a.availability.from||"").localeCompare(b.availability.from||""));
+  const pick=f=>shown.filter(f).sort(sortf);
+  const fra=pick(x=>x.fit==="passer"&&x.direction==="fra-dk");
+  const til=pick(x=>x.fit==="passer"&&x.direction==="til-dk");
+  const naer=pick(x=>x.fit==="naesten"), nej=pick(x=>x.fit==="nej");
   document.getElementById("stamp").innerHTML=
-    `Opdateret ${upd.toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}<br>${d.stopped?"Slukket — opdateres ikke mere":"Tjekkes 4× dagligt"}`;
+    `Opdateret ${ts(d.updated)}<br>${d.stopped?"Slukket, opdateres ikke mere":"Tjekkes hver 3. time"}`;
   if(d.stopped){const dot=document.querySelector(".dot"); if(dot){dot.style.background="var(--muted)";dot.style.boxShadow="none";}}
 
-  const sec=(title,hint,html,emptyText)=>`<h2>${title}</h2><p class="hint">${hint}</p>${html||`<div class="empty">${emptyText}</div>`}`;
+  const sec=(title,hint,list,emptyText)=>`<h2>${title}</h2><p class="hint">${hint}</p>${list.length?list.map(card).join(""):`<div class="empty">${emptyText}</div>`}`;
   const foldSec=(title,hint,list,emptyText)=>list.length
     ? `<details class="fold"><summary><span class="fh2">${title}</span><span class="cnt">${list.length}</span></summary><p class="hint">${hint}</p>${list.map(card).join("")}</details>`
     : `<h2>${title}</h2><p class="hint">${hint}</p><div class="empty">${emptyText}</div>`;
   const autoSrc=d.sources.filter(s=>s.autoKey).length;
-  const srcTag=s=>s.autoKey?["auto","læses automatisk 4× dagligt"]
+  const srcTag=s=>s.autoKey?["auto","læses automatisk"]
     :s.access==="blokeret"?["blok","blokerer robotter"]
-    :s.access==="js"?["blok","kun JavaScript"]
-    :s.access==="doed"?["blok","død side"]
-    :["","gennemgået manuelt"];
+    :s.access==="js"?["blok","kun app eller JavaScript"]
+    :s.access==="login"?["blok","kræver login"]
+    :["","tjek selv"];
+  const emptyNY="Ingen lige nu. Udbyderne lægger flyttebiler op med kort varsel. Imoova 2 til 14 dage før afhentning og de svenske ordninger 0 til 7 dage før, så nytårsbiler ventes tidligst omkring 12. dec. Ture med en ende i Danmark er sjældne. Siden tjekker hver tredje time.";
+  const fx=w.fxSource||{};
 
   document.getElementById("app").innerHTML=`
-   ${d.stopped?`<div class="stopped"><b>Overvågningen er slut</b><p>${esc(d.stopped.reason)} Både det automatiske tjek i skyen og jobbet på Karstens Mac er slukket, og siden opdateres ikke længere. Den bliver stående som den så ud til sidst.</p></div>`:""}
+   ${d.stopped?`<div class="stopped"><b>Overvågningen er slut</b><p>${esc(d.stopped.reason)} Det automatiske tjek er slukket, og siden opdateres ikke længere.</p></div>`:""}
    <div class="hero">
-     <div class="route"><span class="city">${esc(w.origin)}</span><span class="arrow">→</span><span class="city">${esc(w.destination)}</span></div>
-     <p class="lede">Gratis eller næsten gratis biler og campervans der skal flyttes sydpå. Overvåges automatisk fire gange i døgnet.</p>
+     <div class="route"><span class="city">${esc(w.home)}</span><span class="arrow">⇄</span><span class="city">Europa</span></div>
+     <p class="lede">Gratis eller næsten gratis flyttebiler, der skal til eller fra Danmark omkring nytår. Begge retninger tæller. Overvåges automatisk hver tredje time.</p>
      <div class="chips">
-       <span class="chip">Afhentning <b>${dk(w.pickupFrom)} – ${dk(w.pickupTo)}</b></span>
-       <span class="chip">Aflevering <b>${esc(w.destination)}</b>, fleksibel dato</span>
-       <span class="chip">Maks <b>${w.maxPricePerDayAUD} AUD/dag</b></span>
-       <span class="chip"><b>${w.pax} personer</b></span>
-       <span class="chip">${esc(w.preference)}</span>
-       ${w.originAlternatives?.length?`<span class="chip">Også ${esc(w.originAlternatives.join(" og "))} som «tæt på»</span>`:""}
+       <span class="chip">Afhentning <b>${dk(w.pickupFrom)} 2026 til ${dk(w.pickupTo)} 2027</b></span>
+       <span class="chip">Den ene ende i <b>${esc(w.home)}</b>, gerne ${esc(w.homeCity)}</span>
+       <span class="chip">Maks <b>${w.maxPricePerDayDKK} kr./dag</b> for bilen</span>
+       <span class="chip"><b>${w.pax} personer</b> med bagage</span>
+       <span class="chip">Dansk kørekort</span>
+       <span class="chip">${esc(w.nearCities.map(c=>c.name).join(", "))} tæller som «tæt på»</span>
      </div>
      <div class="stats">
-       <div class="stat g"><div class="n">${by("passer").length}</div><div class="l">opfylder alle krav</div></div>
-       <div class="stat w"><div class="n">${by("naesten").length}</div><div class="l">tæt på</div></div>
-       <div class="stat"><div class="n">${d.sources.length}</div><div class="l">kilder overvåget</div></div>
+       <div class="stat g"><div class="n">${fra.length+til.length}</div><div class="l">opfylder alle krav</div></div>
+       <div class="stat w"><div class="n">${naer.length}</div><div class="l">tæt på</div></div>
+       <div class="stat"><div class="n">${d.sources.length}</div><div class="l">kilder gennemgået</div></div>
      </div>
+     ${hidden?`<p class="hint">${hidden} tilbud med for høj aldersgrænse er sorteret fra.</p>`:`<p class="hint">Tilbud med for høj aldersgrænse bliver sorteret fra.</p>`}
    </div>
 
-   ${sec("Opfylder alle dine krav","Afhentning i Brisbane 30. sep – 3. okt, prisen under grænsen.",by("passer").map(card).join(""),"Ingen lige nu. Udbyderne lægger typisk Brisbane → Sydney op 1-3 uger før afhentning, så siden tjekker fire gange dagligt og alarmerne nedenfor giver besked.")}
-   ${sec("Tæt på","Prisen passer, men datoerne rammer lige ved siden af, eller afhentningen er i Gold Coast/Sunshine Coast.",by("naesten").map(card).join(""),"Ingen lige nu.")}
-   ${foldSec("Opfylder ikke kravene","Med her så du kan se hvad ruten plejer at byde på. Klik for at folde ud.",by("nej"),"Ingen lige nu.")}
+   ${sec("Fra Danmark","Afhentning i Danmark i vinduet, aflevering i et andet land, prisen under loftet.",fra,emptyNY)}
+   ${sec("Til Danmark","Afhentning i et andet land i vinduet, aflevering i Danmark, prisen under loftet.",til,"Ingen lige nu. Se forklaringen ovenfor.")}
+   ${sec("Tæt på",`Næsten alt passer. Enten er enden en nærby som Hamborg eller Malmö (tog derfra), turen går inden for Danmark, eller datoen ligger op til ${w.nearMissDays} dage ved siden af.`,naer,"Ingen lige nu.")}
+   ${foldSec("Opfylder ikke kravene","Ture med en ende i Danmark eller en nærby, som ikke passer. Med her, så du kan se mønstret. Klik for at folde ud.",nej,"Ingen lige nu.")}
+
+   <h2>Det kan du vente ved nytår</h2>
+   <p class="hint">Hvad undersøgelserne viser. Kun det, der kan dokumenteres.</p>
+   <div class="list">${(d.patterns||[]).map(p=>`<div class="item">
+     <div class="t">${esc(p.title)}</div>
+     <div class="d">${esc(p.text)}<br><a href="${esc(p.url)}" target="_blank" rel="noopener">Kilde</a>, tjekket ${dk(p.checked)}</div></div>`).join("")}</div>
+
+   <h2>Tjekliste</h2>
+   <p class="hint">Rækkefølgen for at overvåge og booke.</p>
+   <div class="list">${(d.checklist||[]).map((c,i)=>`<div class="item">
+     <div class="t">${i+1}. ${esc(c.step)}</div><div class="d">${esc(c.text)}</div></div>`).join("")}</div>
+
+   <h2>Regler og skjulte omkostninger</h2>
+   <p class="hint">Det, der kan komme oveni prisen for bilen. Hver linje har sin kilde og datoen for tjekket.</p>
+   <div class="list">${(d.rules||[]).map(r=>`<div class="item">
+     <div class="t">${esc(r.topic)}</div>
+     <div class="d">${esc(r.text)}<br><a href="${esc(r.url)}" target="_blank" rel="noopener">Kilde</a>, tjekket ${dk(r.checked)}</div></div>`).join("")}</div>
 
    <h2>Disse skal du selv tjekke</h2>
-   <p class="hint">Jeg kan ikke læse dem automatisk. Her står præcis hvorfor, og hvad jeg gør i stedet.</p>
+   <p class="hint">Robotten kan ikke læse dem. Her står hvorfor, og hvad du kan gøre i stedet.</p>
    ${d.manualCheck.map(m=>`<div class="manual">
      <h3><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)} →</a><span class="imp">${esc(m.impact)} betydning</span></h3>
      <p><b>Hvorfor:</b> ${esc(m.reason)}</p>
-     <p class="w"><b>Hvad jeg gør i stedet:</b> ${esc(m.workaround)}</p></div>`).join("")}
+     <p class="w"><b>I stedet:</b> ${esc(m.workaround)}</p></div>`).join("")}
 
    <h2>Slå disse alarmer til</h2>
-   <p class="hint">Engangsopsætning der får tilbuddene til at komme til dig af sig selv.</p>
+   <p class="hint">Engangsopsætning, der får tilbuddene til at komme til dig af sig selv.</p>
    <div class="list">${d.alerts.map(a=>`<div class="item">
      <div class="t"><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.name)} →</a></div>
      <div class="d">${esc(a.how)}<br><b>Hvorfor:</b> ${esc(a.why)}</div>
      <div class="tags"><span class="tag">${a.minutes} min</span></div></div>`).join("")}</div>
 
    <h2>Skriv direkte til udlejerne</h2>
-   <p class="hint">Mange udlejere lægger aldrig deres flytninger på platformene. En kort mail til afdelingen i Brisbane virker ofte.</p>
+   <p class="hint">Flyttebiler til og fra Danmark kommer sjældent på listerne. Brug kontaktformularen på deres hjemmeside. Mailskabeloner står i EMAILS.md i repoet.</p>
    <div class="list">${[...d.outreach].sort((a,b)=>a.priority-b.priority).map(o=>`<div class="item">
      <div class="t"><a href="${esc(o.email?"mailto:"+o.email:o.url)}" target="_blank" rel="noopener">${esc(o.name)} →</a></div>
      <div class="d">${esc(o.why)}${o.email?`<br>✉ ${esc(o.email)}`:""}${o.phone?`<br>☎ ${esc(o.phone)}`:""}</div>
      <div class="tags"><span class="tag">${esc(o.status)}</span></div></div>`).join("")}</div>
 
-   <h2>Alle overvågede kilder</h2>
-   <p class="hint">${autoSrc} kilder læses af robotten fire gange i døgnet. De ${d.sources.length-autoSrc} andre er gennemgået manuelt, og her står hvorfor de ikke kan automatiseres.</p>
+   <h2>Alle kilder</h2>
+   <p class="hint">${autoSrc} kilder læses af robotten hver tredje time. De ${d.sources.length-autoSrc} andre er gennemgået i hånden, og her står hvorfor de ikke kan automatiseres.</p>
    <div class="srcgrid">${[...d.sources].sort((a,b)=>((b.autoKey?1:0)-(a.autoKey?1:0))||(a.priority-b.priority)).map(s=>`<div class="item">
      <div class="t"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} →</a></div>
-     <div class="d">${esc(s.note)}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${new Date(s.lastCheck.ts).toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}${s.lastCheck.ok?` · ${s.lastCheck.count} opslag på ruten`:" · FEJLEDE"}</span>`:""}</div>
+     <div class="d">${esc(s.note)}<br><b>Danmark:</b> ${esc(s.denmark||"ikke bekræftet")}<br><b>Alder:</b> ${esc(s.minAge||"ikke bekræftet")}<br><b>Ung fører-tillæg:</b> ${esc(s.youngDriverFee||"ikke bekræftet")}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${ts(s.lastCheck.ts)}${s.lastCheck.ok?` · ${s.lastCheck.count} med Danmark eller nærby${s.lastCheck.others!=null?`, ${s.lastCheck.others} andre`:""}`:" · FEJLEDE"}</span>`:""}</div>
      <div class="tags"><span class="tag">${esc(s.type)}</span>
      <span class="tag ${srcTag(s)[0]}">${srcTag(s)[1]}</span></div></div>`).join("")}</div>
 
    ${d.watch&&d.watch.length?`<h2>Sider robotten holder øje med</h2>
-   <p class="hint">Disse udlejere har ingen liste at aflæse, kun løbende tekst. Robotten gemmer et aftryk af siden og siger til i loggen, hvis teksten ændrer sig, eller hvis der pludselig står en rute fra Brisbane til Sydney.</p>
+   <p class="hint">Sider uden en liste, robotten kan aflæse. Robotten gemmer et aftryk af teksten og siger til i loggen, hvis den ændrer sig, eller hvis en dansk by dukker op.</p>
    <div class="srcgrid">${d.watch.map(x=>`<div class="item">
      <div class="t"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)} →</a></div>
      <div class="d">${esc(x.detail||"")}</div>
-     <div class="tags"><span class="tag ${x.status==="nævner Brisbane og Sydney"?"auto":x.status==="ændret"?"blok":""}">${esc(x.status)}</span></div></div>`).join("")}</div>`:""}
+     <div class="tags"><span class="tag ${x.status==="nævner Danmark"?"auto":x.status==="ændret"?"blok":""}">${esc(x.status)}</span></div></div>`).join("")}</div>`:""}
 
    <h2>Log</h2>
    <p class="hint">Hvad der er sket ved hvert tjek.</p>
@@ -292,10 +325,10 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="t">${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}</div>
      <div class="d">${esc(l.summary)}</div></div>`).join("")}</div>
 
-   <footer>${d.stopped?"Overvågningen er slut og siden opdateres ikke længere.":`Tjekkes automatisk fire gange i døgnet, kl. 06:30, 10:30, 14:30 og 18:30 i Brisbane. Det er morgen til aften i New Zealand, aldrig om natten. Slukker af sig selv efter ${dk(w.stopAfter)}, din sidste mulige afhentningsdag.`}<br>
-   Udlejerne lægger typisk Brisbane → Sydney op 1-3 uger før afhentning, så de fleste tilbud til dine datoer dukker først op fra midten af september.<br>
-   Alle datoer og priser skal bekræftes hos udlejeren før du booker.</footer>`;
-}).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json — ${esc(e.message)}</div>`});
+   <footer>${d.stopped?"Overvågningen er slut, og siden opdateres ikke længere.":`Tjekkes automatisk hver tredje time døgnet rundt. Slukker af sig selv efter ${dk(w.stopAfter)}, den sidste afhentningsdag.`}<br>
+   Priser i kroner er cirka. Kurserne er ${esc(fx.name||"")} fra ${dk(fx.rateDate)}, <a href="${esc(fx.url)}" target="_blank" rel="noopener">kilde</a>.<br>
+   Alle datoer og priser skal bekræftes hos udlejeren, før du booker.</footer>`;
+}).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json. ${esc(e.message)}</div>`});
 </script>
 </body>
 </html>

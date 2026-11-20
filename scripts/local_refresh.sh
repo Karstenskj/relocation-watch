@@ -1,10 +1,9 @@
 #!/bin/bash
 # Kører opdateringen fra denne Mac.
 #
-# Formålet er de kilder der afviser GitHubs servere, først og fremmest DriveNow, som
-# Cloudflare kun lukker ind fra en almindelig internetforbindelse. GitHub kører de øvrige
-# fem kilder fire gange i døgnet uanset om maskinen er tændt, så det her er et supplement,
-# ikke en erstatning.
+# Et supplement til GitHub, som kører alle kilder hver tredje time, uanset om maskinen er
+# tændt. Det lokale job er kun til kilder, der afviser GitHubs servere (RESIDENTIAL_ONLY i
+# refresh.py). Listen er tom lige nu, så jobbet er ikke nødvendigt.
 #
 # Efter datoen i data.json (window.stopAfter) afinstallerer scriptet sig selv.
 #
@@ -36,7 +35,7 @@ git add -A
 if git diff --cached --quiet; then
   log "ingen ændringer"
 else
-  git commit --quiet -m "tjek: automatisk opdatering fra Karstens Mac (inkl. DriveNow)"
+  git commit --quiet -m "tjek: automatisk opdatering fra Karstens Mac"
   if git push --quiet origin main; then log "pushet"; else log "kunne ikke pushe"; fi
 fi
 

@@ -1,177 +1,135 @@
-"""Imoova — læses via deres GraphQL-API (samme kald som deres egen hjemmeside laver).
+"""Imoova i Europa, læst fra hjemmesidens by-sider.
 
-Fordelen frem for at parse HTML'en: vi får ALLE opslag på ruten (siden viser kun 18 ad gangen),
-og inklusioner (gratis tank, brændstofrefusion, obligatoriske gebyrer) kommer struktureret.
+api.imoova.com er lukket for alle robotter i sin robots.txt, så API'et bruges ikke. By-siderne
+www.imoova.com/deals/europe/<by> og /to-<by> er tilladte og server-renderede. Data ligger
+indlejret i HTML'en som et JavaScript-objekt (seroval, $R[n]={__typename:"Relocation",...}).
+Hver side viser højst de første 18 opslag. By-siderne for Danmark og nærbyerne har langt færre.
 """
-import json, sys, pathlib
+import re, sys, time, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from common import fetch, assess, save_image, slug
+from common import fetch, assess, build_deal, direction, money, to_dkk
 
 SOURCE = "imoova-auto"
 LABEL = "Imoova"
-API = "https://api.imoova.com/graphql"
-DEPARTURES = ["brisbane", "gold-coast", "sunshine-coast"]  # Brisbane først, de to andre er nær-alternativer
-DELIVERY = "sydney"
+BASE = "https://www.imoova.com/deals/europe/"
+SLUGS = ["denmark", "copenhagen", "to-copenhagen", "malmo", "to-malmo", "hamburg", "to-hamburg",
+         "flensburg", "to-flensburg", "kiel", "to-kiel", "lubeck", "to-lubeck", "rostock", "to-rostock"]
+PAUSE = 1.5
+LAST_OTHER = None   # antal opslag i hele Europa, som ikke rører Danmark eller en nærby
 
-QUERY = """
-query R($page:Int,$first:Int,$dep:Mixed!,$del:Mixed!){
- relocations(first:$first,page:$page,status:[READY],type:[RELOCATION,GAP_RENTAL],relevanceOrder:true,
-   whereDepartureCity:{AND:[{column:SLUG,operator:EQ,value:$dep}]},
-   whereDeliveryCity:{AND:[{column:SLUG,operator:EQ,value:$del}]}){
-  paginatorInfo{ total lastPage currentPage hasMorePages }
-  data{ id reference name status type count currency
-    available_from_date available_to_date earliest_departure_date latest_departure_date
-    hire_unit_type hire_unit_rate hire_units_allowed extra_hire_units_allowed extra_hire_unit_rate
-    booking_fee_amount retail_rate distance_allowed
-    images{ url conversions{ type url } }
-    inclusions{ type description value has_free_tank }
-    departureCity{ name slug } deliveryCity{ name slug }
-    vehicle{ type name brand seatbelts sleeps transmission minimum_age }
-  } } }"""
-
-TYPE_MAP = {"CAR": "sedan", "SUV": "suv", "UTE": "suv", "FOUR_WHEEL_DRIVE": "suv",
-            "CAMPER_VAN": "campervan", "MOTOR_HOME": "campervan", "FOUR_WHEEL_DRIVE_CAMPER": "campervan",
-            "CARAVAN": "campervan", "MINI_VAN": "van", "VAN": "van", "BOX_TRUCK": "truck", "MINI_BUS": "minibus"}
-TYPE_DA = {"sedan": "personbil", "suv": "SUV", "campervan": "campervan", "van": "varevogn",
-           "truck": "lastbil", "minibus": "minibus"}
+FIELD = re.compile(r'(\w+):("(?:[^"\\]|\\.)*"|\$R\[\d+\]|[^,{}\[\]]*)')
+VTYPE = {"MOTOR_HOME": "campervan", "CAMPER_VAN": "campervan", "CAR": "sedan", "SUV": "suv",
+         "VAN": "van", "MINIBUS": "van", "TRUCK": "van"}
 
 
-def gql(variables):
-    body = json.dumps({"query": QUERY, "variables": variables}).encode()
-    raw = fetch(API, data=body, referer="https://www.imoova.com/",
-                headers={"Content-Type": "application/json", "Accept": "application/json",
-                         "Origin": "https://www.imoova.com"})
-    r = json.loads(raw)
-    if "errors" in r:
-        raise RuntimeError("Imoova GraphQL: " + r["errors"][0].get("message", "ukendt fejl"))
-    return r["data"]["relocations"]
+def fields(s):
+    out = {}
+    for k, v in FIELD.findall(s):
+        if v.startswith('"'):
+            out[k] = v[1:-1]
+        elif v == "!0":
+            out[k] = True
+        elif v == "!1":
+            out[k] = False
+        elif v == "null":
+            out[k] = None
+        else:
+            try:
+                out[k] = float(v) if "." in v else int(v)
+            except ValueError:
+                out[k] = v
+    return out
 
 
-def rows():
-    for dep in DEPARTURES:
-        page = 1
-        while True:
-            res = gql({"page": page, "first": 50, "dep": dep, "del": DELIVERY})
-            for r in res["data"]:
-                yield dep, r
-            if not res["paginatorInfo"]["hasMorePages"]:
-                break
-            page += 1
+def objects(html, typename):
+    """Alle $R[n]={__typename:"X",...} uden indlejrede objekter, så backreferencer kan slås op."""
+    pat = re.compile(r'\$R\[(\d+)\]=\{__typename:"' + typename + r'",([^{}]*)\}')
+    return {m.group(1): fields(m.group(2)) for m in pat.finditer(html)}
 
 
-def build(dep, r, w, now):
-    v = r.get("vehicle") or {}
-    ref = r["reference"]
-    rate = (r["hire_unit_rate"] or 0) / 100
-    days = r["hire_units_allowed"] or 0
-    fee = (r["booking_fee_amount"] or 0) / 100
-    inc = r.get("inclusions") or []
-    charges = sum((i["value"] or 0) for i in inc if i["type"] == "CHARGE") / 100
-    charge_txt = "; ".join(f"{i['description']} {(i['value'] or 0)/100:.0f} AUD" for i in inc if i["type"] == "CHARGE")
-    fuel_inc = [i for i in inc if i["type"] == "FUEL" or i["has_free_tank"]]
-    if any(i["has_free_tank"] for i in inc):
-        fuel = "1 gratis tank"
-    elif fuel_inc:
-        i = fuel_inc[0]
-        fuel = (f"{(i['value'] or 0)/100:.0f} AUD brændstof refunderes" if i["value"] else "brændstoftilskud") + \
-               (f" ({i['description']})" if i.get("description") else "")
-    else:
-        fuel = "ikke inkluderet"
-    other = [i["description"] for i in inc if i["type"] in ("OTHER", "FERRY") and i.get("description")]
-
-    origin = (r.get("departureCity") or {}).get("name") or dep.replace("-", " ").title()
-    a = assess(w, r.get("earliest_departure_date") or r["available_from_date"],
-               r.get("latest_departure_date") or r["available_to_date"], days, rate, origin, r.get("count"))
-
-    vtype = TYPE_MAP.get(v.get("type"), "sedan")
-    sleeps = v.get("sleeps")
-    can_sleep = vtype == "campervan" or bool(sleeps)
-    img = None
-    if r.get("images"):
-        m = r["images"][0]
-        img = next((c["url"] for c in (m.get("conversions") or []) if c["type"] == "SMALL"), m.get("url"))
-
-    extra = ""
-    if r["extra_hire_units_allowed"]:
-        n = r['extra_hire_units_allowed']
-        extra = f" · op til {n} ekstra dag{'e' if n != 1 else ''} à {(r['extra_hire_unit_rate'] or 0)/100:.0f} AUD"
-    total = rate * days + fee + charges
-    total_txt = f"{total:.0f} AUD" + (" + brændstof" if fuel == "ikke inkluderet" else "")
-
-    veh = " ".join(x for x in [v.get("brand"), v.get("name")] if x and x.lower() != "none") or TYPE_DA[vtype]
-    bits = [veh]
-    if sleeps:
-        bits.append(f"sover {sleeps}")
-    if v.get("seatbelts"):
-        bits.append(f"{v['seatbelts']} sæder")
-    if v.get("transmission") == "AUTOMATIC":
-        bits.append("automatgear")
-    elif v.get("transmission") == "MANUAL":
-        bits.append("manuelt gear")
-
-    notes = [f"Automatisk aflæst fra Imoova. Reference {ref}."]
-    if charge_txt:
-        notes.append(f"Obligatorisk gebyr hos udlejer: {charge_txt}.")
-    if other:
-        notes.append("Inkluderet: " + ", ".join(other) + ".")
-    if r.get("type") == "GAP_RENTAL":
-        notes.append("Dette er en rabatteret almindelig leje (gap rental), ikke en ægte relocation.")
-
-    return {
-        "id": f"imoova-{ref.lower()}",
-        "source": SOURCE,
-        "provider": "Imoova",
-        "platform": "Imoova",
-        "url": f"https://www.imoova.com/relocations/australia/{slug(origin)}-to-{DELIVERY}/{ref}",
-        "vehicle": " · ".join(bits),
-        "vehicleType": vtype,
-        "sleeps": sleeps,
-        "canSleepIn": can_sleep,
-        "imageUrl": f"img/{ref.lower()}.webp" if img else None,
-        "imageCredit": "Foto: Imoova" if img else None,
-        "_imageSrc": img,
-        "route": f"{origin} → Sydney",
-        "pickupCity": origin,
-        "days": days,
-        "price": f"{rate:.0f} AUD/dag · {fee:.0f} AUD bookinggebyr{extra}",
-        "pricePerDay": rate,
-        "totalCost": total_txt,
-        "fuel": fuel,
-        "kmLimit": f"{r['distance_allowed']} km" if r.get("distance_allowed") else None,
-        "minAge": v.get("minimum_age"),
-        "bond": None,
-        "availability": {
-            "state": a["state"],
-            "from": r.get("earliest_departure_date") or r["available_from_date"],
-            "to": r.get("latest_departure_date") or r["available_to_date"],
-            "spaces": f"{r['count']} køretøj{'er' if (r['count'] or 0) != 1 else ''}" if r.get("count") else "Ukendt",
-            "detail": (f"Afhentning mulig {r.get('earliest_departure_date') or r['available_from_date']} til "
-                       f"{r.get('latest_departure_date') or r['available_to_date']} med {days} dage til turen."),
-            "checkedAt": now,
-            "confidence": "direkte",
-        },
-        "yourPlan": a["yourPlan"],
-        "fit": a["fit"],
-        "fitReason": a["fitReason"],
-        "notes": " ".join(notes),
-    }
+def parse(html):
+    cities, vehicles = objects(html, "City"), objects(html, "Vehicle")
+    total = re.search(r'__typename:"PaginatorInfo",total:(\d+)', html)
+    rows = []
+    for chunk in html.split('__typename:"Relocation",')[1:]:
+        head = chunk.split("rental_units:")[0]
+        r = fields(head)
+        rest = chunk[len(head):]
+        for k in ("latest_departure_date", "earliest_departure_date", "booking_fee_amount",
+                  "distance_allowed", "measurement"):
+            m = re.search(k + r':("[^"]*"|[^,}]*)', rest)
+            if m:
+                r.update(fields(f"{k}:{m.group(1)}"))
+        for key, table, name in (("deliveryCity", cities, "to"), ("departureCity", cities, "from"),
+                                 ("vehicle", vehicles, "vehicle")):
+            m = re.search(key + r':\$R\[(\d+)\]', rest)
+            r[name] = table.get(m.group(1)) if m else None
+        img = re.search(r'type:"SMALL",url:"([^"]+)"', rest.split('__typename:"Vehicle"')[0])
+        r["image"] = img.group(1) if img else None
+        rows.append(r)
+    return rows, int(total.group(1)) if total else None
 
 
 def fetch_deals(w, now):
-    out = []
-    for dep, r in rows():
-        if (r.get("deliveryCity") or {}).get("slug", DELIVERY) != DELIVERY:
+    global LAST_OTHER
+    europe_html = fetch(BASE.rstrip("/"), timeout=45).decode("utf-8", "replace")
+    _, europe_total = parse(europe_html)
+    seen, out = {}, []
+    for s in SLUGS:
+        time.sleep(PAUSE)
+        rows, _ = parse(fetch(BASE + s, timeout=45).decode("utf-8", "replace"))
+        for r in rows:
+            if r.get("reference"):
+                seen[r["reference"]] = r
+    for ref, r in seen.items():
+        fc, tc = r.get("from") or {}, r.get("to") or {}
+        dirn = direction(w, fc.get("state"), tc.get("state"), fc.get("name"), tc.get("name"))
+        if not dirn:
             continue
-        deal = build(dep, r, w, now)
-        src = deal.pop("_imageSrc")
-        if src and not save_image(src, deal["imageUrl"], referer="https://www.imoova.com/"):
-            deal["imageUrl"] = deal["imageCredit"] = None
-        out.append(deal)
+        v = r.get("vehicle") or {}
+        cur = r.get("currency") or "EUR"
+        rate = (r.get("hire_unit_rate") or 0) / 100
+        units = int(r.get("hire_units_allowed") or 1)
+        fee = (r.get("booking_fee_amount") or 0) / 100
+        unit = "nat" if r.get("hire_unit_type") == "NIGHT" else "dag"
+        pf = r.get("earliest_departure_date") or r.get("available_from_date")
+        pt = r.get("latest_departure_date") or r.get("available_to_date")
+        min_age = v.get("minimum_age")
+        a = assess(w, pf, pt, units, rate, cur, dirn, min_age=min_age, count=r.get("count"))
+        young = None
+        if v.get("age_surcharge_amount") and v.get("minimum_no_surcharge_age"):
+            young = (f"{money(v['age_surcharge_amount'] / 100, cur)} for førere under "
+                     f"{v['minimum_no_surcharge_age']} år (Imoovas felt, enhed ikke oplyst)")
+        extra = r.get("extra_hire_units_allowed")
+        extra_txt = (f", op til {extra} ekstra à {money((r.get('extra_hire_unit_rate') or 0) / 100, cur)}"
+                     if extra else "")
+        total = rate * units + fee
+        out.append(build_deal(
+            w, now, a,
+            id=f"imoova-{ref}", source=SOURCE, provider=LABEL, platform="Imoova",
+            url=f"https://www.imoova.com/relocations/europe/{fc.get('slug')}-to-{tc.get('slug')}/{ref}",
+            vehicle=v.get("name") or "Køretøj", vehicleType=VTYPE.get(v.get("type"), "sedan"),
+            sleeps=v.get("sleeps"), canSleepIn=bool(v.get("sleeps")), imageUrl=r.get("image"),
+            route=f"{fc.get('name')} → {tc.get('name')}",
+            pickupCity=fc.get("name"), dropoffCity=tc.get("name"),
+            pickupCountry=fc.get("state"), dropoffCountry=tc.get("state"),
+            days=units, price=f"{money(rate, cur)} pr. {unit} i {units} {unit}e{extra_txt} · bookinggebyr {money(fee, cur)}",
+            pricePerDay=rate, currency=cur,
+            totalCost=f"{money(total, cur)} (ca. {to_dkk(w, total, cur) or 0:.0f} kr.) + brændstof, bro og færge",
+            fuel="ikke inkluderet" if not r.get("has_free_tank") else "første tank med",
+            kmLimit=(f"{r['distance_allowed']} km" if r.get("distance_allowed") else None),
+            minAge=min_age, youngDriverFee=young,
+            availability={"from": pf, "to": pt, "spaces": f"{r.get('count')} køretøj(er)",
+                          "detail": f"Afhentning mulig {pf} til {pt}, {units} {unit}e."},
+            notes=f"Automatisk aflæst fra Imoovas by-sider (tilbud {ref}).",
+        ))
+    LAST_OTHER = (europe_total - len(out)) if europe_total is not None else None
     return out
 
 
 if __name__ == "__main__":
-    import datetime
-    w = {"pickupFrom": "2026-09-30", "pickupTo": "2026-10-03", "origin": "Brisbane", "maxPricePerDayAUD": 50}
-    for d in fetch_deals(w, datetime.datetime.now().isoformat()):
-        print(d["fit"], "|", d["route"], "|", d["vehicle"], "|", d["days"], "d |", d["price"], "|", d["totalCost"], "|", d["fuel"], "|", d["yourPlan"], "|", d["imageUrl"])
+    import json
+    w = json.load(open(pathlib.Path(__file__).resolve().parents[2] / "data.json"))["window"]
+    for x in fetch_deals(w, "test"):
+        print(x["fit"], "|", x["route"], "|", x["vehicle"], "|", x["price"], "|", x["fitReason"])
+    print("andre opslag i Europa:", LAST_OTHER)

@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""Kører alle automatiske kilder og opdaterer data.json.
+"""Kører alle automatiske kilder og opdaterer data.json for ruten til og fra Danmark ved nytår.
 
 Manuelle tilbud (uden `source`-felt) rører vi ikke. Fejler en kilde, beholder vi dens
 gamle opslag og skriver fejlen i loggen, så Karsten kan se at den ikke blev tjekket.
 """
-import importlib, json, sys, pathlib, traceback
+import importlib, json, sys, pathlib, time, traceback
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from common import ROOT, now_iso, past_cutoff
 
-SOURCES = ["imoova", "transfercar", "coseats", "drivenow", "simba", "autosleepers"]
+SOURCES = ["imoova", "roadsurfer", "driveback", "hertzfreerider"]
 
-# Kilder der afviser GitHubs servere (Cloudflare blokerer datacenter-adresser), men som virker fint
-# fra en almindelig internetforbindelse. De må fejle uden at det tæller som en rigtig fejl.
-RESIDENTIAL_ONLY = {"drivenow"}
+# Kilder der afviser GitHubs servere, men virker fra en almindelig internetforbindelse.
+# Tom indtil en kørsel i skyen har vist andet.
+RESIDENTIAL_ONLY = set()
 
 
 def main():
@@ -28,8 +28,7 @@ def main():
             data["stopped"] = {"ts": now, "reason": f"Overvågningen sluttede efter {w['stopAfter']}."}
             data["log"].append({"ts": now, "summary": (
                 f"Overvågningen er slut. Sidste mulige afhentningsdag var {w['stopAfter']}, "
-                "så både det automatiske tjek i skyen og jobbet på Karstens Mac er slukket. "
-                "Siden bliver stående som den så ud til sidst.")})
+                "så det automatiske tjek er slukket. Siden bliver stående, som den så ud til sidst.")})
             data["updated"] = now
             path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             print("Slukket: sidste brugsdag er passeret. Skrev afsluttende status.")
@@ -37,14 +36,19 @@ def main():
             print("Slukket: sidste brugsdag er passeret. Ingenting at gøre.")
         return 0
 
-    fresh, ok_sources, failures, skipped, counts = [], set(), [], [], {}
-    for name in SOURCES:
+    data.pop("stopped", None)
+    fresh, ok_sources, failures, skipped, counts, others = [], set(), [], [], {}, {}
+    for i, name in enumerate(SOURCES):
+        if i:
+            time.sleep(1)
         mod = importlib.import_module(f"sources.{name}")
         try:
             deals = mod.fetch_deals(w, now)
             fresh += deals
             ok_sources.add(mod.SOURCE)
             counts[mod.LABEL] = len(deals)
+            if getattr(mod, "LAST_OTHER", None) is not None:
+                others[mod.LABEL] = mod.LAST_OTHER
         except Exception as e:
             if name in RESIDENTIAL_ONLY:
                 skipped.append(mod.LABEL)
@@ -57,6 +61,7 @@ def main():
             if s.get("autoKey") == name:
                 s["lastCheck"] = {"ts": now, "ok": mod.SOURCE in ok_sources,
                                   "count": counts.get(mod.LABEL),
+                                  "others": others.get(mod.LABEL),
                                   "skipped": mod.LABEL in skipped}
 
     # Sider uden struktureret liste: hold øje med om de ændrer sig.
@@ -89,12 +94,12 @@ def main():
             continue
         tag = "NYT: " if x["fit"] == "passer" else "tæt på: "
         bits.append(f"{tag}{x['platform']}: {x['vehicle']} ({x['route']}, {x['days']} dage, {x['price']}, "
-                    f"afhentning {x['availability']['from']}–{x['availability']['to']})")
+                    f"afhentning {x['availability']['from']} til {x['availability']['to']})")
     if quiet:
-        bits.append(f"{quiet} nye opslag uden for dit vindue")
+        bits.append(f"{quiet} nye opslag, der ikke opfylder kravene")
     for x in changed:
-        bits.append(f"ændret: {x['platform']}: {x['vehicle']} — nu {x['fit']}, "
-                    f"{x['availability']['from']}–{x['availability']['to']}")
+        bits.append(f"ændret: {x['platform']}: {x['vehicle']}, nu {x['fit']}, "
+                    f"{x['availability']['from']} til {x['availability']['to']}")
     for x in gone:
         bits.append(f"væk: {x['platform']}: {x['vehicle']} ({x['route']})")
     bits += watch_notes
@@ -103,7 +108,9 @@ def main():
         bits.append(", ".join(skipped) + " kunne ikke læses herfra (kræver almindelig internetforbindelse)")
 
     n_pass = sum(1 for x in data["deals"] if x["fit"] == "passer")
-    head = "Automatisk tjek (" + ", ".join(f"{k} {v} opslag" for k, v in counts.items()) + "): "
+    head = "Automatisk tjek (" + ", ".join(
+        f"{k} {v} med Danmark eller nærby" + (f" og {others[k]} andre" if k in others else "")
+        for k, v in counts.items()) + "): "
     summary = head + (" · ".join(bits) if bits else "ingen ændringer.")
 
     log = data.setdefault("log", [])

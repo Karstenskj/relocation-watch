@@ -1,15 +1,13 @@
 name: Opdater relocation-tilbud
 
-# Fire gange i døgnet, kun i dagtimerne:
-# 20:30, 00:30, 04:30 og 08:30 UTC
-#   = 09:30, 13:30, 17:30 og 21:30 newzealandsk sommertid (fra 27. sep)
-#   = 06:30, 10:30, 14:30 og 18:30 Brisbane-tid (ingen sommertid i Queensland)
-# Kører på GitHubs egne maskiner — hverken Karstens Mac eller claude.ai er involveret.
+# Hver tredje time døgnet rundt, kvarter over: 00:15, 03:15, 06:15 ... 21:15 UTC.
+# Døgnet rundt, fordi kilderne er europæiske, og fordi Karsten skifter tidszone undervejs.
+# Kører på GitHubs egne maskiner. Hverken Karstens Mac eller claude.ai er involveret.
 #
-# Slukker sig selv efter den dato der står i data.json som window.stopAfter.
+# Slukker sig selv efter den dato, der står i data.json som window.stopAfter (dansk tid).
 on:
   schedule:
-    - cron: "30 20,0,4,8 * * *"
+    - cron: "15 */3 * * *"
   workflow_dispatch:
 
 permissions:
