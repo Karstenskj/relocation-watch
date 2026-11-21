@@ -7,15 +7,15 @@ en agent følger, når Karsten beder om en fuld gennemgang.
 ## Opgaven
 
 Find gratis flyttebiler (relocation) eller meget billig envejsleje i Europa, hvor den ene ende er i
-Danmark, og opdatér `data.json`. Begge retninger tæller.
+Danmark eller højst 300 km fra Danmark, og opdatér `data.json`. Begge retninger tæller.
 
 ## Hårde krav
 
 | Krav | Værdi |
 |---|---|
-| Rute | Den ene ende i Danmark (gerne København), den anden i et andet europæisk land. Begge retninger. |
-| Afhentningsdato | 26. december 2026 til 4. januar 2027. Op til 5 dage før eller efter er «tæt på». |
-| Nærbyer | Malmö, Lund, Helsingborg, Trelleborg, Flensburg, Kiel, Lübeck, Hamburg og Rostock. En tur fra eller til en nærby er «tæt på», ikke et match. |
+| Rute | Den ene ende i Danmark eller i zonen, den anden hvor som helst i Europa. Begge retninger. En tur helt inden for Danmark er kun «næsten». |
+| Zonen | Højst 300 km i luftlinje fra nærmeste punkt i Danmark (`window.zoneKm`). Bornholm, Færøerne og Grønland bruges ikke som udgangspunkt. Et sted på Bornholm er stadig i Danmark. |
+| Afhentningsdato | 26. december 2026 til 4. januar 2027. Op til 5 dage før eller efter er «næsten». |
 | Maks pris | 250 kr. pr. dag for selve bilen. Gebyrer, depositum, brændstof, bro og færge må komme oveni, men skal stå tydeligt. |
 | Personer | 2 med bagage. Almindelig bil er nok. Varevogne og campere tages med. |
 | Kørekort | Dansk (EU-kørekort). |
@@ -27,10 +27,10 @@ Alle grænser står i `window` i `data.json`. Ret dem dér, ikke i koden.
 
 Beregnes af `scripts/common.py`, `assess()`, så alle kilder vurderes ens:
 
-- `passer`: den ene ende i Danmark og den anden i et andet land, en afhentningsdato i vinduet, og
-  dagsprisen omregnet til kroner er højst 250 kr.
-- `naesten`: alt passer undtagen én ting. Enden er en nærby i stedet for Danmark, turen går inden for
-  Danmark, eller datoen ligger op til 5 dage ved siden af.
+- `passer`: mindst én ende i Danmark eller i zonen (og turen går ikke helt inden for Danmark), en
+  afhentningsdato i vinduet, og dagsprisen omregnet til kroner er højst 250 kr.
+- `naesten`: alt passer undtagen én ting. Turen går inden for Danmark, eller datoen ligger op til 5
+  dage ved siden af.
 - `nej`: resten. Også alt med en aldersgrænse over `maxMinAge`, med grunden skrevet ud («Kræver fører
   på mindst 25 år»). Siden skjuler dem og skriver kun, at de er sorteret fra.
 
@@ -40,20 +40,46 @@ Kræver kilden kørekort i et antal år, står det også.
 Priser regnes om til kroner med kurserne i `window.fx` (ECB's referencekurser, kilde og dato i
 `window.fxSource`). Den oprindelige valuta vises altid. Opdatér kurserne, hvis de bliver gamle.
 
-`direction`: `fra-dk`, `til-dk`, `naer` eller `indenrigs`. Kilderne gemmer kun opslag med en ende i
-Danmark eller en nærby og skriver i loggen, hvor mange andre opslag de havde.
+`direction`: `fra-dk`, `til-dk`, `zone` (ingen ende i Danmark, men mindst én i zonen) eller
+`indenrigs`. Ved `zone` står stedet og afstanden i `zonePlace` (fx «Hamborg, ca. 140 km fra Danmark»)
+og `zoneDistanceKm`. Ligger begge ender i zonen, vises den nærmeste. Kilderne gemmer kun opslag med en
+ende i Danmark eller zonen og skriver i loggen, hvor mange andre opslag de havde.
+
+## Stedlisten og afstanden
+
+`scripts/places.json` er en fast liste over stednavne med afstanden til Danmark regnet ud på
+forhånd. Trackeren slår op i den og kalder aldrig en geokodningstjeneste. Den bygges af
+`scripts/build_places.py` ud fra GeoNames cities1000 (alle steder med mindst 1.000 indbyggere,
+licens CC BY 4.0, https://www.geonames.org/) og Danmarks omrids fra Natural Earth i skala 1:10m
+(public domain, https://www.naturalearthdata.com/). Kildernes adresser og kommandoen står øverst i
+scriptet. Byg listen igen, hvis zonen ændres.
+
+Sådan læses et navn (`locate()` i `scripts/common.py`):
+
+- Opslag sker på hele ord, ikke dele af ord (Kielce er ikke Kiel, Lunde er ikke Lund). Det længste
+  navn i teksten vinder, så «Bergen auf Rügen» slår «Bergen».
+- Fyldord som lufthavn, Flughafen, station og Hbf ignoreres. Lufthavnskoder (CPH, HAM, BER osv.)
+  genkendes kun med store bogstaver. Enkelte lufthavne står som alias (Sturup, Torp, Gardermoen).
+- Navnesammenfald: oplyser kilden landet, bruges det. Ellers vinder det største sted med navnet i
+  Europa, også når navnet kun er en fremmed form. «Bergen» er Bergen i Norge (uden for), «Essen» er
+  Essen i Ruhr (uden for), og «Neustadt» er uden for.
+- Et land uden for zonen giver straks «uden for», uden opslag.
+- Et navn, listen ikke kender, tæller som uden for zonen og kommer i `unknownPlaces` i `data.json`
+  og i loggen, så det kan lægges til som alias i `build_places.py`.
 
 ## Automatiske kilder
 
 | Kilde | Hvordan | Fil |
 |---|---|---|
-| Imoova | By-siderne `www.imoova.com/deals/europe/<by>` og `/to-<by>` for København, Danmark og nærbyerne. Data ligger indlejret i HTML'en. `api.imoova.com` er forbudt i robots.txt og bruges ikke. Hver side viser højst 18 opslag. | `scripts/sources/imoova.py` |
-| Roadsurfer Rally | `roadsurfer.com/de/camper-mieten/rallye/` uden query-streng. Bookingsiden er lukket for robotter, så dens links vises kun. Ingen station i Danmark, så alt er højst «tæt på». | `scripts/sources/roadsurfer.py` |
+| Imoova | Først Europa-siden `www.imoova.com/deals/europe`. Har den alle opslag (højst 18), er det nok. Ellers lande-siderne `/<land>` og `/to-<land>` for Danmark, Tyskland, Sverige, Norge, Holland og Polen (12 kald). Er en lande-side afkortet, læses by-siderne i zonen, højst 20 kald i alt, og kildekortet skriver «afkortet». Data ligger indlejret i HTML'en. `api.imoova.com` er forbudt i robots.txt og bruges ikke. | `scripts/sources/imoova.py` |
+| Roadsurfer Rally | `roadsurfer.com/de/camper-mieten/rallye/` uden query-streng. Begge ender slås op i stedlisten. Bookingsiden er lukket for robotter, så dens links vises kun. Ingen station i Danmark. | `scripts/sources/roadsurfer.py` |
 | DriveBack | Åben JSON på `www.driveback.se/resor.json`. Alder og kørekortsår pr. tur. | `scripts/sources/driveback.py` |
-| Hertz Freerider | Åben JSON på `www.hertzfreerider.se/api/transport-routes/?country=SWEDEN` og `NORWAY`. Kræver svensk personnummer, så alt mærkes `nej`. Kun til at se mønstret. | `scripts/sources/hertzfreerider.py` |
+| Hertz Freerider | Åben JSON på `www.hertzfreerider.se/api/transport-routes/?country=SWEDEN` og `NORWAY`. Kræver svensk personnummer, så alt mærkes `nej`. Kun til at se mønstret. Kun de 5 ture, der ligger tættest på vinduet, gemmes. Resten står som et tal på kildekortet og i loggen. | `scripts/sources/hertzfreerider.py` |
 
 `scripts/sources/watchpages.py` holder øje med sider uden en liste, robotten kan aflæse (Indie Campers,
-Touring Cars, første side hos DriiveMe, returbil.no og Europcars gebyrliste). Den siger til i loggen,
+Touring Cars, første side hos DriiveMe, returbil.no og Europcars gebyrliste). DriiveMe har ikke sit
+eget modul: listen kan ikke filtreres på land eller by uden login, så det ville kræve ca. 41 kald
+at bladre hele listen igennem. Den siger til i loggen,
 hvis teksten ændrer sig, eller hvis en dansk by dukker op.
 
 Fejler en kilde, beholdes dens gamle opslag, og fejlen står i loggen og på kildekortet («FEJLEDE»).
@@ -98,7 +124,7 @@ Nytårsbiler ventes tidligst omkring 12. dec. En tom liste før det er normalt.
 ## Slukkeknappen
 
 Datoen står ét sted: `window.stopAfter` i `data.json`, sat til **2027-01-09**, den sidste
-afhentningsdag, der tæller som «tæt på» (4. jan. plus 5 dage). Overvågningen kører til og med den dato (dansk tid) og slukker derefter sig selv.
+afhentningsdag, der tæller som «næsten» (4. jan. plus 5 dage). Overvågningen kører til og med den dato (dansk tid) og slukker derefter sig selv.
 
 - `scripts/refresh.py` tjekker datoen først. Er den passeret, hentes ingenting, der skrives en
   afsluttende status (`stopped`) og en sidste log-post.

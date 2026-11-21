@@ -52,15 +52,16 @@ sender. Skabelonerne er korte med vilje.
 
 ---
 
-## Mail 3, engelsk (udlejere med station i en nærby)
+## Mail 3, engelsk (udlejere med station inden for 300 km af Danmark)
 
-Til fx Roadsurfer, der har stationer i Hamborg, Lübeck, Kiel, Flensborg og Malmö.
+Til fx Roadsurfer, der har stationer i Hamborg, Lübeck, Kiel, Flensborg og Malmö, og på rally-listen 21. nov. også Berlin, Bremen og Hannover. Alle ligger inden for 300 km af Danmark.
 
-**Emne:** Relocation from or to Hamburg, Lübeck or Malmö around New Year
+**Emne:** Relocation from or to Hamburg, Berlin or Malmö around New Year
 
 > Hi
 >
-> Do you have relocations from or to your stations in Hamburg, Lübeck, Kiel, Flensburg or Malmö
+> Do you have relocations from or to your stations in Hamburg, Berlin, Bremen, Hanover, Lübeck, Kiel,
+> Flensburg or Malmö
 > around New Year?
 >
 > We are two people with Danish (EU) driving licences. We can pick up any day from 26 December to
@@ -78,7 +79,7 @@ Til fx Roadsurfer, der har stationer i Hamborg, Lübeck, Kiel, Flensborg og Malm
 | Firma | Hvor | Hvorfor |
 |---|---|---|
 | DriveBack | https://www.driveback.se/ | Har haft Kastrup til Göteborg i dec. 2025. Brug mail 2. |
-| Roadsurfer | https://roadsurfer.com/de/camper-mieten/rallye/ | Stationer i Hamborg, Lübeck, Kiel, Flensborg og Malmö. Brug mail 3. |
+| Roadsurfer | https://roadsurfer.com/de/camper-mieten/rallye/ | Stationer i Hamborg, Berlin, Bremen, Hannover, Lübeck, Kiel, Flensborg og Malmö. Brug mail 3. |
 | Imoova | https://www.imoova.com/deals/europe/copenhagen | Har en side for København, men ingen opslag nu. Brug mail 2. |
 | Europcar Danmark | https://www.europcar.dk/info/en/prices-and-fees | Envejs til udlandet kun efter forespørgsel. Brug mail 1. |
 

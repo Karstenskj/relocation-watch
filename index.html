@@ -92,6 +92,7 @@ h2{font-size:1.18rem;letter-spacing:-.025em;margin:44px 0 4px;font-weight:720}
 .verdict.nej{background:var(--badbg);color:var(--bad)}
 .veh{margin:11px 0 0;font-size:.93rem;color:var(--ink2)}
 .rt{margin:3px 0 0;font-size:.85rem;color:var(--muted)}
+.zone{margin:6px 0 0;font-size:.88rem;font-weight:650;color:var(--accent)}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:15px 0 0}
@@ -168,8 +169,9 @@ const SVGS={
  van:'<svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="175" fill="#dfe6ef"/><path d="M0 128h400v47H0z" fill="#c8d2df"/><path d="M70 120V54c0-6 5-11 11-11h190c6 0 11 3 14 8l34 44c3 4 8 7 13 7h4c6 0 10 5 10 10v8H70z" fill="#a9bcd4"/><rect x="90" y="56" width="70" height="40" rx="4" fill="#e8eef6"/><path d="M262 56h14l30 40h-44z" fill="#e8eef6"/><circle cx="120" cy="122" r="20" fill="#3f4b5e"/><circle cx="120" cy="122" r="8" fill="#c8d2df"/><circle cx="292" cy="122" r="20" fill="#3f4b5e"/><circle cx="292" cy="122" r="8" fill="#c8d2df"/></svg>'};
 SVGS.suv=SVGS.sedan; SVGS.truck=SVGS.van; SVGS.minibus=SVGS.van;
 const AVAIL={ledig:["","Ledig"],"ledig-snaevert":["snaevert","Ledig, snævert vindue"],"ikke-i-vindue":["ikke","Ikke i vinduet"],udsolgt:["ikke","Udsolgt"],ukendt:["ikke","Ukendt"]};
-const VERD={passer:"Passer",naesten:"Tæt på",nej:"Opfylder ikke"};
-const DIR={"fra-dk":"Fra Danmark","til-dk":"Til Danmark",naer:"Nærby","indenrigs":"Inden for Danmark"};
+const VERD={passer:"Passer",naesten:"Næsten",nej:"Opfylder ikke"};
+let ZONE=300;
+const DIR={"fra-dk":"Fra Danmark","til-dk":"Til Danmark",zone:"Nær Danmark","indenrigs":"Inden for Danmark"};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dk=s=>s?new Date(s+"T00:00:00").toLocaleDateString("da-DK",{day:"numeric",month:"short"}):"";
 const ts=s=>new Date(s).toLocaleString("da-DK",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
@@ -203,6 +205,7 @@ function card(d){
      </div>
      <p class="veh">${esc(d.vehicle)}${d.canSleepIn?" · kan sove i":""}</p>
      <p class="rt">${esc(d.route)}${d.pickupCountry||d.dropoffCountry?` (${esc(d.pickupCountry||"?")} til ${esc(d.dropoffCountry||"?")})`:""}</p>
+     ${d.direction==="zone"&&d.zonePlace?`<p class="zone">${esc(d.zonePlace)}</p>`:""}
      <div class="grid">${cells}</div>
      <div class="plan"><div class="k">Din plan</div><div class="v">${esc(d.yourPlan)}</div></div>
      <p class="why">${esc(d.fitReason)}</p>
@@ -216,13 +219,14 @@ function card(d){
 }
 
 fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
-  const w=d.window; CAP=w.maxPricePerDayDKK;
+  const w=d.window; CAP=w.maxPricePerDayDKK; ZONE=w.zoneKm||300;
   const tooOld=x=>x.minAge!=null&&w.maxMinAge!=null&&x.minAge>w.maxMinAge;
   const shown=d.deals.filter(x=>!tooOld(x)), hidden=d.deals.length-shown.length;
   const sortf=(a,b)=>((a.pricePerDayDKK??9e9)-(b.pricePerDayDKK??9e9))||((a.availability.from||"").localeCompare(b.availability.from||""));
   const pick=f=>shown.filter(f).sort(sortf);
   const fra=pick(x=>x.fit==="passer"&&x.direction==="fra-dk");
   const til=pick(x=>x.fit==="passer"&&x.direction==="til-dk");
+  const zone=pick(x=>x.fit==="passer"&&x.direction==="zone");
   const naer=pick(x=>x.fit==="naesten"), nej=pick(x=>x.fit==="nej");
   document.getElementById("stamp").innerHTML=
     `Opdateret ${ts(d.updated)}<br>${d.stopped?"Slukket, opdateres ikke mere":"Tjekkes hver 3. time"}`;
@@ -245,18 +249,18 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
    ${d.stopped?`<div class="stopped"><b>Overvågningen er slut</b><p>Overvågningen sluttede efter ${dk(w.stopAfter)}. Det automatiske tjek er slukket, og siden opdateres ikke længere.</p></div>`:""}
    <div class="hero">
      <div class="route"><span class="city">${esc(w.home)}</span><span class="arrow">⇄</span><span class="city">Europa</span></div>
-     <p class="lede">Gratis eller næsten gratis flyttebiler, der skal til eller fra Danmark omkring nytår. Begge retninger tæller.${d.stopped?"":" Overvåges automatisk hver tredje time."}</p>
+     <p class="lede">Gratis eller næsten gratis flyttebiler omkring nytår, der starter eller slutter i Danmark eller inden for ${ZONE} km af Danmark. Begge retninger tæller.${d.stopped?"":" Overvåges automatisk hver tredje time."}</p>
+     <p class="hint">Afstanden er målt i luftlinje til det nærmeste punkt i Danmark. Bornholm tæller ikke som udgangspunkt, så fx Hamborg ligger ca. 140 km fra Danmark og Berlin ca. 245 km.</p>
      <div class="chips">
        <span class="chip">Afhentning <b>${dk(w.pickupFrom)} 2026 til ${dk(w.pickupTo)} 2027</b></span>
-       <span class="chip">Den ene ende i <b>${esc(w.home)}</b>, gerne ${esc(w.homeCity)}</span>
+       <span class="chip">Den ene ende i <b>${esc(w.home)}</b> eller højst <b>${ZONE} km</b> derfra</span>
        <span class="chip">Maks <b>${w.maxPricePerDayDKK} kr./dag</b> for bilen</span>
        <span class="chip"><b>${w.pax} personer</b> med bagage</span>
        <span class="chip">Dansk kørekort</span>
-       <span class="chip">${esc(w.nearCities.map(c=>c.name).join(", "))} tæller som «tæt på»</span>
      </div>
      <div class="stats">
-       <div class="stat g"><div class="n">${fra.length+til.length}</div><div class="l">opfylder alle krav</div></div>
-       <div class="stat w"><div class="n">${naer.length}</div><div class="l">tæt på</div></div>
+       <div class="stat g"><div class="n">${fra.length+til.length+zone.length}</div><div class="l">opfylder alle krav</div></div>
+       <div class="stat w"><div class="n">${naer.length}</div><div class="l">næsten</div></div>
        <div class="stat"><div class="n">${d.sources.length}</div><div class="l">kilder gennemgået</div></div>
      </div>
      ${hidden?`<p class="hint">${hidden} tilbud med for høj aldersgrænse er sorteret fra.</p>`:`<p class="hint">Tilbud med for høj aldersgrænse bliver sorteret fra.</p>`}
@@ -264,8 +268,9 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
 
    ${sec("Fra Danmark","Afhentning i Danmark i vinduet, aflevering i et andet land, prisen under loftet.",fra,emptyNY)}
    ${sec("Til Danmark","Afhentning i et andet land i vinduet, aflevering i Danmark, prisen under loftet.",til,"Ingen lige nu. Se forklaringen ovenfor.")}
-   ${sec("Tæt på",`Næsten alt passer. Enten er enden en nærby som Hamborg eller Malmö (tog derfra), turen går inden for Danmark, eller datoen ligger op til ${w.nearMissDays} dage ved siden af.`,naer,"Ingen lige nu.")}
-   ${foldSec("Opfylder ikke kravene","Ture med en ende i Danmark eller en nærby, som ikke passer. Med her, så du kan se mønstret. Klik for at folde ud.",nej,"Ingen lige nu.")}
+   ${sec(`Inden for ${ZONE} km af Danmark`,`Ingen ende i Danmark, men den ene ende ligger højst ${ZONE} km fra Danmark, fx i Hamborg, Berlin, Malmö eller Oslo. Den anden ende kan ligge hvor som helst i Europa. Kortet viser stedet og afstanden. Regn rejsen derhen eller hjem med.`,zone,"Ingen lige nu.")}
+   ${sec("Næsten",`Næsten alt passer. Enten går turen inden for Danmark, eller datoen ligger op til ${w.nearMissDays} dage ved siden af.`,naer,"Ingen lige nu.")}
+   ${foldSec("Opfylder ikke kravene",`Ture med en ende i Danmark eller inden for ${ZONE} km, som ikke passer. Med her, så du kan se mønstret. Klik for at folde ud.`,nej,"Ingen lige nu.")}
 
    <h2>Det kan du vente ved nytår</h2>
    <p class="hint">Hvad undersøgelserne viser. Kun det, der kan dokumenteres.</p>
@@ -309,7 +314,7 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
    <p class="hint">${autoSrc} kilder læses af robotten hver tredje time. De ${d.sources.length-autoSrc} andre er gennemgået i hånden, og her står hvorfor de ikke kan automatiseres.</p>
    <div class="srcgrid">${[...d.sources].sort((a,b)=>((b.autoKey?1:0)-(a.autoKey?1:0))||(a.priority-b.priority)).map(s=>`<div class="item">
      <div class="t"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} →</a></div>
-     <div class="d">${esc(s.note)}<br><b>Danmark:</b> ${esc(s.denmark||"ikke bekræftet")}<br><b>Alder:</b> ${esc(s.minAge||"ikke bekræftet")}<br><b>Ung fører-tillæg:</b> ${esc(s.youngDriverFee||"ikke bekræftet")}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${ts(s.lastCheck.ts)}${s.lastCheck.ok?` · ${s.lastCheck.count} med Danmark eller nærby${s.lastCheck.others!=null?`, ${s.lastCheck.others} andre`:""}${s.lastCheck.partial?` · ${esc(s.lastCheck.partial)}`:""}`:" · FEJLEDE"}</span>`:""}</div>
+     <div class="d">${esc(s.note)}<br><b>Danmark:</b> ${esc(s.denmark||"ikke bekræftet")}<br><b>Alder:</b> ${esc(s.minAge||"ikke bekræftet")}<br><b>Ung fører-tillæg:</b> ${esc(s.youngDriverFee||"ikke bekræftet")}${s.lastCheck?`<br><span style="opacity:.8">Sidst læst ${ts(s.lastCheck.ts)}${s.lastCheck.ok?` · ${s.lastCheck.count} med Danmark eller zonen${s.lastCheck.hidden?` (${s.lastCheck.hidden} flere ikke vist)`:""}${s.lastCheck.others!=null?`, ${s.lastCheck.others} andre`:""}${s.lastCheck.partial?` · ${esc(s.lastCheck.partial)}`:""}`:" · FEJLEDE"}</span>`:""}</div>
      <div class="tags"><span class="tag">${esc(s.type)}</span>
      <span class="tag ${srcTag(s)[0]}">${srcTag(s)[1]}</span></div></div>`).join("")}</div>
 
@@ -326,7 +331,8 @@ fetch("data.json?t="+Date.now()).then(r=>r.json()).then(d=>{
      <div class="t">${new Date(l.ts).toLocaleString("da-DK",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}</div>
      <div class="d">${esc(l.summary)}</div></div>`).join("")}</div>
 
-   <footer>${d.stopped?"Overvågningen er slut, og siden opdateres ikke længere.":`Tjekkes automatisk hver tredje time døgnet rundt. Slukker af sig selv efter ${dk(w.stopAfter)}, den sidste afhentningsdag, der tæller som tæt på.`}<br>
+   <footer>${d.stopped?"Overvågningen er slut, og siden opdateres ikke længere.":`Tjekkes automatisk hver tredje time døgnet rundt. Slukker af sig selv efter ${dk(w.stopAfter)}, den sidste afhentningsdag, der tæller som næsten.`}<br>
+   Afstande er regnet ud fra stednavne i <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (CC BY 4.0) og Danmarks omrids fra <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a> (public domain).<br>
    Priser i kroner er cirka. Kurserne er ${esc(fx.name||"")} fra ${dk(fx.rateDate)}, <a href="${esc(fx.url)}" target="_blank" rel="noopener">kilde</a>.<br>
    Alle datoer og priser skal bekræftes hos udlejeren, før du booker.</footer>`;
 }).catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Kunne ikke hente data.json. ${esc(e.message)}</div>`});
