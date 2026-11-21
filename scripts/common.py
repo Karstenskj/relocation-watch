@@ -66,24 +66,79 @@ def da(date):
 
 
 def slug(s):
-    s = unicodedata.normalize("NFKD", (s or "").lower().replace("ø", "o").replace("æ", "ae").replace("å", "a"))
+    """Samme nøgle som i scripts/build_places.py: små bogstaver, uden accenter, ord adskilt af -."""
+    s = unicodedata.normalize("NFKD", (s or "").lower().replace("ø", "o").replace("æ", "ae").replace("å", "a")
+                              .replace("ß", "ss").replace("ł", "l").replace("đ", "d"))
     s = "".join(c for c in s if not unicodedata.combining(c))
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 
 
-def near_city(window, name):
-    """Navnet på nærbyen, hvis `name` er en af nærbyerne (Malmö, Hamburg osv.), ellers None."""
-    s = slug(name)
-    for c in window["nearCities"]:
-        keys = [slug(c["name"])] + [slug(a) for a in c.get("aliases", [])]
-        if any(re.search(rf"(^|-){k}($|-)", s) for k in keys if k):
-            return c["name"]
-    return None
+# Ord, der aldrig alene er et stednavn (lufthavn, station, bydel osv.).
+STOP = set("""airport lufthavn flughafen flygplats lufthamn station bahnhof hbf hauptbahnhof centrum center
+centre city central centralstation terminal stadt zentrum nord syd sud ost vest west norr sodra ostra vastra
+the am an der die das den de la le i in auf bei og und and to from fra til kommune kommun by gare port havn
+hafen hamn ferry faerge faergehavn depot parkering parking downtown""".split())
+_PLACES = None
+UNKNOWN = set()    # navne, stedlisten ikke kender, samlet under en kørsel
 
 
-def near_country(window, name):
-    n = near_city(window, name)
-    return next((c["country"] for c in window["nearCities"] if c["name"] == n), None) if n else None
+def places():
+    global _PLACES
+    if _PLACES is None:
+        _PLACES = json.loads((ROOT / "scripts" / "places.json").read_text(encoding="utf-8"))
+    return _PLACES
+
+
+def locate(name, country=None):
+    """Slå et stednavn op i scripts/places.json.
+
+    Returnerer {"name", "country", "km"} eller None, hvis navnet er ukendt. km er luftlinjen til
+    nærmeste punkt i Danmark uden Bornholm (0 i Danmark, None langt væk). Opslaget sker på hele
+    ord: det længste navn i teksten vinder, og ved lige lange navne det største sted. Oplyser
+    kilden landet, bruges det. Et land uden for zonen giver straks "uden for" uden opslag.
+    """
+    P = places()
+    cc = (country or "").upper() or None
+    if not name or not str(name).strip():
+        return None
+    if cc and cc not in P["zoneCountries"]:
+        return {"name": str(name).strip(), "country": cc, "km": None}
+
+    def look(k):
+        if cc:
+            i = P["byCountry"].get(cc, {}).get(k)
+            if i is None:
+                i = P["names"].get(k)
+                if i is not None and P["places"][i][1] != cc:
+                    i = None
+            return i
+        return P["names"].get(k)
+
+    hit = None
+    for code in re.findall(r"\b[A-Z]{3}\b", str(name)):
+        if code in P["codes"]:
+            hit = P["codes"][code]
+            break
+    if hit is None:
+        toks = [t for t in slug(name).split("-") if t]
+        for n in range(min(5, len(toks)), 0, -1):
+            found = [(look("-".join(toks[i:i + n])), i) for i in range(len(toks) - n + 1)
+                     if n > 1 or (toks[i] not in STOP and len(toks[i]) > 2)]
+            found = [f for f in found if f[0] is not None]
+            if found:
+                hit, at = min(found)      # listen er sorteret med de største steder først
+                # Dækker navnet kun en del af teksten, skal stedet være stort. Ellers kan et
+                # ukendt navn som "Straßburg" ramme en lille by, der hedder "Burg".
+                rest = [t for t in toks[:at] + toks[at + n:]
+                        if t not in STOP and len(t) > 2 and t not in toks[at:at + n]]
+                if rest and hit >= P["bigFrom"]:
+                    hit = None
+                break
+    if hit is None:
+        UNKNOWN.add(str(name).strip())
+        return None
+    pname, pcc, km = P["places"][hit]
+    return {"name": pname, "country": pcc, "km": km}
 
 
 def is_dk_city(name):
@@ -91,19 +146,51 @@ def is_dk_city(name):
     return any(re.search(rf"(^|-){c}($|-)", s) for c in DK_CITIES)
 
 
-def direction(window, from_country, to_country, from_city="", to_city=""):
-    """fra-dk, til-dk, indenrigs, naer eller None (ingen ende i Danmark eller en nærby)."""
+def end_info(window, name, country=None):
+    """Én ende af en tur: ("dk" | "zone" | "ude", sted eller None)."""
     home = window["homeCountry"]
-    f_dk, t_dk = from_country == home, to_country == home
-    if f_dk and t_dk:
-        return "indenrigs"
-    if f_dk:
-        return "fra-dk"
-    if t_dk:
-        return "til-dk"
-    if near_city(window, from_city) or near_city(window, to_city):
-        return "naer"
-    return None
+    if (country or "").upper() == home or (not country and is_dk_city(name)):
+        return "dk", {"name": name, "country": home, "km": 0}
+    p = locate(name, country)
+    if p and p["country"] == home:
+        return "dk", p
+    if p and p["km"] is not None and p["km"] <= window["zoneKm"]:
+        return "zone", p
+    return "ude", p
+
+
+def ends(window, from_name, to_name, from_country=None, to_country=None):
+    """Vurdér begge ender. Returnerer retning, lande og stedet i zonen.
+
+    direction: fra-dk, til-dk, indenrigs, zone (ingen ende i Danmark, men mindst én inden for
+    zonen) eller None. zonePlace er fx "Hamborg, ca. 140 km fra Danmark" (den nærmeste, hvis
+    begge ender ligger i zonen).
+    """
+    fk, fp = end_info(window, from_name, from_country)
+    tk, tp = end_info(window, to_name, to_country)
+    if fk == "dk" and tk == "dk":
+        dirn = "indenrigs"
+    elif fk == "dk":
+        dirn = "fra-dk"
+    elif tk == "dk":
+        dirn = "til-dk"
+    elif "zone" in (fk, tk):
+        dirn = "zone"
+    else:
+        dirn = None
+    zp = None
+    if dirn == "zone":
+        z = min((p for k, p in ((fk, fp), (tk, tp)) if k == "zone"), key=lambda p: p["km"])
+        km = max(5, int(round(z["km"] / 5.0)) * 5)
+        zp = {"name": z["name"], "km": z["km"], "text": f"{z['name']}, ca. {km} km fra Danmark"}
+    return {"direction": dirn, "zone": zp,
+            "fromCountry": (from_country or (fp or {}).get("country")),
+            "toCountry": (to_country or (tp or {}).get("country"))}
+
+
+def direction(window, from_country, to_country, from_city="", to_city=""):
+    """Kort form af ends(): kun retningen."""
+    return ends(window, from_city, to_city, from_country, to_country)["direction"]
 
 
 def to_dkk(window, amount, currency):
@@ -114,12 +201,13 @@ def to_dkk(window, amount, currency):
 
 
 def assess(window, pickup_from, pickup_to, days, price_per_day, currency, direction_,
-           min_age=None, license_years=None, blocker=None, count=None):
+           min_age=None, license_years=None, blocker=None, count=None, zone=None):
     """Vurdér et tilbud mod vinduet.
 
     pickup_from/pickup_to: udbyderens tidligste og seneste afhentningsdato.
     price_per_day: dagspris for selve bilen i `currency`. Gebyrer regnes ikke med her.
     min_age: udbyderens laveste tilladte alder for føreren, None hvis ukendt.
+    zone: stedet i zonen fra ends() (bruges i teksten, når retningen er "zone").
     blocker: tekst hvis tilbuddet af en anden grund ikke kan bookes (fx kræver svensk personnummer).
     """
     w_from, w_to = d(window["pickupFrom"]), d(window["pickupTo"])
@@ -129,7 +217,9 @@ def assess(window, pickup_from, pickup_to, days, price_per_day, currency, direct
     dkk = to_dkk(window, price_per_day, currency)
 
     pf, pt = d(pickup_from), d(pickup_to) or d(pickup_from)
-    base = {"pricePerDayDKK": dkk, "direction": direction_}
+    base = {"pricePerDayDKK": dkk, "direction": direction_,
+            "zonePlace": zone["text"] if zone and direction_ == "zone" else None,
+            "zoneDistanceKm": zone["km"] if zone and direction_ == "zone" else None}
     if not pf:
         return {**base, "state": "ukendt", "fit": "nej", "plan": None, "overlap": 0,
                 "yourPlan": "Ingen datoer oplyst",
@@ -142,11 +232,13 @@ def assess(window, pickup_from, pickup_to, days, price_per_day, currency, direct
     near_before = (not dates_ok) and pt < w_from and (w_from - pt).days <= near
     near_after = (not dates_ok) and pf > w_to and (pf - w_to).days <= near
     gap = (w_from - pt).days if near_before else (pf - w_to).days if near_after else None
-    real_dir = direction_ in ("fra-dk", "til-dk")
-    end_off = direction_ in ("naer", "indenrigs")
+    real_dir = direction_ in ("fra-dk", "til-dk", "zone")
+    end_off = direction_ == "indenrigs"
 
-    end_txt = {"naer": "Den ene ende er en nærby, ikke Danmark.",
-               "indenrigs": "Turen går inden for Danmark."}.get(direction_, "")
+    end_txt = "Turen går inden for Danmark." if end_off else ""
+    zkm = window.get("zoneKm", 300)
+    where = (f"En ende inden for {zkm} km af Danmark ({zone['text']})" if direction_ == "zone" and zone
+             else f"En ende inden for {zkm} km af Danmark" if direction_ == "zone" else "En ende i Danmark")
     if dkk is not None:
         price_txt = f"ca. {dkk:.0f} kr./dag"
     elif price_per_day is None:
@@ -161,7 +253,7 @@ def assess(window, pickup_from, pickup_to, days, price_per_day, currency, direct
     elif blocker:
         fit, reason = "nej", blocker
     elif dates_ok and price_ok and real_dir:
-        fit, reason = "passer", f"En ende i Danmark, afhentning i vinduet og {price_txt}."
+        fit, reason = "passer", f"{where}, afhentning i vinduet og {price_txt}."
         if count == 1:
             reason += " Kun ét køretøj, så book hurtigt."
     elif dates_ok and price_ok and end_off:
@@ -236,6 +328,7 @@ def build_deal(w, now, a, **kw):
         "id": None, "source": None, "provider": None, "platform": None, "url": None,
         "vehicle": None, "vehicleType": "sedan", "sleeps": None, "canSleepIn": False,
         "imageUrl": None, "route": None, "direction": a["direction"],
+        "zonePlace": a.get("zonePlace"), "zoneDistanceKm": a.get("zoneDistanceKm"),
         "pickupCity": None, "dropoffCity": None, "pickupCountry": None, "dropoffCountry": None,
         "days": None, "price": None, "pricePerDay": None, "currency": None,
         "pricePerDayDKK": a["pricePerDayDKK"], "totalCost": None, "fuel": None, "kmLimit": None,

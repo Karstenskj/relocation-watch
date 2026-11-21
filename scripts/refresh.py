@@ -7,6 +7,7 @@ gamle opslag og skriver fejlen i loggen, så Karsten kan se at den ikke blev tje
 import importlib, json, sys, pathlib, time, traceback
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import common
 from common import ROOT, now_iso, past_cutoff, da, d
 
 SOURCES = ["imoova", "roadsurfer", "driveback", "hertzfreerider"]
@@ -37,7 +38,7 @@ def main():
         return 0
 
     data.pop("stopped", None)
-    fresh, ok_sources, failures, skipped, counts, others, partial = [], set(), [], [], {}, {}, {}
+    fresh, ok_sources, failures, skipped, counts, others, partial, hidden = [], set(), [], [], {}, {}, {}, {}
     for i, name in enumerate(SOURCES):
         if i:
             time.sleep(1)
@@ -51,6 +52,8 @@ def main():
                 others[mod.LABEL] = mod.LAST_OTHER
             if getattr(mod, "PARTIAL", None):
                 partial[mod.LABEL] = mod.PARTIAL
+            if getattr(mod, "HIDDEN", None):
+                hidden[mod.LABEL] = mod.HIDDEN
         except Exception as e:
             if name in RESIDENTIAL_ONLY:
                 skipped.append(mod.LABEL)
@@ -64,8 +67,9 @@ def main():
                 s["lastCheck"] = {"ts": now, "ok": mod.SOURCE in ok_sources,
                                   "count": counts.get(mod.LABEL),
                                   "others": others.get(mod.LABEL),
+                                  "hidden": hidden.get(mod.LABEL),
                                   "skipped": mod.LABEL in skipped,
-                                  "partial": (f"delvist læst, {len(partial[mod.LABEL])} side(r) svarede ikke"
+                                  "partial": (f"delvist læst ({', '.join(partial[mod.LABEL])})"
                                               if mod.LABEL in partial else None)}
 
     # Sider uden struktureret liste: hold øje med om de ændrer sig.
@@ -108,13 +112,23 @@ def main():
         bits.append(f"væk: {x['platform']}: {x['vehicle']} ({x['route']})")
     bits += watch_notes
     bits += [f"FEJL: {f}" for f in failures]
-    bits += [f"{k} delvist læst ({', '.join(v)} svarede ikke)" for k, v in partial.items()]
+    bits += [f"{k} delvist læst ({', '.join(v)})" for k, v in partial.items()]
+
+    # Stednavne, som stedlisten ikke kender. De tæller som uden for zonen og kan lægges til senere.
+    unknown = sorted(common.UNKNOWN)
+    if ok_sources:
+        new_unknown = [n for n in unknown if n not in set(data.get("unknownPlaces") or [])]
+        data["unknownPlaces"] = unknown[:80]
+        if new_unknown:
+            bits.append(f"{len(new_unknown)} ukendte stednavne (tæller som uden for zonen): "
+                        + ", ".join(new_unknown[:10]) + (" m.fl." if len(new_unknown) > 10 else ""))
     if skipped:
         bits.append(", ".join(skipped) + " kunne ikke læses herfra (kræver almindelig internetforbindelse)")
 
     n_pass = sum(1 for x in data["deals"] if x["fit"] == "passer")
     head = ("Automatisk tjek (" + ", ".join(
-        f"{k} {v} med Danmark eller nærby" + (f" og {others[k]} andre" if k in others else "")
+        f"{k} {v} med Danmark eller zonen" + (f" ({hidden[k]} flere ikke vist)" if k in hidden else "")
+        + (f" og {others[k]} andre" if k in others else "")
         for k, v in counts.items()) + "): ") if counts else "Automatisk tjek (ingen kilder kunne læses): "
     summary = head + (" · ".join(bits) if bits else "ingen ændringer.")
 

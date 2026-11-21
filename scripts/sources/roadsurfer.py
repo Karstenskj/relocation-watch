@@ -3,11 +3,12 @@
 Siden er server-renderet WordPress, og alle ture står i HTML'en. Adressen bruges uden
 query-streng, fordi robots.txt forbyder /*?. booking.roadsurfer.com er lukket for robotter,
 så bookinglinkene vises kun som links og hentes aldrig.
-Roadsurfer har ingen station i Danmark, så alt herfra er højst "tæt på".
+Roadsurfer har ingen station i Danmark. Begge ender slås op i stedlisten (scripts/places.json),
+så ture med en ende inden for zonen omkring Danmark kommer med.
 """
 import datetime, html as H, re, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from common import fetch, assess, build_deal, direction, money, near_country, to_dkk, da, d
+from common import fetch, assess, build_deal, ends, money, to_dkk, da, d
 
 SOURCE = "roadsurfer-auto"
 LABEL = "Roadsurfer Rally"
@@ -16,10 +17,6 @@ LAST_OTHER = None
 
 CARD = re.compile(r'<a\s+href="(https://booking\.roadsurfer\.com/rally/pick\?[^"]+)"[^>]*'
                   r'class="card-deal-link"[^>]*aria-label="([^"]+)"', re.S)
-# Lande for Roadsurfers stationer uden for nærbyerne. Kun til visning, ikke til vurderingen.
-COUNTRY = {"antwerpen": "BE", "bruxelles": "BE", "brussel": "BE", "rotterdam": "NL",
-           "amsterdam": "NL", "malmo": "SE", "goteborg": "SE", "gothenburg": "SE",
-           "stockholm": "SE", "oslo": "NO", "bergen": "NO"}
 
 
 def text_after(page, start):
@@ -44,9 +41,8 @@ def fetch_deals(w, now):
         frm, to = [s.strip() for s in label.split("→", 1)]
         q = dict(re.findall(r"(\w+)=([^&]+)", href))
         pick, ret = q.get("pickup_date"), q.get("return_date")
-        fc = near_country(w, frm) or COUNTRY.get(re.sub(r"[^a-z]", "", frm.lower().replace("ö", "o")))
-        tc = near_country(w, to) or COUNTRY.get(re.sub(r"[^a-z]", "", to.lower().replace("ö", "o")))
-        dirn = direction(w, fc, tc, frm, to)
+        e = ends(w, frm, to)
+        dirn, fc, tc = e["direction"], e["fromCountry"], e["toCountry"]
         if not dirn or href in seen:
             continue
         seen.add(href)
@@ -56,7 +52,7 @@ def fetch_deals(w, now):
         price = float(pm.group(1).replace(",", ".")) if pm else None
         days = (datetime.date.fromisoformat(ret) - datetime.date.fromisoformat(pick)).days if pick and ret else 7
         per_day = round(price / days, 2) if price is not None and days else None
-        a = assess(w, pick, pick, days, per_day, "EUR", dirn)
+        a = assess(w, pick, pick, days, per_day, "EUR", dirn, zone=e["zone"])
         out.append(build_deal(
             w, now, a,
             id=f"roadsurfer-{q.get('station')}-{q.get('end_station')}-{pick}",

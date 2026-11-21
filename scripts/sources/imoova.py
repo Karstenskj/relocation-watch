@@ -3,20 +3,32 @@
 api.imoova.com er lukket for alle robotter i sin robots.txt, så API'et bruges ikke. By-siderne
 www.imoova.com/deals/europe/<by> og /to-<by> er tilladte og server-renderede. Data ligger
 indlejret i HTML'en som et JavaScript-objekt (seroval, $R[n]={__typename:"Relocation",...}).
-Hver side viser højst de første 18 opslag. By-siderne for Danmark og nærbyerne har langt færre.
+Hver side viser højst de første 18 opslag (paginatoren siger, hvor mange der er i alt).
+
+Sådan dækkes zonen med færrest kald:
+1. Europa-siden. Har den alle opslag (i alt højst 18), er vi færdige med ét kald.
+2. Ellers lande-siderne /<land> (afhentning i landet) og /to-<land> (aflevering i landet) for
+   hvert land med steder i zonen: Danmark, Tyskland, Sverige, Norge, Holland og Polen (12 kald).
+3. Er en lande-side afkortet (flere end 18 opslag), læses by-siderne for de største byer i zonen i
+   det land, så længe der er kald tilbage (højst MAX_CALLS i alt). Kildekortet skriver så, at
+   listen kan være afkortet.
 """
 import re, sys, time, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from common import fetch, assess, build_deal, direction, money, to_dkk
+from common import fetch, assess, build_deal, ends, money, to_dkk, places
 
 SOURCE = "imoova-auto"
 LABEL = "Imoova"
 BASE = "https://www.imoova.com/deals/europe/"
-SLUGS = ["denmark", "to-denmark", "copenhagen", "to-copenhagen", "malmo", "to-malmo", "hamburg", "to-hamburg",
-         "flensburg", "to-flensburg", "kiel", "to-kiel", "lubeck", "to-lubeck", "rostock", "to-rostock"]
+COUNTRY_SLUG = {"DK": "denmark", "DE": "germany", "SE": "sweden", "NO": "norway", "NL": "netherlands",
+                "PL": "poland"}
+# By-sider i zonen (fra Imoovas sitemap), kun brugt hvis en lande-side er afkortet. Største først.
+CITY_SLUGS = {"DE": ["hamburg", "berlin", "bremen", "rostock", "kiel", "lubeck", "flensburg"],
+              "SE": ["goteborg", "vastra-frolunda", "malmo"], "NO": ["oslo"], "DK": ["copenhagen"]}
+MAX_CALLS = 20
 PAUSE = 3
-LAST_OTHER = None
-PARTIAL = None    # by-sider der ikke kunne læses i sidste kørsel   # antal opslag i hele Europa, som ikke rører Danmark eller en nærby
+LAST_OTHER = None   # antal opslag i hele Europa, som ikke rører Danmark eller zonen
+PARTIAL = None      # sider der ikke kunne læses, eller som var afkortet, i sidste kørsel
 
 FIELD = re.compile(r'(\w+):("(?:[^"\\]|\\.)*"|\$R\[\d+\]|[^,{}\[\]]*)')
 VTYPE = {"MOTOR_HOME": "campervan", "CAMPER_VAN": "campervan", "CAR": "sedan", "SUV": "suv",
@@ -83,30 +95,49 @@ def get(url):
 def fetch_deals(w, now):
     global LAST_OTHER
     global PARTIAL
-    europe_total, err = None, None
-    try:
-        _, europe_total = parse(get(BASE.rstrip("/")))
-    except Exception as e:
-        err = e
-    europe_failed = err is not None
-    seen, out, failed = {}, [], []
-    for s in SLUGS:
-        time.sleep(PAUSE)
+    seen, failed, short, calls = {}, [], [], 0
+
+    def read(slug_):
+        nonlocal calls
+        if calls:
+            time.sleep(PAUSE)
+        calls += 1
         try:
-            rows, _ = parse(get(BASE + s))
+            rows, total = parse(get(BASE + slug_ if slug_ else BASE.rstrip("/")))
         except Exception as e:
-            failed.append(s)
-            err = e
-            continue
+            failed.append(slug_ or "europe")
+            return None, e
         for r in rows:
             if r.get("reference"):
                 seen[r["reference"]] = r
-    if len(failed) == len(SLUGS):
-        raise err   # ingen by-side kunne læses: kilden tæller som fejlet, og gamle opslag beholdes
-    PARTIAL = (failed + (["europe"] if europe_failed else [])) or None
+        return (len(rows), total), None
+
+    res, err = read("")
+    europe_total = res[1] if res else None
+    complete = res is not None and res[1] is not None and res[1] <= res[0]
+    if not complete:
+        for cc in [c for c in places()["zoneCountries"] if c in COUNTRY_SLUG]:
+            for pre in ("", "to-"):
+                res, e = read(pre + COUNTRY_SLUG[cc])
+                err = e or err
+                if res and res[1] is not None and res[1] > res[0]:
+                    short.append((cc, pre))
+        if len(failed) == calls:
+            raise err   # ingen side kunne læses: kilden tæller som fejlet, og gamle opslag beholdes
+        # Afkortede lande-sider: læs by-siderne i zonen, så længe der er kald tilbage. Mindre
+        # steder i zonen kan stadig mangle, så siden står som afkortet på kildekortet.
+        for cc, pre in short:
+            for city in CITY_SLUGS.get(cc, []):
+                if calls < MAX_CALLS:
+                    read(pre + city)
+        PARTIAL = (failed + [f"{pre}{COUNTRY_SLUG[cc]} afkortet" for cc, pre in short]) or None
+    else:
+        PARTIAL = None
+    out = []
     for ref, r in seen.items():
         fc, tc = r.get("from") or {}, r.get("to") or {}
-        dirn = direction(w, fc.get("state"), tc.get("state"), fc.get("name"), tc.get("name"))
+        e = ends(w, fc.get("name"), tc.get("name"), fc.get("state"), tc.get("state"))
+        dirn = e["direction"]
         if not dirn:
             continue
         v = r.get("vehicle") or {}
@@ -118,7 +149,7 @@ def fetch_deals(w, now):
         pf = r.get("earliest_departure_date") or r.get("available_from_date")
         pt = r.get("latest_departure_date") or r.get("available_to_date")
         min_age = v.get("minimum_age")
-        a = assess(w, pf, pt, units, rate, cur, dirn, min_age=min_age, count=r.get("count"))
+        a = assess(w, pf, pt, units, rate, cur, dirn, min_age=min_age, count=r.get("count"), zone=e["zone"])
         young = None
         if v.get("age_surcharge_amount") and v.get("minimum_no_surcharge_age"):
             young = (f"{money(v['age_surcharge_amount'] / 100, cur)} for førere under "
@@ -144,7 +175,7 @@ def fetch_deals(w, now):
             minAge=min_age, youngDriverFee=young,
             availability={"from": pf, "to": pt, "spaces": f"{r.get('count')} køretøj(er)",
                           "detail": f"Afhentning mulig {pf} til {pt}, {units} {unit}e."},
-            notes=f"Automatisk aflæst fra Imoovas by-sider (tilbud {ref}).",
+            notes=f"Automatisk aflæst fra Imoovas sider (tilbud {ref}).",
         ))
     LAST_OTHER = (europe_total - len(out)) if europe_total is not None else None
     return out
