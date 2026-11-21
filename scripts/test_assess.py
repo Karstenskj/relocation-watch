@@ -29,7 +29,7 @@ for n in IN_ZONE:
     assert km(n) is not None and 0 < km(n) <= 300, (n, locate(n))
 for n in OUT:
     assert km(n) is not None and km(n) > 300, (n, locate(n))
-# Linköping ligger 288 km fra Læsø i luftlinje, altså lige inden for (Karstens liste gættede på uden for).
+# Linköping ligger 288 km fra Læsø i luftlinje, altså lige inden for (tjeklisten gættede på uden for).
 assert 280 <= km("Linköping") <= 300, locate("Linköping")
 assert 130 <= km("Hamburg") <= 150 and locate("Hamborg")["name"] == "Hamborg"
 assert km("Rønne") == 0 and locate("Rønne")["country"] == "DK"          # Bornholm er stadig Danmark
