@@ -12,7 +12,7 @@ from common import fetch, assess, build_deal, direction, money, to_dkk
 SOURCE = "imoova-auto"
 LABEL = "Imoova"
 BASE = "https://www.imoova.com/deals/europe/"
-SLUGS = ["denmark", "copenhagen", "to-copenhagen", "malmo", "to-malmo", "hamburg", "to-hamburg",
+SLUGS = ["denmark", "to-denmark", "copenhagen", "to-copenhagen", "malmo", "to-malmo", "hamburg", "to-hamburg",
          "flensburg", "to-flensburg", "kiel", "to-kiel", "lubeck", "to-lubeck", "rostock", "to-rostock"]
 PAUSE = 3
 LAST_OTHER = None
