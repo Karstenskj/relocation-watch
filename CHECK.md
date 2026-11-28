@@ -75,9 +75,19 @@ Sådan læses et navn (`locate()` i `scripts/common.py`):
 | Roadsurfer Rally | `roadsurfer.com/de/camper-mieten/rallye/` uden query-streng. Begge ender slås op i stedlisten. Bookingsiden er lukket for robotter, så dens links vises kun. Ingen station i Danmark. | `scripts/sources/roadsurfer.py` |
 | DriveBack | Åben JSON på `www.driveback.se/resor.json`. Alder og kørekortsår pr. tur. | `scripts/sources/driveback.py` |
 | Hertz Freerider | Åben JSON på `www.hertzfreerider.se/api/transport-routes/?country=SWEDEN` og `NORWAY`. Kræver svensk personnummer, så alt mærkes `nej`. Kun til at se mønstret. Kun de 5 ture, der ligger tættest på vinduet, gemmes. Resten står som et tal på kildekortet og i loggen. | `scripts/sources/hertzfreerider.py` |
+| Indie Campers | Serverleverede Next.js-data på Europas tilbudssider. Alle sider læses op til 19 sider plus robots.txt. Begge ender kontrolleres. Data oplyser tidligste afhentning og seneste aflevering, udvalgte datoer og fra-pris uden valuta. De konkrete datoer, lejelængden og valutaen gættes aldrig, og tilbuddet kræver manuel bekræftelse. | `scripts/sources/indiecampers.py` |
+| Touring Cars Flash Deals | Offentlige HTML-kort med ruter, rejseperiode og dagspris. Kun ture i zonen gemmes. Lejelængde, konkrete datoer, alder og et ekstra stationsgebyr er ikke bekræftet. | `scripts/sources/touringcars.py` |
 
-`scripts/sources/watchpages.py` holder øje med sider uden en liste, robotten kan aflæse (Indie Campers,
-Touring Cars, første side hos DriiveMe, returbil.no og Europcars gebyrliste). DriiveMe har ikke sit
+`scripts/source_reader.py` bruges af de nye kilder og sideovervågningen. Den læser robots.txt ved hver
+kørsel, understøtter mønstre med `*` og `$`, tæller alle HTTP-kald og respekterer Crawl-delay.
+Robots 404 og 410 betyder ingen regler. Andre fejl stopper læsningen. Omdirigeringer følges ikke
+automatisk, så et nyt domæne ikke læses uden kontrol. Højst 20 kald pr. kilde inklusive robots.txt.
+Ved en forbindelsesfejl forsøges selve tilbudssiden én gang til efter mindst fem sekunder.
+Begge forsøg tæller med. HTTP-fejl, robotsfejl og adgangsspærringer forsøges ikke igen.
+
+`scripts/sources/watchpages.py` holder øje med sider uden en liste, robotten kan aflæse (Just go,
+første side hos DriiveMe, returbil.no og Europcars gebyrliste). HTML-kommentarer ignoreres, så gamle
+tilbud i kommentarer ikke bliver tolket som aktuelle. DriiveMe har ikke sit
 eget modul: listen kan ikke filtreres på land eller by uden login, så det ville kræve ca. 41 kald
 at bladre hele listen igennem. Den siger til i loggen,
 hvis teksten ændrer sig, eller hvis en dansk by dukker op.
@@ -113,6 +123,7 @@ Imoova som fejlet.
 ## Manuel runde (når Karsten beder om en fuld gennemgang)
 
 1. Kør `python3 scripts/refresh.py` og `python3 scripts/test_assess.py`.
+   Ved ændringer i de nye kilder køres også `python3 scripts/test_new_sources.py`.
 2. Gå kilderne under `manualCheck` og `sources` igennem. Kunne en side ikke læses, så skriv det i loggen.
 3. Tjek reglerne under `rules`. De har kilde og dato. Ret tekst og dato, hvis noget har ændret sig.
 4. Fundne tilbud uden automatisk kilde lægges i `deals` uden `source`-felt. Så rører robotten dem ikke.

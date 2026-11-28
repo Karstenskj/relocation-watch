@@ -6,16 +6,14 @@ Det giver ingen tilbud på forsiden, kun en linje i loggen og en status på kort
 """
 import hashlib, html as H, re, sys, time, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from common import fetch
+from source_reader import SourceReader
 
 LABEL = "Sideovervågning"
 
 # (navn, adresse, nøgleord for den relevante tekst, kig efter Danmark, meld ændringer)
 PAGES = [
-    ("Indie Campers, one-way deals", "https://indiecampers.com/discover/en-gb/deals/europe",
-     r"→|one[- ]way|deal|dates available", True, True),
-    ("Touring Cars, flash deals", "https://www.touringcars.com/en/flash-deals/",
-     r"→|flash deal|travel time", True, True),
+    ("Just go, flyttetilbud", "https://www.justgo.uk.com/one-way-relocate.html",
+     r"relocation|pick.up|drop.off|available|per night|germany|hamburg|berlin|oslo", True, True),
     ("DriiveMe, første side af listen", "https://www.driiveme.com/en-GB/component/transport-list?page=1",
      r"valid between|departure|arrival", True, False),
     ("returbil.no", "https://returbil.no/", r"retur|tilbake|bil", True, True),
@@ -28,6 +26,7 @@ DK = re.compile(r"københavn|kobenhavn|copenhagen|kopenhagen|köpenhamn|kastrup|
 
 
 def visible(html):
+    html = re.sub(r"<!--.*?-->", " ", html, flags=re.S)
     t = re.sub(r"<(script|style|noscript)[^>]*>.*?</\1>", " ", html, flags=re.S | re.I)
     t = H.unescape(re.sub(r"<[^>]+>", "\n", t))
     return re.sub(r"[ \t]+", " ", t)
@@ -49,7 +48,7 @@ def check(now, previous):
             time.sleep(1.5)
         entry = {"name": name, "url": url, "checkedAt": now}
         try:
-            text = visible(fetch(url, timeout=45).decode("utf-8", "replace"))
+            text = visible(SourceReader().read(url))
         except Exception as e:
             entry.update({"status": "kunne ikke læses", "detail": type(e).__name__})
             if (previous or {}).get(url):

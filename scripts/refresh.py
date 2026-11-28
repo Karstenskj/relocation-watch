@@ -10,7 +10,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import common
 from common import ROOT, now_iso, past_cutoff, da, d
 
-SOURCES = ["imoova", "roadsurfer", "driveback", "hertzfreerider"]
+SOURCES = ["imoova", "roadsurfer", "driveback", "hertzfreerider", "indiecampers", "touringcars"]
 
 # Kilder der afviser GitHubs servere, men virker fra en almindelig internetforbindelse.
 # Tom indtil en kørsel i skyen har vist andet.
